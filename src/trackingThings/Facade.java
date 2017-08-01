@@ -5,7 +5,7 @@ public class Facade {
 	
 	Sistema sistema;
 	
-	public Facade(){
+	public void iniciarSistema() {
 		sistema = new Sistema();
 	}
 	
