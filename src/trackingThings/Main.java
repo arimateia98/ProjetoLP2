@@ -6,7 +6,7 @@ public class Main {
 		System.out.println("vinicinho");
 		System.out.println("arizin");
 		System.out.println("Vinicin");
-		System.out.println("Vinicin");
+		System.out.println("Vinicsssssin");
 		System.out.println("Vinicin");
 		System.out.println("Vinicin");
 		System.out.println("Vinicin");
