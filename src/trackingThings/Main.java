@@ -1,9 +1,15 @@
 package trackingThings;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 
+=======
+import java.io.File;
+import java.util.ArrayList;
+>>>>>>> cf6a0b1b9538197c5b69ec106d0db170d98fd6e6
 import easyaccept.EasyAccept;
-import easyaccept.EasyAcceptException;
+
+
 public class Main {
 	
 	public static void main(String[] args) {
