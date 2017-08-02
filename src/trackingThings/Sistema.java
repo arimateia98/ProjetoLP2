@@ -78,22 +78,57 @@ public class Sistema {
 		}
 		
 		Usuario usuario = new Usuario(nome, telefone, "");
+		HashSet<Usuario> usuariosCopia = (HashSet<Usuario>) this.usuarios.clone();
+		
+		if (!usuariosCopia.contains(usuario)){
+			throw new NullPointerException("Usuario invalido");
+		}
+		
+		for (Usuario users : usuariosCopia){
+			if (users.equals(usuario)) {
+				switch (atributo.toLowerCase()){
+					case "nome":
+						this.usuarios.add(new Usuario(valor ,users.getTelefone(), users.getEmail()));
+						this.usuarios.remove(usuario);
+					case "telefone":
+						this.usuarios.add(new Usuario(users.getNome(), valor, users.getEmail()));
+						this.usuarios.remove(usuario);
+					case "email":
+						users.setEmail(valor);
+				}
+			}
+		}
+	}
+	
+	/**
+	 * A partir do nome e telefone, conseguimos o valor do atributo pedido
+	 * @param nome
+	 * @param telefone
+	 * @param atributo
+	 * @return atributo pedido
+	 */
+	public String getInfoUsuario(String nome, String telefone, String atributo){
+		Usuario usuario = new Usuario(nome, telefone, "");
+		String retorno = "";
 		if (usuarios.contains(usuario)){
 			for (Usuario users : this.usuarios){
 				if (users.equals(usuario)) {
 					switch (atributo.toLowerCase()){
 						case "nome":
-							users.setNome(valor);
+							retorno += users.getNome();
 						case "telefone":
-							users.setTelefone(valor);
+							retorno += users.getTelefone();
 						case "email":
-							users.setEmail(valor);
+							retorno += users.getEmail();
 					}
 				}
 			}
 		}else{
 			throw new NullPointerException("Usuario invalido");
 		}
+		
+		return retorno;
+		
 	}
 	
 

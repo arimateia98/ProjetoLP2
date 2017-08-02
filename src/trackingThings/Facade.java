@@ -20,5 +20,13 @@ public class Facade {
 	public void atualizarUsuario(String nome,String telefone, String atributo, String valor){
 		this.sistema.atualizarUsuario(nome, telefone, atributo, valor);
 	}
+	
+	public String getInfoUsuario(String nome, String telefone, String atributo){
+		return this.sistema.getInfoUsuario(nome, telefone, atributo);
+	}
+	
+	public void fecharSistema(){
+		
+	}
 
 }
