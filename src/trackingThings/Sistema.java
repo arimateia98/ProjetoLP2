@@ -28,11 +28,11 @@ public class Sistema {
 			NullPointerException emailInvalido = new NullPointerException("Usuario invalido: Email nao pode ser vazio");
 			throw emailInvalido;
 		}
-		if (usuarios.contains(new Usuario(nome, telefone, email))) {
+		if (this.usuarios.contains(new Usuario(nome, telefone, email))) {
 			NullPointerException usuarioInvalido = new NullPointerException("Usuario ja cadastrado");
 			throw usuarioInvalido;
 		}
-		usuarios.add(new Usuario(nome, telefone, email));
+		this.usuarios.add(new Usuario(nome, telefone, email));
 	}
 	
 	/**
@@ -50,9 +50,9 @@ public class Sistema {
 			throw telefoneInvalido;
 		}
 	
-		for (int i = 0; i < usuarios.size(); i++) {
-			if (comparar.compare(usuarios.get(i), new Usuario(nome, telefone, "")) == 1) {
-				usuarios.remove(i);
+		for (int i = 0; i < this.usuarios.size(); i++) {
+			if (comparar.compare(this.usuarios.get(i), new Usuario(nome, telefone, "")) == 1) {
+				this.usuarios.remove(i);
 			}
 		
 		}
@@ -88,11 +88,11 @@ public class Sistema {
 		switch (atributo) {
 			case "nome":
 				// vai dar o set em usuario
-				usuarios.get(0).setNome(nome);
+				this.usuarios.get(0).setNome(nome);
 			case "telefone":
-				usuarios.get(0).setTelefone(telefone);
+				this.usuarios.get(0).setTelefone(telefone);
 			case "email":
-				usuarios.get(0).setEmail(email);
+				this.usuarios.get(0).setEmail(email);
 			
 		}
 	}

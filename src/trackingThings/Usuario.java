@@ -11,7 +11,7 @@ public class Usuario {
 	private String nome;
 	private String telefone;
  	private String email;
-	private ArrayList <Itens> itens;
+	private ArrayList <Item> itens;
 	
 	public Usuario(String nome,String telefone, String email) {
 		this.nome = nome;
@@ -23,7 +23,7 @@ public class Usuario {
 	 * @return nome do Usuario
 	 */
 	public String getNome() {
-		return nome;
+		return this.nome;
 	}
 
 	/**
@@ -38,7 +38,7 @@ public class Usuario {
 	 * @return telefone do Usuario
 	 */
 	public String getTelefone() {
-		return telefone;
+		return this.telefone;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class Usuario {
 	 * @return email do Usuario
 	 */
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	/**
@@ -67,15 +67,15 @@ public class Usuario {
 	/**
 	 * @return lista de itens de um Usuario
 	 */
-	public ArrayList<Itens> getItens() {
-		return itens;
+	public ArrayList<Item> getItens() {
+		return this.itens;
 	}
 
 	/**
 	 * Mudança na lista de itens de um Usuario
 	 * @param itens
 	 */
-	public void setItens(ArrayList<Itens> itens) {
+	public void setItens(ArrayList<Item> itens) {
 		this.itens = itens;
 	}
 
