@@ -3,7 +3,7 @@ package trackingThings;
 import java.util.ArrayList;
 
 /**
- * Cada Usuario terá um nome, telefone, email e um conjunto de itens
+ * Cada Usuario tera um nome, telefone, email e um conjunto de itens
  *	
  */
 public class Usuario {
@@ -17,6 +17,7 @@ public class Usuario {
 		this.nome = nome;
 		this.telefone = telefone;
 		this.email = email;
+		this.itens = new ArrayList<>();
 	}
 
 	/**
@@ -27,7 +28,7 @@ public class Usuario {
 	}
 
 	/**
-	 * Mudança no nome do Usuario
+	 * Mudanca no nome do Usuario
 	 * @param nome
 	 */
 	public void setNome(String nome) {
@@ -42,7 +43,7 @@ public class Usuario {
 	}
 
 	/**
-	 * Mudança no telefone do Usuario
+	 * Mudanca no telefone do Usuario
 	 * @param telefone
 	 */
 	public void setTelefone(String telefone) {
@@ -57,7 +58,7 @@ public class Usuario {
 	}
 
 	/**
-	 * Mudança no email do Usuario
+	 * Mudanca no email do Usuario
 	 * @param email
 	 */
 	public void setEmail(String email) {
@@ -72,7 +73,7 @@ public class Usuario {
 	}
 
 	/**
-	 * Mudança na lista de itens de um Usuario
+	 * Mudanca na lista de itens de um Usuario
 	 * @param itens
 	 */
 	public void setItens(ArrayList<Item> itens) {
@@ -87,6 +88,40 @@ public class Usuario {
 	public String toString() {
 		return this.nome + "," + this.email + "," + this.telefone;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((telefone == null) ? 0 : telefone.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (telefone == null) {
+			if (other.telefone != null)
+				return false;
+		} else if (!telefone.equals(other.telefone))
+			return false;
+		return true;
+	}
+	
+	
+	
 	
 	
 }

@@ -1,14 +1,15 @@
 package trackingThings;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Sistema {
-	private ArrayList<Usuario> usuarios;
-	private UsuarioComparator comparar;
-	public Sistema(){
-		comparar = new UsuarioComparator();
-	}
 	
+	private HashSet<Usuario> usuarios;
+	
+	public Sistema(){
+		this.usuarios = new HashSet<>();
+	}
+		
 	/**
 	 * Realiza o cadastro de Usuarios ao obter os parametros
 	 * @param nome
@@ -17,21 +18,18 @@ public class Sistema {
 	 */
 	public void cadastrarUsuario(String nome,String telefone, String email){
 		if (nome.equals(null) || nome.trim().equals("")) {
-			NullPointerException nomeInvalido = new NullPointerException("Usuario invalido: Nome nao pode ser vazio");
-			throw nomeInvalido;
+			throw new NullPointerException("Usuario invalido: Nome nao pode ser vazio");
 		}
 		if (telefone.equals(null) || telefone.trim().equals("")) {
-			NullPointerException telefoneInvalido = new NullPointerException("Usuario invalido: Telefone nao pode ser vazio");
-			throw telefoneInvalido;
+			throw new NullPointerException("Usuario invalido: Telefone nao pode ser vazio");
 		}
 		if (email.equals(null) || email.trim().equals("")) {
-			NullPointerException emailInvalido = new NullPointerException("Usuario invalido: Email nao pode ser vazio");
-			throw emailInvalido;
+			throw new NullPointerException("Usuario invalido: Email nao pode ser vazio");
 		}
 		if (this.usuarios.contains(new Usuario(nome, telefone, email))) {
-			NullPointerException usuarioInvalido = new NullPointerException("Usuario ja cadastrado");
-			throw usuarioInvalido;
+			throw new NullPointerException("Usuario ja cadastrado");
 		}
+		
 		this.usuarios.add(new Usuario(nome, telefone, email));
 	}
 	
@@ -42,59 +40,61 @@ public class Sistema {
 	 */
 	public void removerUsuario(String nome, String telefone){
 		if (nome.equals(null) || nome.trim().equals("")) {
-			NullPointerException nomeInvalido = new NullPointerException("Usuario invalido: Nome nao pode ser vazio");
-			throw nomeInvalido;
+			throw new NullPointerException("Usuario invalido: Nome nao pode ser vazio");
 		}
 		if (telefone.equals(null) || telefone.trim().equals("")) {
-			NullPointerException telefoneInvalido = new NullPointerException("Usuario invalido: Telefone nao pode ser vazio");
-			throw telefoneInvalido;
+			throw new NullPointerException("Usuario invalido: Telefone nao pode ser vazio");
+		}
+		
+		Usuario usuario = new Usuario(nome, telefone, "");
+		if (usuarios.contains(usuario)){
+			this.usuarios.remove(usuario);
+		}else{
+			throw new NullPointerException("Usuario invalido");
 		}
 	
-		for (int i = 0; i < this.usuarios.size(); i++) {
-			if (comparar.compare(this.usuarios.get(i), new Usuario(nome, telefone, "")) == 1) {
-				this.usuarios.remove(i);
-			}
-		
-		}
 	}
 	
 	/**
-	 * Realiza a alteração de algum dado do usuario a partir da variavel "atributo"
+	 * Realiza a alteracao de algum dado do usuario a partir da variavel "atributo"
 	 * @param nome
 	 * @param telefone
 	 * @param atributo
-	 * @param email
+	 * @param valor
 	 */
-	public void atualizarUsuario(String nome,String telefone, String atributo, String email){
+	public void atualizarUsuario(String nome, String telefone, String atributo, String valor){
 		if (nome.equals(null) || nome.trim().equals("")) {
-			NullPointerException nomeInvalido = new NullPointerException("Usuario invalido: Nome nao pode ser vazio");
-			throw nomeInvalido;
+			throw new NullPointerException("Usuario invalido: Nome nao pode ser vazio");
 		}
-		// falta condicao para o caso do usuario nao estiver no sistema
 		
 		if (telefone.equals(null) || telefone.trim().equals("")) {
-			NullPointerException telefoneInvalido = new NullPointerException("Usuario invalido: Telefone nao pode ser vazio");
-			throw telefoneInvalido;
+			throw new NullPointerException("Usuario invalido: Telefone nao pode ser vazio");
 		}
-		if (email.equals(null) || email.trim().equals("")) {
-			NullPointerException emailInvalido = new NullPointerException("Usuario invalido: Email nao pode ser vazio");
-			throw emailInvalido;
+		if (valor.equals(null) || valor.trim().equals("")) {
+			throw new NullPointerException("Usuario invalido: Valor nao pode ser vazio");
 		}
 		if (atributo.equals(null) || atributo.trim().equals("")) {
-			NullPointerException atributoInvalido = new NullPointerException("Usuario invalido: Email nao pode ser vazio");
-			throw atributoInvalido;
+			throw new NullPointerException("Usuario invalido: Atributo nao pode ser vazio");
 		}
 		
-		switch (atributo) {
-			case "nome":
-				// vai dar o set em usuario
-				this.usuarios.get(0).setNome(nome);
-			case "telefone":
-				this.usuarios.get(0).setTelefone(telefone);
-			case "email":
-				this.usuarios.get(0).setEmail(email);
-			
+		Usuario usuario = new Usuario(nome, telefone, "");
+		if (usuarios.contains(usuario)){
+			for (Usuario users : this.usuarios){
+				if (users.equals(usuario)) {
+					switch (atributo.toLowerCase()){
+						case "nome":
+							users.setNome(valor);
+						case "telefone":
+							users.setTelefone(valor);
+						case "email":
+							users.setEmail(valor);
+					}
+				}
+			}
+		}else{
+			throw new NullPointerException("Usuario invalido");
 		}
 	}
+	
 
 }

@@ -6,19 +6,19 @@ public class Facade {
 	Sistema sistema;
 	
 	public void iniciarSistema() {
-		sistema = new Sistema();
+		this.sistema = new Sistema();
 	}
 	
 	public void cadastrarUsuario(String nome,String telefone, String email){
-		sistema.cadastrarUsuario(nome, telefone, email);
+		this.sistema.cadastrarUsuario(nome, telefone, email);
 	}
 	
 	public void removerUsuario(String nome, String telefone){
-		sistema.removerUsuario(nome, telefone);
+		this.sistema.removerUsuario(nome, telefone);
 	}
 	
-	public void atualizarUsuario(String nome,String telefone, String atributo, String email){
-		sistema.atualizarUsuario(nome, telefone, atributo, email);
+	public void atualizarUsuario(String nome,String telefone, String atributo, String valor){
+		this.sistema.atualizarUsuario(nome, telefone, atributo, valor);
 	}
 
 }
