@@ -5,16 +5,29 @@ public class BluRay extends Item{
 	protected int duracao;
 	protected String classificacao;
 	
+	/** 
+	 * Blurays tem um nome e um valor alem de sua duracao e sua classificacao etaria
+	 * @param nome
+	 * @param valor
+	 * @param duracao
+	 * @param classificacao
+	 */
 	public BluRay(String nome, int valor, int duracao, String classificacao) {
 		super(nome, valor);
 		this.duracao = duracao;
 		this.classificacao = classificacao;
 	}
 
+	/**
+	 * @return duracao do Bluray
+	 */
 	public int getDuracao() {
 		return duracao;
 	}
 
+	/**
+	 * @return classificacao do Bluray
+	 */
 	public String getClassificacao() {
 		return classificacao;
 	}

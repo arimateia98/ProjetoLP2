@@ -82,10 +82,17 @@ public class Usuario {
 		this.itensEmprestados = itens;
 	}
 
+	/**
+	 * @return lista de itens pegos
+	 */
 	public ArrayList<Item> getItensPossuidos() {
 		return itensPossuidos;
 	}
 
+	/**
+	 * Isso eh necessario?
+	 * @param itensPossuidos
+	 */
 	public void setItensPossuidos(ArrayList<Item> itensPossuidos) {
 		this.itensPossuidos = itensPossuidos;
 	}
@@ -99,6 +106,9 @@ public class Usuario {
 		return this.nome + "," + this.email + "," + this.telefone;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -108,6 +118,9 @@ public class Usuario {
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

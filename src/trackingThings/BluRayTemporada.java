@@ -9,6 +9,15 @@ public class BluRayTemporada extends BluRay {
 	private int numeroTemporada;
 	private int duracaoTotal;
 	
+	/**
+	 * Bluray de Series eh dividido em temporadas, no qual cada temporada possui uma quantidade de episodios com uma certa duracao
+	 * Cada temporada tem o seu nome e o valor alem de sua duracao, classificacao e o numero da temporada
+	 * @param nome
+	 * @param valor
+	 * @param duracao
+	 * @param classificacao
+	 * @param numeroTemporada
+	 */
 	public BluRayTemporada(String nome, int valor, int duracao, String classificacao,int numeroTemporada) {
 		super(nome, valor, duracao, classificacao);
 		this.episodios = new HashSet<Integer>();
@@ -16,10 +25,16 @@ public class BluRayTemporada extends BluRay {
 		this.duracaoTotal = this.getDuracaoTotal();
 	}
 
+	/**
+	 * @return episodios da Temporada
+	 */
 	public Set<Integer> getBlurays() {
 		return this.episodios;
 	}
 	
+	/**
+	 * @return duracao total de episodios
+	 */
 	public int getDuracaoTotal() {
 
 		for (Integer episodio : this.episodios) {
@@ -28,6 +43,9 @@ public class BluRayTemporada extends BluRay {
 		return this.duracaoTotal;
 	}
 	
+	/**
+	 * @return numero da temporada
+	 */
 	public int getNumeroTemporada() {
 		return this.numeroTemporada;
 	}
@@ -62,7 +80,7 @@ public class BluRayTemporada extends BluRay {
 	
 	@Override
 	public String toString() {
-		return "Serie: " + this.nome + " NÂº temporada: " + this.numeroTemporada + 
+		return "Serie: " + this.nome + " Nº temporada: " + this.numeroTemporada + 
 				" Duracao total: " + this.duracaoTotal + " Classificacao: " + this.classificacao;
 	}
 }

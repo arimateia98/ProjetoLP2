@@ -4,11 +4,20 @@ public class JogoEletronico extends Item{
 	
 	private String plataforma;
 	
+	/**
+	 * Jogos eletronicos tera um nome, um valor e uma plataforma(Pc, Xbox, Nintendo, Ps4)
+	 * @param nome
+	 * @param valor
+	 * @param plataforma
+	 */
 	public JogoEletronico(String nome, int valor, String plataforma) {
 		super(nome, valor);
 		this.plataforma = plataforma;
 	}
 
+	/**
+	 * @return plataforma do jogo
+ 	 */
 	public String getPlataforma() {
 		return plataforma;
 	}

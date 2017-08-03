@@ -16,6 +16,15 @@ public class BluRayFilme extends BluRay {
 	private String genero;
 	private String anoDeLancamento;
 	
+	/**
+	 * Blurays de Filmes tem o nome e o seu valor alem de sua duracao, classificacao etaria, genero e o seu ano de lancamento
+	 * @param nome
+	 * @param valor
+	 * @param duracao
+	 * @param classificacao
+	 * @param genero
+	 * @param anoDeLancamento
+	 */
 	public BluRayFilme(String nome, int valor, int duracao, String classificacao, String genero,
 			String anoDeLancamento) {
 		super(nome, valor, duracao, classificacao);
@@ -23,10 +32,16 @@ public class BluRayFilme extends BluRay {
 		this.anoDeLancamento = anoDeLancamento;
 	}
 
+	/**
+	 * @return genero do filme
+	 */
 	public String getGenero() {
 		return genero;
 	}
 
+	/**
+	 * @return ano de lancamento do filme
+	 */
 	public String getAnoDeLancamento() {
 		return anoDeLancamento;
 	}

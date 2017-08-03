@@ -11,7 +11,7 @@ public class Sistema {
 	}
 		
 	/**
-	 * Realiza o cadastro de Usuarios ao obter os parametros
+	 * Realiza o cadastro de Usuarios
 	 * @param nome
 	 * @param telefone
 	 * @param email
@@ -101,7 +101,7 @@ public class Sistema {
 	}
 	
 	/**
-	 * A partir do nome e telefone, conseguimos o valor do atributo pedido
+	 * Obtem informacao do usuario de acordo com o atributo
 	 * @param nome
 	 * @param telefone
 	 * @param atributo
@@ -131,45 +131,130 @@ public class Sistema {
 		
 	}
 
+	/**
+	 * Cadastra um jogo eletronico no sistema de emprestimos
+	 * 
+	 * @param nome
+	 * @param telefone
+	 * @param nomeItem
+	 * @param preco
+	 * @param plataforma
+	 */
 	public void cadastrarEletronico(String nome, String telefone, String nomeItem, Double preco, String plataforma) {
 		
 	}
 
+	/**
+	 * Cadastra um jogo de tabuleiro
+	 * @param nome
+	 * @param telefone
+	 * @param nomeItem
+	 * @param preco
+	 */
 	public void cadastrarJogoTabuleiro(String nome, String telefone, String nomeItem, Double preco) {
 		
 	}
 
+	/**
+	 * Informa ao sistema alguma peça perdida
+	 * @param nome
+	 * @param telefone
+	 * @param nomeItem
+	 * @param nomePeca
+	 */
 	public void adicionarPecaPerdida(String nome, String telefone, String nomeItem, String nomePeca) {
 		
 	}
 
+	/**
+	 * Cadastra filmes Bluray
+	 * @param nome
+	 * @param telefone
+	 * @param nomeItem
+	 * @param preco
+	 * @param duracao
+	 * @param classificacao
+	 * @param anoLancamento
+	 */
 	public void cadastrarBluRayFilme(String nome, String telefone, String nomeItem, Double preco, int duracao,
 			String classificacao, int anoLancamento) {
 		
 	}
 
+	/**
+	 * Cadastra Shows Bluray
+	 * @param nome
+	 * @param telefone
+	 * @param nomeItem
+	 * @param preco
+	 * @param duracao
+	 * @param numeroFaixas
+	 * @param artista
+	 * @param classificacao
+	 */
 	public void cadastrarBluRayShow(String nome, String telefone, String nomeItem, Double preco, int duracao,
 			int numeroFaixas, String artista, String classificacao) {
 		
 	}
 
+	/**
+	 * Cadastra Series Bluray
+	 * @param nome
+	 * @param telefone
+	 * @param nomeItem
+	 * @param preco
+	 * @param descricao
+	 * @param duracao
+	 * @param classificacao
+	 * @param genero
+	 * @param temporada
+	 */
 	public void cadastrarBluRaySerie(String nome, String telefone, String nomeItem, Double preco, String descricao,
 			int duracao, String classificacao, String genero, int temporada) {
 		
 	}
 
+	/**
+	 * ?????
+	 * @param nome
+	 * @param telefone
+	 * @param nomeBlurayTemporada
+	 * @param duracao
+	 */
 	public void adicionarBluRay(String nome, String telefone, String nomeBlurayTemporada, int duracao) {
 		
 	}
 
+	/**
+	 * Remove Item do Sistema
+	 * @param nome
+	 * @param telefone
+	 * @param nomeItem
+	 */
 	public void removerItem(String nome, String telefone, String nomeItem) {
 		
 	}
 
+	/**
+	 * Atualiza o item de acordo com o atributo pedido
+	 * @param nome
+	 * @param telefone
+	 * @param nomeItem
+	 * @param atributo
+	 * @param valor
+	 */
 	public void atualizarItem(String nome, String telefone, String nomeItem, String atributo, String valor) {
 		
 	}
 
+	/**
+	 * Obtem informacoes do item de acordo com o atributo
+	 * @param nome
+	 * @param telefone
+	 * @param nomeItem
+	 * @param atributo
+	 * @return
+	 */
 	public String getInfoItem(String nome, String telefone, String nomeItem, String atributo) {
 		return "";
 	}

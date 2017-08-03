@@ -8,12 +8,20 @@ public class JogoTabuleiro extends Item{
 	private List<String> pecasTotais;
 	private List<String> pecasPerdidas;
 
+	/**
+	 * Jogos de tabuleiro tera alem do nome e do valor, um array de pecas perdidas e um array de pecas totais
+	 * @param nome
+	 * @param valor
+	 */
 	public JogoTabuleiro(String nome, int valor) {
 		super(nome, valor);
 		this.pecasPerdidas = new ArrayList<>();
 		this.pecasTotais = new ArrayList<>();
 	}
 
+	/**
+	 * @return lista de pecas perdidas
+	 */
 	public List<String> getPecasPerdidas() {
 		return pecasPerdidas;
 	}
