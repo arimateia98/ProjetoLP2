@@ -130,6 +130,55 @@ public class Sistema {
 		return retorno;
 		
 	}
+
+	public void cadastrarEletronico(String nome, String telefone, String nomeItem, Double preco, String plataforma) {
+		
+	}
+
+	public void cadastrarJogoTabuleiro(String nome, String telefone, String nomeItem, Double preco) {
+		
+	}
+
+	public void adicionarPecaPerdida(String nome, String telefone, String nomeItem, String nomePeca) {
+		
+	}
+
+	public void cadastrarBluRayFilme(String nome, String telefone, String nomeItem, Double preco, int duracao,
+			String classificacao, int anoLancamento) {
+		
+	}
+
+	public void cadastrarBluRayShow(String nome, String telefone, String nomeItem, Double preco, int duracao,
+			int numeroFaixas, String artista, String classificacao) {
+		
+	}
+
+	public void cadastrarBluRaySerie(String nome, String telefone, String nomeItem, Double preco, String descricao,
+			int duracao, String classificacao, String genero, int temporada) {
+		
+	}
+
+	public void adicionarBluRay(String nome, String telefone, String nomeBlurayTemporada, int duracao) {
+		
+	}
+
+	public void removerItem(String nome, String telefone, String nomeItem) {
+		
+	}
+
+	public void atualizarItem(String nome, String telefone, String nomeItem, String atributo, String valor) {
+		
+	}
+
+	public void getInfoItem(String nome, String telefone, String nomeItem, String atributo) {
+		
+	}
+
+
+	
+		
+	
+	
 	
 
 }
