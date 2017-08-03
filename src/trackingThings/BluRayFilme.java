@@ -30,4 +30,10 @@ public class BluRayFilme extends BluRay {
 	public String getAnoDeLancamento() {
 		return anoDeLancamento;
 	}
+	
+	@Override
+	public String toString() {
+		return "Nome: " + this.nome + " Ano: " + this.anoDeLancamento +
+				" Genero : " + this.genero + " Classificacao: " + this.classificacao; 
+	}
 }

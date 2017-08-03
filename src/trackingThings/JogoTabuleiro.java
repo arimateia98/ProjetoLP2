@@ -1,24 +1,67 @@
 package trackingThings;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JogoTabuleiro extends Item{
 	
-	private Set<String> pecasPerdidas;
+	private List<String> pecasTotais;
+	private List<String> pecasPerdidas;
 
-	public JogoTabuleiro(String nome, int valor, Set<String> pecasPerdidas) {
+	public JogoTabuleiro(String nome, int valor) {
 		super(nome, valor);
-		this.pecasPerdidas = pecasPerdidas;
+		this.pecasPerdidas = new ArrayList<>();
+		this.pecasTotais = new ArrayList<>();
 	}
 
-	public boolean equals(JogoTabuleiro jogo) {
-		if (this.nome.equals(jogo.nome)) {
-			if (this.pecasPerdidas.equals(jogo.pecasPerdidas)) {
-				return true;
-			}
+	public List<String> getPecasPerdidas() {
+		return pecasPerdidas;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((pecasPerdidas == null) ? 0 : pecasPerdidas.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
 			return false;
-		}
-		return false;
+		if (getClass() != obj.getClass())
+			return false;
+		JogoTabuleiro other = (JogoTabuleiro) obj;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (pecasPerdidas == null) {
+			if (other.pecasPerdidas != null)
+				return false;
+		} else if (!pecasPerdidas.equals(other.pecasPerdidas))
+			return false;
+		return true;
 	}
-
+	
+	@Override
+	public String toString() {
+		String pecasT = "";
+		String pecasP = "";
+		for (String pecas : this.pecasTotais) {
+			pecasT += pecas;
+		}
+		for (String pecas : this.pecasPerdidas) {
+			pecasP += pecas;
+		}
+		String retorno = "Jogo de Tabuleiro:" + this.nome + " Preco: " + this.valor + "\n";
+		retorno += "Pecas Totais: " + pecasT + "\n";
+		retorno += "Pecas faltando: " + pecasP;
+		return retorno;
+	}
 }

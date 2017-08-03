@@ -19,4 +19,9 @@ public class BluRayShow extends BluRay {
 	public int getNumeroDeFaixas() {
 		return numeroDeFaixas;
 	}
+	
+	@Override
+	public String toString() {
+		return "Titulo: " + this.nome + " Artista: " +  this.nomeArtista + " Nº de faixas: " + this.numeroDeFaixas;
+	}
 }

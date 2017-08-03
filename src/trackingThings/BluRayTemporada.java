@@ -3,37 +3,66 @@ package trackingThings;
 import java.util.HashSet;
 import java.util.Set;
 
-//Blu ray. Blu ray pode ser de filmes, séries ou shows. Pode ser um apenas ou uma 
-//temporada inteira de uma série. Vocês decidiram que não será possível emprestar
-//um único blu ray de uma temporada, ou empresta a temporada inteira ou não empresta nada. 
-//No blu-ray de uma temporada você deve guardar a coleção de blu-rays que compõem a temporada. 
-//Além das informações gerais que todo item tem (descritas anteriormente), todo blu ray deve
-//ter uma duração e uma classificação[2]. A coleção de blu rays que representa uma temporada de uma
-//série deve manter
-//, além da coleção de blu rays, o gênero da série e o número da temporada. Além disso, blu-rays de
-//temporada devem saber informar sua duração total. Dois blu rays são iguais se tiverem o mesmo nome.
-//Dois blu-rays de temporada são iguais se tiverem o mesmo nome e mesmo número de temporada.
-
-public class BluRayTemporada {
+public class BluRayTemporada extends BluRay {
 	
-	private Set<BluRay> blurays; 
+	private Set<Integer> episodios; 
+	private int numeroTemporada;
 	private int duracaoTotal;
 	
-	public BluRayTemporada() {
-		this.blurays = new HashSet<BluRay>();
-	} 
-	
-	public Set<BluRay> getBlurays() {
-		return this.blurays;
+	public BluRayTemporada(String nome, int valor, int duracao, String classificacao,int numeroTemporada) {
+		super(nome, valor, duracao, classificacao);
+		this.episodios = new HashSet<Integer>();
+		this.numeroTemporada = numeroTemporada;
+		this.duracaoTotal = this.getDuracaoTotal();
+	}
+
+	public Set<Integer> getBlurays() {
+		return this.episodios;
 	}
 	
-	public int calculaDuracaoTotal() {
+	public int getDuracaoTotal() {
 
-		for (BluRay bluray : this.blurays) {
-			this.duracaoTotal += bluray.getDuracao();
+		for (Integer episodio : this.episodios) {
+			this.duracaoTotal += episodio;
 		}
 		return this.duracaoTotal;
 	}
 	
+	public int getNumeroTemporada() {
+		return this.numeroTemporada;
+	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + numeroTemporada;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BluRayTemporada other = (BluRayTemporada) obj;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (numeroTemporada != other.numeroTemporada)
+			return false;
+		return true;
+	}
+	
+	@Override
+	public String toString() {
+		return "Serie: " + this.nome + " Nº temporada: " + this.numeroTemporada + 
+				" Duracao total: " + this.duracaoTotal + " Classificacao: " + this.classificacao;
+	}
 }

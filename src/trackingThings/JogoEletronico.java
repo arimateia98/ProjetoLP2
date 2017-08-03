@@ -2,12 +2,10 @@ package trackingThings;
 
 public class JogoEletronico extends Item{
 	
-	private String titulo;
 	private String plataforma;
 	
-	public JogoEletronico(String nome, int valor, String titulo, String plataforma) {
+	public JogoEletronico(String nome, int valor, String plataforma) {
 		super(nome, valor);
-		this.titulo = titulo;
 		this.plataforma = plataforma;
 	}
 
@@ -15,16 +13,40 @@ public class JogoEletronico extends Item{
 		return plataforma;
 	}
 
-	public String getTitulo() {
-		return titulo;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((plataforma == null) ? 0 : plataforma.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		JogoEletronico other = (JogoEletronico) obj;
+		if (plataforma == null) {
+			if (other.plataforma != null)
+				return false;
+		} else if (!plataforma.equals(other.plataforma))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		return true;
 	}
 	
+	@Override
+	public String toString() {
+		return "Jogo Eletronico:" + this.nome + " Plataforma:" + this.plataforma + " Preco: " + this.valor;
+	}
 	
-	
-	
-	
-	//facebook.com.br/guguLiberato#123456789
-	//www.uol.com esse � o seu portal de noticias predileto da interwebs
-	// pink froiddd
-
 }
