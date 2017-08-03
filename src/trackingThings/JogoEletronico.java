@@ -10,13 +10,21 @@ public class JogoEletronico extends Item{
 		this.titulo = titulo;
 		this.plataforma = plataforma;
 	}
+
+	public String getPlataforma() {
+		return plataforma;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
 	
 	
 	
 	
 	
 	//facebook.com.br/guguLiberato#123456789
-	//www.uol.com esse é o seu portal de noticias predileto da interwebs
+	//www.uol.com esse ï¿½ o seu portal de noticias predileto da interwebs
 	// pink froiddd
 
 }
