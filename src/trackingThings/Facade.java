@@ -61,8 +61,8 @@ public class Facade {
 		this.sistema.atualizarItem(nome, telefone, nomeItem, atributo, valor);
 	}
 	
-	public void getInfoItem(String nome, String telefone, String nomeItem, String atributo){
-		this.sistema.getInfoItem(nome, telefone, nomeItem, atributo);
+	public String getInfoItem(String nome, String telefone, String nomeItem, String atributo){
+		return this.sistema.getInfoItem(nome, telefone, nomeItem, atributo);
 	}
 	
 	public void fecharSistema(){

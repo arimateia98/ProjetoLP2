@@ -170,8 +170,8 @@ public class Sistema {
 		
 	}
 
-	public void getInfoItem(String nome, String telefone, String nomeItem, String atributo) {
-		
+	public String getInfoItem(String nome, String telefone, String nomeItem, String atributo) {
+		return "";
 	}
 
 
