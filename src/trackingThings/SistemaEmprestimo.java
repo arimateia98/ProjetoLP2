@@ -1,24 +1,54 @@
 package trackingThings;
 
-import java.util.HashSet;
+import java.util.HashMap;
 
 public class SistemaEmprestimo {
 	
-	private HashSet<Emprestimo> emprestimos;
+	private HashMap<EmprestimoKey,Emprestimo> emprestimos;
 	
 	public SistemaEmprestimo(){
-		emprestimos = new HashSet<Emprestimo>();
+		emprestimos = new HashMap<EmprestimoKey,Emprestimo>();
 	}
+	
+	/**
+	 * Realiza o cadastro de emprestimos ao obter os parametros
+	 * @param usuarioDono
+	 * @param usuarioEmprestimo
+	 * @param item
+	 * @param dataInicial
+	 * @param diasEmprestimo
+	 */
 	
 	public void registrarEmprestimo(Usuario usuarioDono,Usuario usuarioEmprestimo,Item item,String dataInicial,int diasEmprestimo){
-		Emprestimo emprestimo = new Emprestimo(usuarioDono, usuarioEmprestimo, item, dataInicial, diasEmprestimo);
-		if (emprestimos.contains(emprestimo)){
-			throw new IllegalArgumentException("Emprestimo j√° existe");
+		EmprestimoKey emprestimoKey = new EmprestimoKey(usuarioDono, usuarioEmprestimo, item);
+		if (emprestimos.containsKey(emprestimoKey)){
+			throw new IllegalArgumentException("Emprestimo j· existe");
 		}
-		emprestimos.add(emprestimo);
+		if(emprestimos.get(emprestimoKey).getEstadoItem()){
+			throw new IllegalArgumentException("Emprestimo nao encontrado");
+		}
+		Emprestimo emprestimo = new Emprestimo(usuarioDono,usuarioEmprestimo,item,dataInicial,diasEmprestimo);
+		emprestimos.put(emprestimoKey, emprestimo);
 	}
 	
-	public void devolverItem(Usuario usuarioDono,Usuario usuarioEmprestimo,Item item,String dataInicial,int diasEmprestimo){
+	/**
+	 * Altera o estado do emprestimo ao obter os parametros
+	 * @param usuarioDono
+	 * @param usuarioEmprestimo
+	 * @param item
+	 * @param dataInicial
+	 * @param dataDevolucao
+	 */
+	
+	public void devolverItem(Usuario usuarioDono,Usuario usuarioEmprestimo,Item item,String dataInicial,String dataDevolucao){
+		EmprestimoKey emprestimoKey = new EmprestimoKey(usuarioDono, usuarioEmprestimo, item);
+		if (emprestimos.containsKey(emprestimoKey)){
+			emprestimos.get(emprestimoKey).devolverItem(dataDevolucao);
+		}else{
+			throw new IllegalArgumentException("Emprestimo nao encontrado");
+		}
+		
+		
 		
 	}
 	

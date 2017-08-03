@@ -1,47 +1,17 @@
 package trackingThings;
 
-public class Emprestimo {
+
+public class EmprestimoKey {
 	private Usuario usuarioDono;
 	private Usuario usuarioEmprestimo;
 	private Item item;
-	private int diasEmprestimo;
-	private String dataInicial;
-	private String dataDevolucao;
 	
-	public Emprestimo(Usuario usuarioDono,Usuario usuarioEmprestimo,Item item,String dataInicial,int diasEmprestimo){
+	public EmprestimoKey(Usuario usuarioDono,Usuario usuarioEmprestimo,Item item){
 		this.usuarioDono = usuarioDono;
 		this.usuarioEmprestimo = usuarioEmprestimo;
 		this.item = item;
-		this.item.setEstadoEmprestimo(true); 
-		this.dataInicial = dataInicial;
-		this.diasEmprestimo = diasEmprestimo;
 	}
-	
-	public void devolverItem(String dataDevolucao){
-		this.dataDevolucao = dataDevolucao;
-		item.setEstadoEmprestimo(false);
-	}
-	
-	public boolean getEstadoItem(){
-		return item.getEstadoItem();
-	}
-	
-	public Usuario getUsuarioDono(){
-		return this.usuarioDono;
-	}
-	
-	public int getDiasEmprestimo(){
-		return this.diasEmprestimo;
-	}
-	
-	public Usuario getUsarioEmprestimo(){
-		return this.usuarioEmprestimo;
-	}
-	
-	public Item getItem(){
-		return this.item;
-	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -60,7 +30,7 @@ public class Emprestimo {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Emprestimo other = (Emprestimo) obj;
+		EmprestimoKey other = (EmprestimoKey) obj;
 		if (item == null) {
 			if (other.item != null)
 				return false;
@@ -78,10 +48,5 @@ public class Emprestimo {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
-	
 
 }
