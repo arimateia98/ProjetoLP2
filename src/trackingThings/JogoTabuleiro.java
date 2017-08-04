@@ -13,7 +13,7 @@ public class JogoTabuleiro extends Item{
 	 * @param nome
 	 * @param valor
 	 */
-	public JogoTabuleiro(String nome, int valor) {
+	public JogoTabuleiro(String nome, double valor) {
 		super(nome, valor);
 		this.pecasPerdidas = new ArrayList<>();
 		this.pecasTotais = new ArrayList<>();
