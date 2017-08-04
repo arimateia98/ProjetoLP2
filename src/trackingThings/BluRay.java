@@ -1,6 +1,6 @@
 package trackingThings;
 
-public class BluRay extends Item{
+public abstract class BluRay extends Item{
 	
 	protected int duracao;
 	protected String classificacao;

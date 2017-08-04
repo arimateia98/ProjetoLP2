@@ -1,20 +1,9 @@
 package trackingThings;
 
-//Blu ray. Blu ray pode ser de filmes, séries ou shows.
-//Além das informações gerais que todo item tem (descritas anteriormente), todo 
-//blu ray deve ter uma duração e uma classificação[2]
-
-
-
-//Os blu rays de filmes devem ainda ter gênero[3] e ano de lançamento
-//. Os blu rays de shows devem indicar o nome do artista e o número de faixas. 
-//Dois blu rays são iguais se tiverem o mesmo nome. Dois blu-rays de temporada são iguais se tiverem
-//o mesmo nome e mesmo número de temporada.
-
 public class BluRayFilme extends BluRay {
 	
 	private String genero;
-	private String anoDeLancamento;
+	private int anoDeLancamento;
 	
 	/**
 	 * Blurays de Filmes tem o nome e o seu valor alem de sua duracao, classificacao etaria, genero e o seu ano de lancamento
@@ -26,7 +15,7 @@ public class BluRayFilme extends BluRay {
 	 * @param anoDeLancamento
 	 */
 	public BluRayFilme(String nome, int valor, int duracao, String classificacao, String genero,
-			String anoDeLancamento) {
+			int anoDeLancamento) {
 		super(nome, valor, duracao, classificacao);
 		this.genero = genero;
 		this.anoDeLancamento = anoDeLancamento;
@@ -42,7 +31,7 @@ public class BluRayFilme extends BluRay {
 	/**
 	 * @return ano de lancamento do filme
 	 */
-	public String getAnoDeLancamento() {
+	public int getAnoDeLancamento() {
 		return anoDeLancamento;
 	}
 	

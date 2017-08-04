@@ -3,14 +3,14 @@ package trackingThings;
 public abstract class Item {
 	
 	protected String nome;
-	protected int valor;
+	protected double valor;
 
 	/**
 	 * Cada item tem um nome e um valor
 	 * @param nome
 	 * @param valor
 	 */
-	public Item(String nome, int valor) {
+	public Item(String nome, double valor) {
 		this.nome = nome;
 		this.valor = valor;
 	}
@@ -25,7 +25,7 @@ public abstract class Item {
 	/**
 	 * @return valor do item
 	 */
-	public int getValor() {
+	public double getValor() {
 		return this.valor;
 	}
 	
