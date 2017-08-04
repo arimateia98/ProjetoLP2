@@ -10,7 +10,7 @@ public class JogoEletronico extends Item{
 	 * @param valor
 	 * @param plataforma
 	 */
-	public JogoEletronico(String nome, int valor, String plataforma) {
+	public JogoEletronico(String nome, double valor, String plataforma) {
 		super(nome, valor);
 		this.plataforma = plataforma;
 	}

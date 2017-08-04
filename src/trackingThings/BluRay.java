@@ -12,7 +12,7 @@ public abstract class BluRay extends Item{
 	 * @param duracao
 	 * @param classificacao
 	 */
-	public BluRay(String nome, int valor, int duracao, String classificacao) {
+	public BluRay(String nome, double valor, int duracao, String classificacao) {
 		super(nome, valor);
 		this.duracao = duracao;
 		this.classificacao = classificacao;

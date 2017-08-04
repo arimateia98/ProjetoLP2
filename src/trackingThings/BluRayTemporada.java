@@ -18,7 +18,7 @@ public class BluRayTemporada extends BluRay {
 	 * @param classificacao
 	 * @param numeroTemporada
 	 */
-	public BluRayTemporada(String nome, int valor, int duracao, String classificacao,int numeroTemporada) {
+	public BluRayTemporada(String nome, double valor, int duracao, String classificacao,int numeroTemporada) {
 		super(nome, valor, duracao, classificacao);
 		this.episodios = new HashSet<Integer>();
 		this.numeroTemporada = numeroTemporada;
@@ -80,7 +80,7 @@ public class BluRayTemporada extends BluRay {
 	
 	@Override
 	public String toString() {
-		return "Serie: " + this.nome + " Nº temporada: " + this.numeroTemporada + 
+		return "Serie: " + this.nome + " Nï¿½ temporada: " + this.numeroTemporada + 
 				" Duracao total: " + this.duracaoTotal + " Classificacao: " + this.classificacao;
 	}
 }

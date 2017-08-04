@@ -14,7 +14,7 @@ public class BluRayShow extends BluRay {
 	 * @param nomeArtista
 	 * @param numeroDeFaixas
 	 */
-	public BluRayShow(String nome, int valor, int duracao,  int numeroDeFaixas, String nomeArtista, String classificacao) {
+	public BluRayShow(String nome, double valor, int duracao,  int numeroDeFaixas, String nomeArtista, String classificacao) {
 
 		super(nome, valor, duracao, classificacao);
 		this.nomeArtista = nomeArtista;
