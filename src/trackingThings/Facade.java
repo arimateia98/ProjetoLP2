@@ -38,7 +38,7 @@ public class Facade {
 	}
 	
 	public void cadastrarBluRayFilme(String nome, String telefone, String nomeItem, Double preco, int duracao, String genero, String classificacao, int anoLancamento ){
-		this.sistema.cadastrarBluRayFilme(nome, telefone, nomeItem, preco, duracao, classificacao, anoLancamento);
+		this.sistema.cadastrarBluRayFilme(nome, telefone, nomeItem, preco, duracao, genero, classificacao, anoLancamento);
 	}
 	
 	public void cadastrarBluRayShow(String nome, String telefone, String nomeItem, Double preco, int duracao, int numeroFaixas, String artista, String classificacao){

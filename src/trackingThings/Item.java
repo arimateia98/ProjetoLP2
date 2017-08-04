@@ -21,7 +21,16 @@ public abstract class Item {
 	public String getNome() {
 		return this.nome;
 	}
-		
+	
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+
 	/**
 	 * @return valor do item
 	 */

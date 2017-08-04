@@ -21,8 +21,9 @@ public class SistemaEmprestimo {
 	
 	public void registrarEmprestimo(Usuario usuarioDono,Usuario usuarioEmprestimo,Item item,String dataInicial,int diasEmprestimo){
 		EmprestimoKey emprestimoKey = new EmprestimoKey(usuarioDono, usuarioEmprestimo, item);
+		
 		if (emprestimos.containsKey(emprestimoKey)){
-			throw new IllegalArgumentException("Emprestimo já existe");
+			throw new IllegalArgumentException("Emprestimo ja existe");
 		}
 		if(emprestimos.get(emprestimoKey).getEstadoItem()){
 			throw new IllegalArgumentException("Emprestimo nao encontrado");

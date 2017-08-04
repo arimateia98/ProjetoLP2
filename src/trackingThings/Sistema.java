@@ -1,13 +1,16 @@
 package trackingThings;
 
-import java.util.HashSet;
+import java.util.HashMap;
 
 public class Sistema {
 	
-	private HashSet<Usuario> usuarios;
+	private HashMap<UsuarioKey, Usuario> usuarios;
+	private SistemaEmprestimo sistemaEmprestimo;
+	
 	
 	public Sistema(){
-		this.usuarios = new HashSet<>();
+		this.usuarios = new HashMap<>();
+		this.sistemaEmprestimo = new SistemaEmprestimo();
 	}
 		
 	/**
@@ -26,11 +29,11 @@ public class Sistema {
 		if (email.equals(null) || email.trim().equals("")) {
 			throw new NullPointerException("Usuario invalido: Email nao pode ser vazio");
 		}
-		if (this.usuarios.contains(new Usuario(nome, telefone, email))) {
+		if (this.usuarios.containsKey(new UsuarioKey(nome, telefone))) {
 			throw new NullPointerException("Usuario ja cadastrado");
 		}
 		
-		this.usuarios.add(new Usuario(nome, telefone, email));
+		this.usuarios.put((new UsuarioKey(nome, telefone)),new Usuario(nome, telefone, email));
 	}
 	
 	/**
@@ -46,9 +49,9 @@ public class Sistema {
 			throw new NullPointerException("Usuario invalido: Telefone nao pode ser vazio");
 		}
 		
-		Usuario usuario = new Usuario(nome, telefone, "");
-		if (usuarios.contains(usuario)){
-			this.usuarios.remove(usuario);
+		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
+		if (usuarios.containsKey(usuarioKey)){
+			this.usuarios.remove(usuarioKey);
 		}else{
 			throw new NullPointerException("Usuario invalido");
 		}
@@ -77,28 +80,26 @@ public class Sistema {
 			throw new NullPointerException("Usuario invalido: Atributo nao pode ser vazio");
 		}
 		
-		Usuario usuario = new Usuario(nome, telefone, "");
-		HashSet<Usuario> usuariosCopia = (HashSet<Usuario>) this.usuarios.clone();
+		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
 		
-		if (!usuariosCopia.contains(usuario)){
+		if (!usuarios.containsKey(usuarioKey)){
 			throw new NullPointerException("Usuario invalido");
 		}
 		
-		for (Usuario users : usuariosCopia){
-			if (users.equals(usuario)) {
-				switch (atributo.toLowerCase()){
-					case "nome":
-						this.usuarios.add(new Usuario(valor ,users.getTelefone(), users.getEmail()));
-						this.usuarios.remove(usuario);
-					case "telefone":
-						this.usuarios.add(new Usuario(users.getNome(), valor, users.getEmail()));
-						this.usuarios.remove(usuario);
-					case "email":
-						users.setEmail(valor);
-				}
-			}
+		if (atributo.toLowerCase().equals("nome")){
+				this.usuarios.put(new UsuarioKey(valor, telefone), new Usuario(valor, telefone, this.usuarios.get(usuarioKey).getEmail()));
+				usuarios.remove(usuarioKey);
+		}	
+		else if (atributo.toLowerCase().equals("telefone")){
+				this.usuarios.put(new UsuarioKey(nome, valor), new Usuario(nome, valor, this.usuarios.get(usuarioKey).getEmail()));
+				usuarios.remove(usuarioKey);
+		}
+		else if  (atributo.toLowerCase().equals("email")){
+				this.usuarios.get(usuarioKey).setEmail(valor);
 		}
 	}
+		
+	
 	
 	/**
 	 * Obtem informacao do usuario de acordo com o atributo
@@ -108,24 +109,20 @@ public class Sistema {
 	 * @return atributo pedido
 	 */
 	public String getInfoUsuario(String nome, String telefone, String atributo){
-		Usuario usuario = new Usuario(nome, telefone, "");
+		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
 		String retorno = "";
-		if (usuarios.contains(usuario)){
-			for (Usuario users : this.usuarios){
-				if (users.equals(usuario)) {
-					switch (atributo.toLowerCase()){
-						case "nome":
-							retorno += users.getNome();
-						case "telefone":
-							retorno += users.getTelefone();
-						case "email":
-							retorno += users.getEmail();
-					}
-				}
-			}
-		}else{
+		if (!usuarios.containsKey(usuarioKey)){
 			throw new NullPointerException("Usuario invalido");
 		}
+		
+		switch (atributo.toLowerCase()){
+				case "nome":
+					retorno += usuarios.get(usuarioKey).getNome();
+				case "telefone":
+					retorno += usuarios.get(usuarioKey).getTelefone();
+				case "email":
+					retorno += usuarios.get(usuarioKey).getEmail();
+			}
 		
 		return retorno;
 		
@@ -141,7 +138,8 @@ public class Sistema {
 	 * @param plataforma
 	 */
 	public void cadastrarEletronico(String nome, String telefone, String nomeItem, Double preco, String plataforma) {
-		
+		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
+		usuarios.get(usuarioKey).cadastrarEletronico(nomeItem, preco, plataforma);
 	}
 
 	/**
@@ -152,18 +150,20 @@ public class Sistema {
 	 * @param preco
 	 */
 	public void cadastrarJogoTabuleiro(String nome, String telefone, String nomeItem, Double preco) {
-		
+		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
+		usuarios.get(usuarioKey).cadastrarJogoTabuleiro(nomeItem, preco);
 	}
 
 	/**
-	 * Informa ao sistema alguma peça perdida
+	 * Informa ao sistema alguma peca perdida
 	 * @param nome
 	 * @param telefone
 	 * @param nomeItem
 	 * @param nomePeca
 	 */
 	public void adicionarPecaPerdida(String nome, String telefone, String nomeItem, String nomePeca) {
-		
+		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
+		usuarios.get(usuarioKey).adicionarPecaPerdida(nomeItem, nomePeca);
 	}
 
 	/**
@@ -173,12 +173,13 @@ public class Sistema {
 	 * @param nomeItem
 	 * @param preco
 	 * @param duracao
-	 * @param classificacao
+	 * @param classificacao 
 	 * @param anoLancamento
 	 */
-	public void cadastrarBluRayFilme(String nome, String telefone, String nomeItem, Double preco, int duracao,
+	public void cadastrarBluRayFilme(String nome, String telefone, String nomeItem, Double preco, int duracao, String genero,
 			String classificacao, int anoLancamento) {
-		
+		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
+		usuarios.get(usuarioKey).cadastrarBluRayFilme(nomeItem, preco, duracao, genero, classificacao, anoLancamento);
 	}
 
 	/**
@@ -194,7 +195,8 @@ public class Sistema {
 	 */
 	public void cadastrarBluRayShow(String nome, String telefone, String nomeItem, Double preco, int duracao,
 			int numeroFaixas, String artista, String classificacao) {
-		
+		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
+		usuarios.get(usuarioKey).cadastrarBluRayShow(nomeItem, preco, duracao, numeroFaixas, artista, classificacao);
 	}
 
 	/**
@@ -211,7 +213,9 @@ public class Sistema {
 	 */
 	public void cadastrarBluRaySerie(String nome, String telefone, String nomeItem, Double preco, String descricao,
 			int duracao, String classificacao, String genero, int temporada) {
-		
+		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
+		usuarios.get(usuarioKey).cadastrarBluRaySerie(nomeItem, preco, descricao, duracao, 
+				classificacao, genero, temporada);
 	}
 
 	/**
@@ -222,7 +226,8 @@ public class Sistema {
 	 * @param duracao
 	 */
 	public void adicionarBluRay(String nome, String telefone, String nomeBlurayTemporada, int duracao) {
-		
+		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
+		usuarios.get(usuarioKey).adicionarBluRay(nomeBlurayTemporada, duracao);
 	}
 
 	/**
@@ -232,7 +237,8 @@ public class Sistema {
 	 * @param nomeItem
 	 */
 	public void removerItem(String nome, String telefone, String nomeItem) {
-		
+		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
+		usuarios.get(usuarioKey).removerItem(nomeItem);
 	}
 
 	/**
@@ -244,7 +250,8 @@ public class Sistema {
 	 * @param valor
 	 */
 	public void atualizarItem(String nome, String telefone, String nomeItem, String atributo, String valor) {
-		
+		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
+		usuarios.get(usuarioKey).atualizarItem(nomeItem, atributo, valor);
 	}
 
 	/**
@@ -256,14 +263,9 @@ public class Sistema {
 	 * @return
 	 */
 	public String getInfoItem(String nome, String telefone, String nomeItem, String atributo) {
-		return "";
+		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
+		return usuarios.get(usuarioKey).getInfoItem(nomeItem);
 	}
 
-
 	
-		
-	
-	
-	
-
 }

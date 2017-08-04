@@ -12,18 +12,19 @@ public class Emprestimo {
 		this.usuarioDono = usuarioDono;
 		this.usuarioEmprestimo = usuarioEmprestimo;
 		this.item = item;
-		this.item.setEstadoEmprestimo(true); 
+		//this.item.setEstadoEmprestimo(true); 
 		this.dataInicial = dataInicial;
 		this.diasEmprestimo = diasEmprestimo;
 	}
 	
 	public void devolverItem(String dataDevolucao){
 		this.dataDevolucao = dataDevolucao;
-		item.setEstadoEmprestimo(false);
+		//item.setEstadoEmprestimo(false);
 	}
 	
 	public boolean getEstadoItem(){
-		return item.getEstadoItem();
+		//return item.getEstadoItem();
+		return true;
 	}
 	
 	public Usuario getUsuarioDono(){

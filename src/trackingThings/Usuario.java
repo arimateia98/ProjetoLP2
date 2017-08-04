@@ -1,6 +1,7 @@
 package trackingThings;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Cada Usuario tera um nome, telefone, email e um conjunto de itens
@@ -11,7 +12,7 @@ public class Usuario {
 	private String nome;
 	private String telefone;
  	private String email;
- 	private ArrayList <Item> itensPossuidos;
+ 	private HashMap <String,Item> itensPossuidos;
 	private ArrayList <Item> itensEmprestados;
 	
 	public Usuario(String nome,String telefone, String email) {
@@ -19,7 +20,7 @@ public class Usuario {
 		this.telefone = telefone;
 		this.email = email;
 		this.itensEmprestados = new ArrayList<>();
-		this.itensPossuidos = new ArrayList<>();
+		this.itensPossuidos = new HashMap<>();
 	}
 
 	/**
@@ -85,7 +86,7 @@ public class Usuario {
 	/**
 	 * @return lista de itens pegos
 	 */
-	public ArrayList<Item> getItensPossuidos() {
+	public HashMap<String, Item> getItensPossuidos() {
 		return itensPossuidos;
 	}
 
@@ -93,7 +94,7 @@ public class Usuario {
 	 * Isso eh necessario?
 	 * @param itensPossuidos
 	 */
-	public void setItensPossuidos(ArrayList<Item> itensPossuidos) {
+	public void setItensPossuidos(HashMap<String, Item> itensPossuidos) {
 		this.itensPossuidos = itensPossuidos;
 	}
 
@@ -142,6 +143,71 @@ public class Usuario {
 			return false;
 		return true;
 	}
+
+	public void cadastrarEletronico(String nomeItem, Double preco, String plataforma) {
+		JogoEletronico jogoEletronico = new JogoEletronico(nomeItem, preco, plataforma);
+		itensPossuidos.put(nomeItem, jogoEletronico);
+	}
+
+	public void cadastrarJogoTabuleiro(String nomeItem, Double preco) {
+		JogoTabuleiro jogoTabuleiro = new JogoTabuleiro(nomeItem, preco);
+		itensPossuidos.put(nomeItem, jogoTabuleiro);
+	}
+
+	public void adicionarPecaPerdida(String nomeItem, String nomePeca) {
+		((JogoTabuleiro) itensPossuidos.get(nomeItem)).adicionarPecaPerdida(nomePeca);
+	}
+
+	public void cadastrarBluRayFilme(String nomeItem, Double preco, int duracao, String genero,String classificacao,
+			int anoLancamento) {
+		BluRayFilme bluRayFilme = new BluRayFilme(nomeItem, preco, duracao, classificacao, genero, anoLancamento);
+		itensPossuidos.put(nomeItem, bluRayFilme);
+	}
+
+	public void cadastrarBluRayShow(String nomeItem, Double preco, int duracao, int numeroFaixas, String artista,
+			String classificacao) {
+		BluRayShow bluRayShow = new BluRayShow(nomeItem, preco, duracao, numeroFaixas, artista, classificacao);
+		itensPossuidos.put(nomeItem, bluRayShow);
+	}
+
+	public void cadastrarBluRaySerie(String nomeItem, Double preco, String descricao, int duracao, String classificacao,
+			String genero, int temporada) {
+		BluRayTemporada bluRaySerie = new BluRayTemporada(nomeItem, preco, duracao, classificacao, temporada);
+		itensPossuidos.put(nomeItem, bluRaySerie);
+	}
+
+	public void adicionarBluRay(String nomeBlurayTemporada, int duracao) {
+		((BluRayTemporada) itensPossuidos.get(nomeBlurayTemporada)).addEpisodio(duracao);
+		((BluRayTemporada) itensPossuidos.get(nomeBlurayTemporada))
+		.setDuracaoTotal(((BluRayTemporada) itensPossuidos.get(nomeBlurayTemporada)).getDuracaoTotal());
+	}
+
+	public void removerItem(String nomeItem) {
+		itensPossuidos.remove(nomeItem);
+	}
+
+	public void atualizarItem(String nomeItem, String atributo, String valor) {
+		if (!itensPossuidos.containsKey(nomeItem)){
+			throw new NullPointerException("Item invalido");
+		}
+		
+		if (atributo.toLowerCase().equals("nome")){
+			itensPossuidos.get(nomeItem).setNome(valor);
+			this.itensPossuidos.put(valor,itensPossuidos.get(nomeItem));
+			itensPossuidos.remove(nomeItem);
+		}	
+		else if (atributo.toLowerCase().equals("valor")){
+			this.itensPossuidos.get(nomeItem).setValor(Double.parseDouble(valor));
+		}
+	}
+
+	public String getInfoItem(String nomeItem) {
+		return null;
+	}
+	
+	
+	
+	
 	
 	
 	

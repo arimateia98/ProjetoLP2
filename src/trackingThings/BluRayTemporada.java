@@ -43,6 +43,10 @@ public class BluRayTemporada extends BluRay {
 		return this.duracaoTotal;
 	}
 	
+	public void setDuracaoTotal(int duracaoTotal) {
+		this.duracaoTotal = duracaoTotal;
+	}
+
 	/**
 	 * @return numero da temporada
 	 */
@@ -80,7 +84,11 @@ public class BluRayTemporada extends BluRay {
 	
 	@Override
 	public String toString() {
-		return "Serie: " + this.nome + " N� temporada: " + this.numeroTemporada + 
+		return "Serie: " + this.nome + " Na temporada: " + this.numeroTemporada + 
 				" Duracao total: " + this.duracaoTotal + " Classificacao: " + this.classificacao;
+	}
+	
+	public void addEpisodio(int episodio) {
+		episodios.add(episodio);
 	}
 }
