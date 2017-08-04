@@ -38,6 +38,11 @@ public class UsuarioKey {
 		} else if (!telefone.equals(other.telefone))
 			return false;
 		return true;
-	}	
+	}
+	
+	@Override
+	public String toString() {
+		return this.nome+this.telefone;
+	}
 	
 }

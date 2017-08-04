@@ -2,6 +2,8 @@ package trackingThings;
 
 import java.util.HashMap;
 
+import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
+
 public class Sistema {
 	
 	private HashMap<UsuarioKey, Usuario> usuarios;
@@ -138,7 +140,8 @@ public class Sistema {
 	 * @param plataforma
 	 */
 	public void cadastrarEletronico(String nome, String telefone, String nomeItem, Double preco, String plataforma) {
-		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
+		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);	
+		System.out.println(usuarios.size());
 		usuarios.get(usuarioKey).cadastrarEletronico(nomeItem, preco, plataforma);
 	}
 
