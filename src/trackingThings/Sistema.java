@@ -140,9 +140,9 @@ public class Sistema {
 	 * @param plataforma
 	 */
 	public void cadastrarEletronico(String nome, String telefone, String nomeItem, Double preco, String plataforma) {
+		
 		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);	
-		System.out.println(usuarios.size());
-		usuarios.get(usuarioKey).cadastrarEletronico(nomeItem, preco, plataforma);
+		this.usuarios.get(usuarioKey).cadastrarEletronico(nomeItem, preco, plataforma);
 	}
 
 	/**
@@ -267,8 +267,19 @@ public class Sistema {
 	 */
 	public String getInfoItem(String nome, String telefone, String nomeItem, String atributo) {
 		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
-		return usuarios.get(usuarioKey).getInfoItem(nomeItem);
-	}
 
+		if (!this.usuarios.get(usuarioKey).verificaSeItemExiste(nomeItem)) {
+			throw new NullPointerException("Item nao encontrado");
+		}
+		return usuarios.get(usuarioKey).getInfoItem(nomeItem, atributo);
+	}
 	
+	public boolean verificaSeUsuarioExiste(String nome, String telefone) {
+		UsuarioKey usuario = new UsuarioKey(nome, telefone);
+		if (this.usuarios.containsKey(usuario)) { 
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

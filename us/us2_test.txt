@@ -3,7 +3,7 @@
 #####################
 
 
-iniciarSistema
+
 
 
 cadastrarEletronico nome="Joao" telefone="98888-8888" nomeItem="Pokemon Sun" preco=99.99 plataforma="NINTENDO_3DS"

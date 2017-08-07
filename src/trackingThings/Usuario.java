@@ -146,7 +146,7 @@ public class Usuario {
 
 	public void cadastrarEletronico(String nomeItem, Double preco, String plataforma) {
 		JogoEletronico jogoEletronico = new JogoEletronico(nomeItem, preco, plataforma);
-		itensPossuidos.put(nomeItem, jogoEletronico);
+		this.itensPossuidos.put(nomeItem, jogoEletronico);
 	}
 
 	public void cadastrarJogoTabuleiro(String nomeItem, Double preco) {
@@ -183,7 +183,7 @@ public class Usuario {
 	}
 
 	public void removerItem(String nomeItem) {
-		itensPossuidos.remove(nomeItem);
+		this.itensPossuidos.remove(nomeItem);
 	}
 
 	public void atualizarItem(String nomeItem, String atributo, String valor) {
@@ -196,15 +196,30 @@ public class Usuario {
 			this.itensPossuidos.put(valor,itensPossuidos.get(nomeItem));
 			itensPossuidos.remove(nomeItem);
 		}	
-		else if (atributo.toLowerCase().equals("valor")){
+		else if (atributo.toLowerCase().equals("preco")){
 			this.itensPossuidos.get(nomeItem).setValor(Double.parseDouble(valor));
 		}
 	}
 
-	public String getInfoItem(String nomeItem) {
-		return null;
+	public String getInfoItem(String nomeItem, String atributo) {
+
+		if (atributo.equals("Preco")) {
+			return Double.toString(this.itensPossuidos.get(nomeItem).getValor());
+		}
+		if (atributo.equals("Nome")) {
+			return this.itensPossuidos.get(nomeItem).getNome();
+
+		}
+		throw new NullPointerException("Atributo invalido");
 	}
 	
+	public boolean verificaSeItemExiste(String nomeItem) {
+		if (this.itensPossuidos.containsKey(nomeItem)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 	
 	
