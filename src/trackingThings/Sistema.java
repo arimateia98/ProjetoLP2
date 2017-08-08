@@ -364,4 +364,16 @@ public class Sistema {
 		}
 		return usuarios.get(usuarioKey).detalhesItem(nomeItem);
 	}
+
+	public void registrarEmprestimo(String nomeDono, String telefoneDono, String nomeReferente,
+			String telefoneReferente, String dataEmprestimo, int periodo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void devolverItem(String nomeDono, String telefoneDono, String nomeReferente, String telefoneReferente,
+			String dataEmprestimo, String dataDevolucao) {
+		// TODO Auto-generated method stub
+		
+	}
 }
