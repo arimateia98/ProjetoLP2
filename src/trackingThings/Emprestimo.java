@@ -1,12 +1,15 @@
 package trackingThings;
 
 import java.time.LocalDate;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
 
 public class Emprestimo {
 	private Usuario usuarioDono;
 	private Usuario usuarioEmprestimo;
 	private Item item;
 	private int diasEmprestimo;
+	private int diasAtraso;
 	private LocalDate dataInicial;
 	private LocalDate dataDevolucao;
 	
@@ -21,6 +24,8 @@ public class Emprestimo {
 	
 	public void devolverItem(LocalDate dataDevolucao){
 		this.dataDevolucao = dataDevolucao;
+		int diasPassados = (int) ChronoUnit.DAYS.between(dataInicial, dataDevolucao);
+		this.diasAtraso = diasPassados - diasEmprestimo;
 		item.setEstadoEmprestimo(false);
 	}
 	
