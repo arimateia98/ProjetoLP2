@@ -222,8 +222,9 @@ public class Usuario {
 	}
 	
 	
-	
-	
+	public String detalhesItem(String nomeItem){
+		return itensPossuidos.get(nomeItem).toString();
+	}
 	
 	
 	

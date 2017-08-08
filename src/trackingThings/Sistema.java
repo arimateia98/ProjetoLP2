@@ -300,4 +300,23 @@ public class Sistema {
 			return false;
 		}
 	}
+
+	public String listarItensOrdenadosPorNome() {
+		return null;
+	}
+
+	public String listarItensOrdenadosPorValor() {
+		return null;
+	}
+
+	public String pesquisarDetalhesItem(String nome, String telefone, String nomeItem) {
+		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
+		if (!usuarios.containsKey(usuarioKey)){
+			throw new NullPointerException("Usuario invalido");
+		}
+		if (!usuarios.get(usuarioKey).verificaSeItemExiste(nomeItem)){
+			throw new NullPointerException("Item nao encontrado");
+		}
+		return usuarios.get(usuarioKey).detalhesItem(nomeItem);
+	}
 }

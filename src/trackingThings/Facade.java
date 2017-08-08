@@ -65,6 +65,18 @@ public class Facade {
 		return this.sistema.getInfoItem(nome, telefone, nomeItem, atributo);
 	}
 	
+	public String listarItensOrdenadosPorNome(){
+		return this.sistema.listarItensOrdenadosPorNome();
+	}
+	
+	public String listarItensOrdenadosPorValor(){
+		return this.sistema.listarItensOrdenadosPorValor();
+	}
+	
+	public String pesquisarDetalhesItem(String nome, String telefone, String nomeItem){
+		return this.sistema.pesquisarDetalhesItem(nome, telefone, nomeItem);
+	}
+	
 	public void fecharSistema(){
 		
 	}
