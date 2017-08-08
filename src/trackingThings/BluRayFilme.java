@@ -37,7 +37,7 @@ public class BluRayFilme extends BluRay {
 	
 	@Override
 	public String toString() {
-		return "Nome: " + this.nome + " Ano: " + this.anoDeLancamento +
-				" Genero : " + this.genero + " Classificacao: " + this.classificacao; 
+		return "FILME: " + this.nome + ", R$ " + this.valor +", " + this.getEmprestado()
+		+ ", " + this.duracao + " min, " +this.classificacao+", "+this.genero+", "+this.anoDeLancamento; 
 	}
 }

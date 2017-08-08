@@ -59,21 +59,19 @@ public class JogoTabuleiro extends Item{
 	
 	@Override
 	public String toString() {
-		String pecasT = "";
-		String pecasP = "";
-		for (String pecas : this.pecasTotais) {
-			pecasT += pecas;
-		}
-		for (String pecas : this.pecasPerdidas) {
-			pecasP += pecas;
-		}
-		String retorno = "Jogo de Tabuleiro:" + this.nome + " Preco: " + this.valor + "\n";
-		retorno += "Pecas Totais: " + pecasT + "\n";
-		retorno += "Pecas faltando: " + pecasP;
-		return retorno;
+		return "JOGO DE TABULEIRO: " + this.nome + ", R$ "+this.valor +", "+ this.getEmprestado() + ", "+this.seHaPecasPerdidas();
+
 	}
 	
 	public void adicionarPecaPerdida(String nomePeca) {
 		this.pecasPerdidas.add(nomePeca);
+	}
+	
+	public String seHaPecasPerdidas(){
+		if (!pecasPerdidas.isEmpty()){
+			return "COM PECAS PERDIDAS";
+		}else{
+			return "SEM PECAS PERDIDAS";
+		}
 	}
 }

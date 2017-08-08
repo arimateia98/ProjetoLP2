@@ -1,18 +1,23 @@
 package trackingThings;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Set;
 
 import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 public class Sistema {
 	
 	private HashMap<UsuarioKey, Usuario> usuarios;
 	private SistemaEmprestimo sistemaEmprestimo;
-	
+	private ArrayList<Item> todosItens;
 	
 	public Sistema(){
 		this.usuarios = new HashMap<>();
 		this.sistemaEmprestimo = new SistemaEmprestimo();
+		this.todosItens = new ArrayList<>();
 	}
 		
 	/**
@@ -302,7 +307,19 @@ public class Sistema {
 	}
 
 	public String listarItensOrdenadosPorNome() {
-		return null;
+		Set keys = usuarios.keySet();
+		for (Object key : keys){
+			for(Object nomeItem : usuarios.get(key).getSetHashMap()){
+				todosItens.add(usuarios.get(key).getItem((String)nomeItem));
+			}
+		}
+		
+		Collections.sort(todosItens, new NomeComparator());
+		String retorno = "";
+		for (Item item : todosItens){
+			retorno += item.toString()+"|";
+		}
+		return retorno;
 	}
 
 	public String listarItensOrdenadosPorValor() {
