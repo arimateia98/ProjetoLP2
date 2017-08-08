@@ -154,6 +154,12 @@ public class Sistema {
 	 */
 	public void cadastrarJogoTabuleiro(String nome, String telefone, String nomeItem, Double preco) {
 		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
+		if (!usuarios.containsKey(usuarioKey)){
+			throw new NullPointerException("Usuario invalido");
+		}
+		if (preco <= 0){
+			throw new NullPointerException("Preco invalido");
+		}
 		usuarios.get(usuarioKey).cadastrarJogoTabuleiro(nomeItem, preco);
 	}
 
@@ -241,6 +247,12 @@ public class Sistema {
 	 */
 	public void removerItem(String nome, String telefone, String nomeItem) {
 		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
+		if (!usuarios.containsKey(usuarioKey)){
+			throw new NullPointerException("Usuario invalido");
+		}
+		if (!usuarios.get(usuarioKey).verificaSeItemExiste(nomeItem)){
+			throw new NullPointerException("Item nao encontrado");
+		}
 		usuarios.get(usuarioKey).removerItem(nomeItem);
 	}
 
@@ -254,6 +266,12 @@ public class Sistema {
 	 */
 	public void atualizarItem(String nome, String telefone, String nomeItem, String atributo, String valor) {
 		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
+		if (!usuarios.containsKey(usuarioKey)){
+			throw new NullPointerException("Usuario invalido");
+		}
+		if (!usuarios.get(usuarioKey).verificaSeItemExiste(nomeItem)){
+			throw new NullPointerException("Item nao encontrado");
+		}
 		usuarios.get(usuarioKey).atualizarItem(nomeItem, atributo, valor);
 	}
 
