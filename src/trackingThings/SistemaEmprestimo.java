@@ -1,9 +1,12 @@
 package trackingThings;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
 public class SistemaEmprestimo {
 	
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	private HashMap<EmprestimoKey,Emprestimo> emprestimos;
 	
 	public SistemaEmprestimo(){
@@ -31,7 +34,8 @@ public class SistemaEmprestimo {
 		if (emprestimos.get(emprestimoKey).getEstadoItem()){
 			throw new IllegalArgumentException("Item emprestado no momento");
 		}
-		Emprestimo emprestimo = new Emprestimo(usuarioDono,usuarioEmprestimo,item,dataInicial,diasEmprestimo);
+		LocalDate date = LocalDate.parse(dataInicial, formatter);
+		Emprestimo emprestimo = new Emprestimo(usuarioDono,usuarioEmprestimo,item,date,diasEmprestimo);
 		emprestimos.put(emprestimoKey, emprestimo);
 	}
 	
@@ -47,7 +51,8 @@ public class SistemaEmprestimo {
 	public void devolverItem(Usuario usuarioDono,Usuario usuarioEmprestimo,Item item,String dataInicial,String dataDevolucao){
 		EmprestimoKey emprestimoKey = new EmprestimoKey(usuarioDono, usuarioEmprestimo, item);
 		if (emprestimos.containsKey(emprestimoKey)){
-			emprestimos.get(emprestimoKey).devolverItem(dataDevolucao);
+			LocalDate date = LocalDate.parse(dataDevolucao, formatter);
+			emprestimos.get(emprestimoKey).devolverItem(date);
 		}else{
 			throw new IllegalArgumentException("Emprestimo nao encontrado");
 		}

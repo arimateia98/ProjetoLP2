@@ -1,30 +1,31 @@
 package trackingThings;
 
+import java.time.LocalDate;
+
 public class Emprestimo {
 	private Usuario usuarioDono;
 	private Usuario usuarioEmprestimo;
 	private Item item;
 	private int diasEmprestimo;
-	private String dataInicial;
-	private String dataDevolucao;
+	private LocalDate dataInicial;
+	private LocalDate dataDevolucao;
 	
-	public Emprestimo(Usuario usuarioDono,Usuario usuarioEmprestimo,Item item,String dataInicial,int diasEmprestimo){
+	public Emprestimo(Usuario usuarioDono,Usuario usuarioEmprestimo,Item item,LocalDate dataInicial,int diasEmprestimo){
 		this.usuarioDono = usuarioDono;
 		this.usuarioEmprestimo = usuarioEmprestimo;
 		this.item = item;
-		//this.item.setEstadoEmprestimo(true); 
+		this.item.setEstadoEmprestimo(true); 
 		this.dataInicial = dataInicial;
 		this.diasEmprestimo = diasEmprestimo;
 	}
 	
-	public void devolverItem(String dataDevolucao){
+	public void devolverItem(LocalDate dataDevolucao){
 		this.dataDevolucao = dataDevolucao;
-		//item.setEstadoEmprestimo(false);
+		item.setEstadoEmprestimo(false);
 	}
 	
 	public boolean getEstadoItem(){
-		//return item.getEstadoItem();
-		return true;
+		return item.getEstadoEmprestimo();
 	}
 	
 	public Usuario getUsuarioDono(){
