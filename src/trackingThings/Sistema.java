@@ -365,15 +365,40 @@ public class Sistema {
 		return usuarios.get(usuarioKey).detalhesItem(nomeItem);
 	}
 
+	/**
+	 * Registra um emprestimo, no qual teremos os dados do dono e do referente
+	 * @param nomeDono
+	 * @param telefoneDono
+	 * @param nomeReferente
+	 * @param telefoneReferente
+	 * @param dataEmprestimo
+	 * @param nomeItem 
+	 * @param periodo
+	 */
 	public void registrarEmprestimo(String nomeDono, String telefoneDono, String nomeReferente,
-			String telefoneReferente, String dataEmprestimo, int periodo) {
-		// TODO Auto-generated method stub
+		String telefoneReferente, String nomeItem, String dataEmprestimo, int periodo) {
+		UsuarioKey usuarioKey1 = new UsuarioKey(nomeDono, telefoneDono);
+		UsuarioKey usuarioKey2 = new UsuarioKey(nomeReferente, telefoneReferente);
 		
+		this.sistemaEmprestimo.registrarEmprestimo(usuarios.get(usuarioKey1), usuarios.get(usuarioKey2), usuarios.get(usuarioKey1).getItem(nomeItem), dataEmprestimo, periodo);
 	}
 
+	/**
+	 * Registra a devolucao do item
+	 * @param nomeDono
+	 * @param telefoneDono
+	 * @param nomeReferente
+	 * @param telefoneReferente
+	 * @param dataEmprestimo
+	 * @param nomeItem
+	 * @param dataDevolucao
+	 */
 	public void devolverItem(String nomeDono, String telefoneDono, String nomeReferente, String telefoneReferente,
-			String dataEmprestimo, String dataDevolucao) {
-		// TODO Auto-generated method stub
+			String nomeItem, String dataEmprestimo, String dataDevolucao) {
 		
+		UsuarioKey usuarioKey1 = new UsuarioKey(nomeDono, telefoneDono);
+		UsuarioKey usuarioKey2 = new UsuarioKey(nomeReferente, telefoneReferente);
+
+		this.sistemaEmprestimo.devolverItem(usuarios.get(usuarioKey1), usuarios.get(usuarioKey2), usuarios.get(usuarioKey1).getItem(nomeItem), dataEmprestimo, dataDevolucao);
 	}
 }

@@ -34,6 +34,8 @@ public class SistemaEmprestimo {
 		if (emprestimos.get(emprestimoKey).getEstadoItem()){
 			throw new IllegalArgumentException("Item emprestado no momento");
 		}
+		
+		
 		LocalDate date = LocalDate.parse(dataInicial, formatter);
 		Emprestimo emprestimo = new Emprestimo(usuarioDono,usuarioEmprestimo,item,date,diasEmprestimo);
 		emprestimos.put(emprestimoKey, emprestimo);

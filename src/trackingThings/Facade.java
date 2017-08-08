@@ -77,12 +77,12 @@ public class Facade {
 		return this.sistema.pesquisarDetalhesItem(nome, telefone, nomeItem);
 	}
 	
-	public void registrarEmprestimo(String nomeDono, String telefoneDono, String nomeReferente, String telefoneReferente, String dataEmprestimo, int periodo){
-		this.sistema.registrarEmprestimo(nomeDono, telefoneDono, nomeReferente, telefoneReferente, dataEmprestimo, periodo);
+	public void registrarEmprestimo(String nomeDono, String telefoneDono, String nomeReferente, String telefoneReferente, String nomeItem, String dataEmprestimo, int periodo){
+		this.sistema.registrarEmprestimo(nomeDono, telefoneDono, nomeReferente, telefoneReferente, nomeItem, dataEmprestimo, periodo);
 	}
 	
-	public void devolverItem(String nomeDono, String telefoneDono, String nomeReferente, String telefoneReferente, String dataEmprestimo, String dataDevolucao){
-		this.sistema.devolverItem(nomeDono, telefoneDono, nomeReferente, telefoneReferente, dataEmprestimo, dataDevolucao);
+	public void devolverItem(String nomeDono, String telefoneDono, String nomeReferente, String telefoneReferente, String nomeItem, String dataEmprestimo, String dataDevolucao){
+		this.sistema.devolverItem(nomeDono, telefoneDono, nomeReferente, telefoneReferente, nomeItem, dataEmprestimo, dataDevolucao);
 	}
 	
 	public void fecharSistema(){
