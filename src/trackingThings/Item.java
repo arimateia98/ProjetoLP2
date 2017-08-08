@@ -24,6 +24,9 @@ public abstract class Item {
 		return this.nome;
 	}
 	
+	/**
+	 * @return estado do item
+	 */
 	public boolean getEstadoEmprestimo(){
 		return this.estadoEmprestimo;
 	}
@@ -48,6 +51,10 @@ public abstract class Item {
 		return this.valor;
 	}
 	
+	/** 
+	 * Diz se o item esta emprestado ou nao
+	 * @return
+	 */
 	public String getEmprestado(){
 		if (!estadoEmprestimo){
 			return "Nao emprestado";

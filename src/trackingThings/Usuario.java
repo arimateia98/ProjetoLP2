@@ -8,6 +8,14 @@ import java.util.Set;
  * Cada Usuario tera um nome, telefone, email e um conjunto de itens
  *	
  */
+/**
+ * @author josevla
+ *
+ */
+/**
+ * @author josevla
+ *
+ */
 public class Usuario {
 	
 	private String nome;
@@ -146,48 +154,107 @@ public class Usuario {
 		return true;
 	}
 
+	/**
+	 * Cadastra um jogo eletronico
+	 * @param nomeItem
+	 * @param preco
+	 * @param plataforma
+	 */
 	public void cadastrarEletronico(String nomeItem, Double preco, String plataforma) {
 		JogoEletronico jogoEletronico = new JogoEletronico(nomeItem, preco, plataforma);
 		this.itensPossuidos.put(nomeItem, jogoEletronico);
 	}
 
+	/**
+	 * Cadastra jogo de tabuleiro
+	 * @param nomeItem
+	 * @param preco
+	 */
 	public void cadastrarJogoTabuleiro(String nomeItem, Double preco) {
 		JogoTabuleiro jogoTabuleiro = new JogoTabuleiro(nomeItem, preco);
 		itensPossuidos.put(nomeItem, jogoTabuleiro);
 	}
 
+	/**
+	 * Informa que uma peca foi perdida
+	 * @param nomeItem
+	 * @param nomePeca
+	 */
 	public void adicionarPecaPerdida(String nomeItem, String nomePeca) {
 		((JogoTabuleiro) itensPossuidos.get(nomeItem)).adicionarPecaPerdida(nomePeca);
 	}
 
+	/**
+	 * Cadastra um Bluray de filme
+	 * @param nomeItem
+	 * @param preco
+	 * @param duracao
+	 * @param genero
+	 * @param classificacao
+	 * @param anoLancamento
+	 */
 	public void cadastrarBluRayFilme(String nomeItem, Double preco, int duracao, String genero,String classificacao,
 			int anoLancamento) {
 		BluRayFilme bluRayFilme = new BluRayFilme(nomeItem, preco, duracao, classificacao, genero, anoLancamento);
 		itensPossuidos.put(nomeItem, bluRayFilme);
 	}
 
+	/**
+	 * Cadastra um Bluray de show
+	 * @param nomeItem
+	 * @param preco
+	 * @param duracao
+	 * @param numeroFaixas
+	 * @param artista
+	 * @param classificacao
+	 */
 	public void cadastrarBluRayShow(String nomeItem, Double preco, int duracao, int numeroFaixas, String artista,
 			String classificacao) {
 		BluRayShow bluRayShow = new BluRayShow(nomeItem, preco, duracao, numeroFaixas, artista, classificacao);
 		itensPossuidos.put(nomeItem, bluRayShow);
 	}
 
+	/**
+	 * Cadastra um Bluray de serie
+	 * @param nomeItem
+	 * @param preco
+	 * @param descricao
+	 * @param duracao
+	 * @param classificacao
+	 * @param genero
+	 * @param temporada
+	 */
 	public void cadastrarBluRaySerie(String nomeItem, Double preco, String descricao, int duracao, String classificacao,
 			String genero, int temporada) {
 		BluRayTemporada bluRaySerie = new BluRayTemporada(nomeItem, preco, duracao, classificacao, genero, temporada);
 		itensPossuidos.put(nomeItem, bluRaySerie);
 	}
 
+	/**
+	 * Adiciona uma episodio a temporada
+	 * @param nomeBlurayTemporada
+	 * @param duracao
+	 */
 	public void adicionarBluRay(String nomeBlurayTemporada, int duracao) {
 		((BluRayTemporada) itensPossuidos.get(nomeBlurayTemporada)).addEpisodio(duracao);
 		((BluRayTemporada) itensPossuidos.get(nomeBlurayTemporada))
 		.setDuracaoTotal(((BluRayTemporada) itensPossuidos.get(nomeBlurayTemporada)).getDuracaoTotal());
 	}
 
+	/**
+	 * Remove item dos itens possuidos
+	 * @param nomeItem
+	 */
 	public void removerItem(String nomeItem) {
 		this.itensPossuidos.remove(nomeItem);
 	}
 
+	/**
+	 * Altera algum atributo de item(nome, preco)
+	 * @param nomeItem
+	 * @param atributo
+	 * @param valor
+	 */
 	public void atualizarItem(String nomeItem, String atributo, String valor) {
 		if (!itensPossuidos.containsKey(nomeItem)){
 			throw new NullPointerException("Item invalido");
@@ -203,6 +270,12 @@ public class Usuario {
 		}
 	}
 
+	/**
+	 * Pega informacao do item
+	 * @param nomeItem
+	 * @param atributo
+	 * @return
+	 */
 	public String getInfoItem(String nomeItem, String atributo) {
 
 		if (atributo.equals("Preco")) {
@@ -215,6 +288,11 @@ public class Usuario {
 		throw new NullPointerException("Atributo invalido");
 	}
 	
+	/**
+	 * Verifica se o item existe no sistema
+	 * @param nomeItem
+	 * @return
+	 */
 	public boolean verificaSeItemExiste(String nomeItem) {
 		if (this.itensPossuidos.containsKey(nomeItem)) {
 			return true;
@@ -224,6 +302,11 @@ public class Usuario {
 	}
 	
 	
+	/**
+	 * Pega detalhes dos itens
+	 * @param nomeItem
+	 * @return toString de item
+	 */
 	public String detalhesItem(String nomeItem){
 		return itensPossuidos.get(nomeItem).toString();
 	}

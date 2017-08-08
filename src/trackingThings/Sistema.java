@@ -231,7 +231,7 @@ public class Sistema {
 	}
 
 	/**
-	 * ?????
+	 * Adiciona um Bluray
 	 * @param nome
 	 * @param telefone
 	 * @param nomeBlurayTemporada
@@ -304,6 +304,10 @@ public class Sistema {
 		}
 	}
 
+	/**
+	 * Lista os itens ordenados pelo nome
+	 * @return
+	 */
 	public String listarItensOrdenadosPorNome() {
 		ArrayList<Item> todosItens = new ArrayList<>();
 		Set keys = usuarios.keySet();
@@ -321,6 +325,10 @@ public class Sistema {
 		return retorno;
 	}
 
+	/**
+	 * Lista oms itens ordenados pelo seu valor
+	 * @return
+	 */
 	public String listarItensOrdenadosPorValor() {
 		ArrayList<Item> todosItens = new ArrayList<>();
 		Set keyUsuario = usuarios.keySet();
@@ -338,6 +346,13 @@ public class Sistema {
 		return retorno;
 	}
 
+	/**
+	 * Pesquisa detalhes dos itens
+	 * @param nome
+	 * @param telefone
+	 * @param nomeItem
+	 * @return
+	 */
 	public String pesquisarDetalhesItem(String nome, String telefone, String nomeItem) {
 		
 		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);

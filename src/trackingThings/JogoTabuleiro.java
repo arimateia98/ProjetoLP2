@@ -63,10 +63,18 @@ public class JogoTabuleiro extends Item{
 
 	}
 	
+	/**
+	 * Diz que uma peca foi perdida
+	 * @param nomePeca
+	 */
 	public void adicionarPecaPerdida(String nomePeca) {
 		this.pecasPerdidas.add(nomePeca);
 	}
 	
+	/**
+	 * Diz  se tem uma peca perdida
+	 * @return
+	 */
 	public String seHaPecasPerdidas(){
 		if (!pecasPerdidas.isEmpty()){
 			return "COM PECAS PERDIDAS";

@@ -90,6 +90,10 @@ public class BluRayTemporada extends BluRay {
 		return "SERIE: " + this.nome+", R$ "+this.valor+", "+getEmprestado()+", "+this.duracao+" min, "+this.classificacao+", "+this.genero+", Temporada "+this.numeroTemporada;
 	}
 	
+	/**
+	 * Adiciona um episodio
+	 * @param episodio
+	 */
 	public void addEpisodio(int episodio) {
 		episodios.add(episodio);
 	}
