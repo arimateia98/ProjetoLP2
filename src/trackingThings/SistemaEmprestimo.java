@@ -28,6 +28,9 @@ public class SistemaEmprestimo {
 		if(emprestimos.get(emprestimoKey).getEstadoItem()){
 			throw new IllegalArgumentException("Emprestimo nao encontrado");
 		}
+		if (emprestimos.get(emprestimoKey).getEstadoItem()){
+			throw new IllegalArgumentException("Item emprestado no momento");
+		}
 		Emprestimo emprestimo = new Emprestimo(usuarioDono,usuarioEmprestimo,item,dataInicial,diasEmprestimo);
 		emprestimos.put(emprestimoKey, emprestimo);
 	}

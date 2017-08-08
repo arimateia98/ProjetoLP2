@@ -4,6 +4,7 @@ public abstract class Item {
 	
 	protected String nome;
 	protected double valor;
+	protected boolean estadoEmprestimo;
 
 	/**
 	 * Cada item tem um nome e um valor
@@ -13,6 +14,7 @@ public abstract class Item {
 	public Item(String nome, double valor) {
 		this.nome = nome;
 		this.valor = valor;
+		this.estadoEmprestimo = false;
 	}
 
 	/**
@@ -20,6 +22,14 @@ public abstract class Item {
 	 */
 	public String getNome() {
 		return this.nome;
+	}
+	
+	public boolean getEstadoEmprestimo(){
+		return this.estadoEmprestimo;
+	}
+	
+	public void setEstadoEmprestimo(boolean estado){
+		this.estadoEmprestimo = estado;
 	}
 	
 	
