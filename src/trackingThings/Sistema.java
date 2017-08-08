@@ -12,12 +12,10 @@ public class Sistema {
 	
 	private HashMap<UsuarioKey, Usuario> usuarios;
 	private SistemaEmprestimo sistemaEmprestimo;
-	private ArrayList<Item> todosItens;
 	
 	public Sistema(){
 		this.usuarios = new HashMap<>();
 		this.sistemaEmprestimo = new SistemaEmprestimo();
-		this.todosItens = new ArrayList<>();
 	}
 		
 	/**
@@ -307,6 +305,7 @@ public class Sistema {
 	}
 
 	public String listarItensOrdenadosPorNome() {
+		ArrayList<Item> todosItens = new ArrayList<>();
 		Set keys = usuarios.keySet();
 		for (Object key : keys){
 			for(Object nomeItem : usuarios.get(key).getSetHashMap()){
@@ -323,10 +322,24 @@ public class Sistema {
 	}
 
 	public String listarItensOrdenadosPorValor() {
-		return null;
+		ArrayList<Item> todosItens = new ArrayList<>();
+		Set keyUsuario = usuarios.keySet();
+		for (Object usuario : keyUsuario){
+			for(Object nomeItem : usuarios.get(usuario).getSetHashMap()){
+				todosItens.add(usuarios.get(usuario).getItem((String)nomeItem));
+			}
+		}
+		
+		Collections.sort(todosItens, new ValorComparator());
+		String retorno = "";
+		for (Item item : todosItens){
+			retorno += item.toString()+"|";
+		}
+		return retorno;
 	}
 
 	public String pesquisarDetalhesItem(String nome, String telefone, String nomeItem) {
+		
 		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
 		if (!usuarios.containsKey(usuarioKey)){
 			throw new NullPointerException("Usuario invalido");

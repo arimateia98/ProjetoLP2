@@ -174,7 +174,7 @@ public class Usuario {
 
 	public void cadastrarBluRaySerie(String nomeItem, Double preco, String descricao, int duracao, String classificacao,
 			String genero, int temporada) {
-		BluRayTemporada bluRaySerie = new BluRayTemporada(nomeItem, preco, duracao, classificacao, temporada);
+		BluRayTemporada bluRaySerie = new BluRayTemporada(nomeItem, preco, duracao, classificacao, genero, temporada);
 		itensPossuidos.put(nomeItem, bluRaySerie);
 	}
 

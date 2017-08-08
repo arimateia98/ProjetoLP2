@@ -71,7 +71,7 @@ public class JogoTabuleiro extends Item{
 		if (!pecasPerdidas.isEmpty()){
 			return "COM PECAS PERDIDAS";
 		}else{
-			return "SEM PECAS PERDIDAS";
+			return "COMPLETO";
 		}
 	}
 }
