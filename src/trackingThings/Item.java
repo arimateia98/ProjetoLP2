@@ -48,5 +48,14 @@ public abstract class Item {
 		return this.valor;
 	}
 	
+	public String getEmprestado(){
+		if (!estadoEmprestimo){
+			return "Nao emprestado";
+		}
+		else{
+			return "Emprestado";
+		}
+	}
+	
 	
 }

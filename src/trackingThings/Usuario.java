@@ -2,6 +2,7 @@ package trackingThings;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  * Cada Usuario tera um nome, telefone, email e um conjunto de itens
@@ -89,14 +90,15 @@ public class Usuario {
 	public HashMap<String, Item> getItensPossuidos() {
 		return itensPossuidos;
 	}
-
-	/**
-	 * Isso eh necessario?
-	 * @param itensPossuidos
-	 */
-	public void setItensPossuidos(HashMap<String, Item> itensPossuidos) {
-		this.itensPossuidos = itensPossuidos;
+	
+	public Set getSetHashMap() {
+		return itensPossuidos.keySet();
 	}
+	
+	public Item getItem(String nomeItem){
+		return itensPossuidos.get(nomeItem);
+	}
+
 
 	/* 
 	 * toString do Usuario
