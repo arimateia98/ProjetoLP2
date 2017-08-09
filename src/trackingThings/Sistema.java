@@ -5,9 +5,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Set;
 
-import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
-
 public class Sistema {
 	
 	private HashMap<UsuarioKey, Usuario> usuarios;
@@ -111,7 +108,7 @@ public class Sistema {
 	 * @param nome
 	 * @param telefone
 	 * @param atributo
-	 * @return atributo pedido
+	 * @return atributo do usuario
 	 */
 	public String getInfoUsuario(String nome, String telefone, String atributo){
 		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
@@ -284,7 +281,7 @@ public class Sistema {
 	 * @param telefone
 	 * @param nomeItem
 	 * @param atributo
-	 * @return
+	 * @return atributo do item
 	 */
 	public String getInfoItem(String nome, String telefone, String nomeItem, String atributo) {
 		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
@@ -306,7 +303,7 @@ public class Sistema {
 
 	/**
 	 * Lista os itens ordenados pelo nome
-	 * @return
+	 * @return itens ordenados
 	 */
 	public String listarItensOrdenadosPorNome() {
 		ArrayList<Item> todosItens = new ArrayList<>();
@@ -326,8 +323,8 @@ public class Sistema {
 	}
 
 	/**
-	 * Lista oms itens ordenados pelo seu valor
-	 * @return
+	 * Lista os itens ordenados pelo seu valor
+	 * @return itens ordenados
 	 */
 	public String listarItensOrdenadosPorValor() {
 		ArrayList<Item> todosItens = new ArrayList<>();

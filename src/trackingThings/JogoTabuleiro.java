@@ -26,6 +26,10 @@ public class JogoTabuleiro extends Item{
 		return pecasPerdidas;
 	}
 
+	public List<String> getPecasTotais() {
+		return pecasTotais;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
