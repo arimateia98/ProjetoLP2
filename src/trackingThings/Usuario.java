@@ -311,7 +311,13 @@ public class Usuario {
 		return itensPossuidos.get(nomeItem).toString();
 	}
 	
+	public void adicionaEmEmprestados(Item item){
+		itensEmprestados.add(item);
+	}
 	
+	public void removeEmEmorestados(Item item){
+		itensEmprestados.remove(item);
+	}
 	
 	
 }

@@ -379,8 +379,12 @@ public class Sistema {
 		String telefoneReferente, String nomeItem, String dataEmprestimo, int periodo) {
 		UsuarioKey usuarioKey1 = new UsuarioKey(nomeDono, telefoneDono);
 		UsuarioKey usuarioKey2 = new UsuarioKey(nomeReferente, telefoneReferente);
-		
-		this.sistemaEmprestimo.registrarEmprestimo(usuarios.get(usuarioKey1), usuarios.get(usuarioKey2), usuarios.get(usuarioKey1).getItem(nomeItem), dataEmprestimo, periodo);
+		if (!usuarios.containsKey(usuarioKey1) || !usuarios.containsKey(usuarioKey2)){
+			throw new NullPointerException("Usuario invalido");
+		}
+
+		this.sistemaEmprestimo.registrarEmprestimo(usuarios.get(usuarioKey1), usuarios.get(usuarioKey2),
+				usuarios.get(usuarioKey1).getItem(nomeItem), dataEmprestimo, periodo);
 	}
 
 	/**
@@ -398,7 +402,12 @@ public class Sistema {
 		
 		UsuarioKey usuarioKey1 = new UsuarioKey(nomeDono, telefoneDono);
 		UsuarioKey usuarioKey2 = new UsuarioKey(nomeReferente, telefoneReferente);
-
-		this.sistemaEmprestimo.devolverItem(usuarios.get(usuarioKey1), usuarios.get(usuarioKey2), usuarios.get(usuarioKey1).getItem(nomeItem), dataEmprestimo, dataDevolucao);
+		
+		if (!usuarios.containsKey(usuarioKey1) || !usuarios.containsKey(usuarioKey2)){
+			throw new NullPointerException("Usuario invalido");
+		}
+		
+		this.sistemaEmprestimo.devolverItem(usuarios.get(usuarioKey1), usuarios.get(usuarioKey2),
+				usuarios.get(usuarioKey1).getItem(nomeItem), dataEmprestimo, dataDevolucao);
 	}
 }

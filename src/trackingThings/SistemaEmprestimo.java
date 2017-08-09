@@ -6,7 +6,6 @@ import java.util.HashMap;
 
 public class SistemaEmprestimo {
 	
-	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	private HashMap<EmprestimoKey,Emprestimo> emprestimos;
 	
 	public SistemaEmprestimo(){
@@ -22,21 +21,21 @@ public class SistemaEmprestimo {
 	 * @param diasEmprestimo
 	 */
 	
-	public void registrarEmprestimo(Usuario usuarioDono,Usuario usuarioEmprestimo,Item item,String dataInicial,int diasEmprestimo){
-		EmprestimoKey emprestimoKey = new EmprestimoKey(usuarioDono, usuarioEmprestimo, item);
-		
+	public void registrarEmprestimo(Usuario usuarioDono,Usuario usuarioEmprestimo,Item item, String dataInicial,int diasEmprestimo){
+		EmprestimoKey emprestimoKey = new EmprestimoKey(usuarioDono, usuarioEmprestimo, item);	
 		if (emprestimos.containsKey(emprestimoKey)){
 			throw new IllegalArgumentException("Emprestimo ja existe");
 		}
-		if(emprestimos.get(emprestimoKey).getEstadoItem()){
-			throw new IllegalArgumentException("Emprestimo nao encontrado");
-		}
-		if (emprestimos.get(emprestimoKey).getEstadoItem()){
+		if (usuarioDono.getItensEmprestados().contains(item)) {
 			throw new IllegalArgumentException("Item emprestado no momento");
 		}
+		if (!usuarioDono.getItensPossuidos().containsValue(item)) {
+			throw new IllegalArgumentException("Item nao encontrado");
+		}
 		
-		
-		LocalDate date = LocalDate.parse(dataInicial, formatter);
+		usuarioDono.adicionaEmEmprestados(item);
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		LocalDate date = LocalDate.parse(dataInicial, fmt);
 		Emprestimo emprestimo = new Emprestimo(usuarioDono,usuarioEmprestimo,item,date,diasEmprestimo);
 		emprestimos.put(emprestimoKey, emprestimo);
 	}
@@ -53,13 +52,14 @@ public class SistemaEmprestimo {
 	public void devolverItem(Usuario usuarioDono,Usuario usuarioEmprestimo,Item item,String dataInicial,String dataDevolucao){
 		EmprestimoKey emprestimoKey = new EmprestimoKey(usuarioDono, usuarioEmprestimo, item);
 		if (emprestimos.containsKey(emprestimoKey)){
-			LocalDate date = LocalDate.parse(dataDevolucao, formatter);
+			DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			LocalDate date = LocalDate.parse(dataDevolucao, fmt);
 			emprestimos.get(emprestimoKey).devolverItem(date);
 		}else{
 			throw new IllegalArgumentException("Emprestimo nao encontrado");
 		}
 		
-		
+		usuarioDono.removeEmEmorestados(item);
 		
 	}
 	
