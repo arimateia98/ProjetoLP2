@@ -40,6 +40,9 @@ public class UsuarioKey {
 		return true;
 	}
 	
+	/* 
+	 * Matheus mandou mudar isso. Usar gets para fazer a comparacao.
+	 */
 	@Override
 	public String toString() {
 		return this.nome+this.telefone;

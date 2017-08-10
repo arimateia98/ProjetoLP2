@@ -49,7 +49,24 @@ public class SistemaTest {
 	
 	@Test
 	public void testGetInfoUsuario() {
-		assertEquals("", "");
+		assertEquals(sistema.getInfoUsuario("zezinho", "9988-8889", "nome"), "zezinho");
+		assertEquals(sistema.getInfoUsuario("zezinho", "9988-8889", "telefone"),"9988-8889");
+		assertEquals(sistema.getInfoUsuario("zezinho", "9988-8889", "email"), "zevinicin@yahoo.com.br");
 	}
+	
+	@Test
+	public void testGetInfoItem() {
+		assertEquals(sistema.getInfoItem("zezinho", "9988-8889", "Los Hermanos", "nome"), "Los Hermanos");
+		assertEquals(sistema.getInfoItem("zezinho", "9988-8889", "Los Hermanos", "preco"), "99.0");		
+
+	}
+	
+	@Test
+	public void testPesquisarDetalhesItens() {
+		assertEquals(sistema.pesquisarDetalhesItem("zezinho", "9988-8889", "Los Hermanos"), "SHOW: Los Hermanos, R$ 99.0, Nao emprestado, 90 min, LIVRE, Losers manos, 15 faixas");
+	}
+	
+
+	
 
 }
