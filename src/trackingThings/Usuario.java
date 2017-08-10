@@ -7,14 +7,7 @@ import java.util.HashMap;
  * Cada Usuario tera um nome, telefone, email e um conjunto de itens
  *	
  */
-/**
- * @author josevla
- *
- */
-/**
- * @author josevla
- *
- */
+
 public class Usuario {
 	
 	private String nome;
@@ -274,10 +267,10 @@ public class Usuario {
 	 */
 	public String getInfoItem(String nomeItem, String atributo) {
 
-		if (atributo.equals("Preco")) {
+		if (atributo.equalsIgnoreCase("preco")) {
 			return Double.toString(this.itensPossuidos.get(nomeItem).getValor());
 		}
-		if (atributo.equals("Nome")) {
+		if (atributo.equalsIgnoreCase("nome")) {
 			return this.itensPossuidos.get(nomeItem).getNome();
 
 		}
