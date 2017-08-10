@@ -34,9 +34,7 @@ public class SistemaEmprestimo {
 		}
 		
 		usuarioDono.adicionaEmEmprestados(item);
-		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		LocalDate date = LocalDate.parse(dataInicial, fmt);
-		Emprestimo emprestimo = new Emprestimo(usuarioDono,usuarioEmprestimo,item,date,diasEmprestimo);
+		Emprestimo emprestimo = new Emprestimo(usuarioDono,usuarioEmprestimo,item,dataInicial,diasEmprestimo);
 		emprestimos.put(emprestimoKey, emprestimo);
 	}
 	
@@ -52,9 +50,7 @@ public class SistemaEmprestimo {
 	public void devolverItem(Usuario usuarioDono,Usuario usuarioEmprestimo,Item item,String dataInicial,String dataDevolucao){
 		EmprestimoKey emprestimoKey = new EmprestimoKey(usuarioDono, usuarioEmprestimo, item);
 		if (emprestimos.containsKey(emprestimoKey)){
-			DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-			LocalDate date = LocalDate.parse(dataDevolucao, fmt);
-			emprestimos.get(emprestimoKey).devolverItem(date);
+			emprestimos.get(emprestimoKey).devolverItem(dataInicial);
 		}else{
 			throw new IllegalArgumentException("Emprestimo nao encontrado");
 		}

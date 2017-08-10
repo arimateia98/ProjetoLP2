@@ -2,7 +2,9 @@ package trackingThings;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.Temporal;
 
 public class Emprestimo {
 	private Usuario usuarioDono;
@@ -10,23 +12,26 @@ public class Emprestimo {
 	private Item item;
 	private int diasEmprestimo;
 	private int diasAtraso;
+	private static DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	private LocalDate dataInicial;
 	private LocalDate dataDevolucao;
 	
-	public Emprestimo(Usuario usuarioDono,Usuario usuarioEmprestimo,Item item,LocalDate dataInicial,int diasEmprestimo){
+	public Emprestimo(Usuario usuarioDono,Usuario usuarioEmprestimo,Item item,String dataInicial,int diasEmprestimo){
 		this.usuarioDono = usuarioDono;
 		this.usuarioEmprestimo = usuarioEmprestimo;
 		this.item = item;
 		this.item.setEstadoEmprestimo(true); 
-		this.dataInicial = dataInicial;
+		LocalDate date = LocalDate.parse(dataInicial, fmt);
+		this.dataInicial = date;
 		this.diasEmprestimo = diasEmprestimo;
 	}
 	
-	public void devolverItem(LocalDate dataDevolucao){
-		this.dataDevolucao = dataDevolucao;
+	public void devolverItem(String dataDev){
+		LocalDate data = LocalDate.parse(dataDev, fmt);
+		this.dataDevolucao = data;
 		int diasPassados = (int) ChronoUnit.DAYS.between(dataInicial, dataDevolucao);
 		this.diasAtraso = diasPassados - diasEmprestimo;
-		item.setEstadoEmprestimo(false);
+		this.item.setEstadoEmprestimo(false);
 	}
 	
 	public boolean getEstadoItem(){
