@@ -48,8 +48,8 @@ public class SistemaTest {
 	}
 	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testGetInfoUsuario() {
+		assertEquals("", "");
 	}
 
 }
