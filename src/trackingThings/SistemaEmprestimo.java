@@ -1,7 +1,6 @@
 package trackingThings;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 import java.util.HashMap;
 
 public class SistemaEmprestimo {
@@ -55,7 +54,7 @@ public class SistemaEmprestimo {
 			throw new IllegalArgumentException("Emprestimo nao encontrado");
 		}
 		
-		usuarioDono.removeEmEmorestados(item);
+		usuarioDono.removeEmEmprestados(item);
 		
 	}
 	

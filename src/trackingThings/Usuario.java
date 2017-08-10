@@ -315,7 +315,7 @@ public class Usuario {
 		itensEmprestados.add(item);
 	}
 	
-	public void removeEmEmorestados(Item item){
+	public void removeEmEmprestados(Item item){
 		itensEmprestados.remove(item);
 	}
 	
