@@ -1,4 +1,4 @@
-package trackingThingsTests;
+package testes;
 
 import static org.junit.Assert.*;
 
