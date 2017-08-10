@@ -2,7 +2,6 @@ package trackingThings;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Set;
 
 /**
  * Cada Usuario tera um nome, telefone, email e um conjunto de itens
@@ -99,9 +98,6 @@ public class Usuario {
 		return itensPossuidos;
 	}
 	
-	public Set getSetHashMap() {
-		return itensPossuidos.keySet();
-	}
 	
 	public Item getItem(String nomeItem){
 		return itensPossuidos.get(nomeItem);

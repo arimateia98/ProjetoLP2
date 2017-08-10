@@ -3,7 +3,6 @@ package trackingThings;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Set;
 
 public class Sistema {
 	
@@ -307,11 +306,9 @@ public class Sistema {
 	 */
 	public String listarItensOrdenadosPorNome() {
 		ArrayList<Item> todosItens = new ArrayList<>();
-		Set keys = usuarios.keySet();
-		for (Object key : keys){
-			for(Object nomeItem : usuarios.get(key).getSetHashMap()){
-				todosItens.add(usuarios.get(key).getItem((String)nomeItem));
-			}
+		
+		for (Usuario usuario : usuarios.values()){
+			todosItens.addAll(usuario.getItensPossuidos().values());
 		}
 		
 		Collections.sort(todosItens, new NomeComparator());
@@ -328,11 +325,9 @@ public class Sistema {
 	 */
 	public String listarItensOrdenadosPorValor() {
 		ArrayList<Item> todosItens = new ArrayList<>();
-		Set keyUsuario = usuarios.keySet();
-		for (Object usuario : keyUsuario){
-			for(Object nomeItem : usuarios.get(usuario).getSetHashMap()){
-				todosItens.add(usuarios.get(usuario).getItem((String)nomeItem));
-			}
+
+		for (Usuario usuario : usuarios.values()){
+			todosItens.addAll(usuario.getItensPossuidos().values());
 		}
 		
 		Collections.sort(todosItens, new ValorComparator());
