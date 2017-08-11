@@ -3,6 +3,10 @@ package trackingThings;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Jose Ramon
+ *
+ */
 public class JogoTabuleiro extends Item{
 	
 	private List<String> pecasTotais;

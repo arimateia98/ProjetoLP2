@@ -1,5 +1,9 @@
 package trackingThings;
 
+/**
+ * @author Jose Ramon
+ *
+ */
 public class JogoEletronico extends Item{
 	
 	private String plataforma;

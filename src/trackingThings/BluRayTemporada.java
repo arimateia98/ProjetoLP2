@@ -3,6 +3,10 @@
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * @author Jose Ramon
+ *
+ */
 public class BluRayTemporada extends BluRay {
 	
 	private Set<Integer> episodios; 

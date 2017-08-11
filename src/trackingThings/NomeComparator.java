@@ -2,6 +2,10 @@ package trackingThings;
 
 import java.util.Comparator;
 
+/**
+ * @author Jose Vinicius
+ *
+ */
 public class NomeComparator implements Comparator<Item>  {
 	
 	public NomeComparator() {

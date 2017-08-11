@@ -4,6 +4,10 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
+/**
+ * @author Jose de Arimateia, Katson Matheus
+ *
+ */
 public class Emprestimo {
 	private Usuario usuarioDono;
 	private Usuario usuarioEmprestimo;

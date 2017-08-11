@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
+/**
+ * @author Katson Matheus
+ *
+ */
 public class Sistema {
 	
 	private HashMap<UsuarioKey, Usuario> usuarios;

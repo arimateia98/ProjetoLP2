@@ -1,6 +1,11 @@
 package trackingThings;
 
+/**
+ * @author Jose Ramon
+ *
+ */
 public abstract class Item {
+	
 	
 	protected String nome;
 	protected double valor;

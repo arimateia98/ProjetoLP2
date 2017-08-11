@@ -1,5 +1,9 @@
 package trackingThings;
 
+/**
+ * @author Katson Matheus
+ *
+ */
 public class UsuarioKey {
 	
 	private String nome;

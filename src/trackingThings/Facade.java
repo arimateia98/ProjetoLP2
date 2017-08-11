@@ -1,6 +1,9 @@
 package trackingThings;
 
-
+/**
+ * @author Katson Matheus
+ *
+ */
 public class Facade {
 	
 	Sistema sistema;

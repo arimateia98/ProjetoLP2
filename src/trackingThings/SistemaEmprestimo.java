@@ -3,6 +3,10 @@ package trackingThings;
 
 import java.util.HashMap;
 
+/**
+ * @author Jose de Arimateia
+ *
+ */
 public class SistemaEmprestimo {
 	
 	private HashMap<EmprestimoKey,Emprestimo> emprestimos;

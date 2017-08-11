@@ -1,5 +1,9 @@
 package trackingThings;
 
+/**
+ * @author Jose Ramon
+ *
+ */
 public class BluRayFilme extends BluRay {
 	
 	private String genero;

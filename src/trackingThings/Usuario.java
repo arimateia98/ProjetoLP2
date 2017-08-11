@@ -7,7 +7,10 @@ import java.util.HashMap;
  * Cada Usuario tera um nome, telefone, email e um conjunto de itens
  *	
  */
-
+/**
+ * @author Jose Vinicius
+ *
+ */
 public class Usuario {
 	
 	private String nome;
