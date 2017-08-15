@@ -25,8 +25,8 @@ public class Usuario {
 		this.nome = nome;
 		this.telefone = telefone;
 		this.email = email;
-		this.EmprestimosPego = new ArrayList<>();
-		this.Emprestando = new ArrayList<>();
+		this.emprestimosPego = new ArrayList<>();
+		this.emprestando = new ArrayList<>();
 		this.itensEmprestados = new ArrayList<>();
 		this.itensPossuidos = new HashMap<>();
 	}

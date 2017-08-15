@@ -35,7 +35,7 @@ public class Emprestimo {
 		LocalDate data = LocalDate.parse(dataDev, fmt);
 		this.dataDevolucao = data;
 		int diasPassados = (int) ChronoUnit.DAYS.between(dataInicial, dataDevolucao);
-		this.diasAtraso = diasPassados - diasEmprestimo;
+		this.setDiasAtraso(diasPassados - diasEmprestimo);
 		this.item.setEstadoEmprestimo(false);
 	}
 	
@@ -94,6 +94,21 @@ public class Emprestimo {
 		} else if (!usuarioEmprestimo.equals(other.usuarioEmprestimo))
 			return false;
 		return true;
+	}
+	
+	@Override
+	public String toString() {
+		if (this.item.getEstadoEmprestimo()) {
+			return "EMPRESTIMO - De: " + this.usuarioDono.toString() + ", Para: " + this.usuarioEmprestimo.toString() + ", " + this.item.toString() + ", " +  this.dataInicial + ", " + this.diasEmprestimo + ", ENTREGA: " + this.dataDevolucao;
+		}
+		return "EMPRESTIMO - De: " + this.usuarioDono.toString() + ", Para: " + this.usuarioEmprestimo.toString() + ", " + this.item.toString() + ", " +  this.dataInicial + ", " + this.diasEmprestimo + ", ENTREGA: Emprestimo em andamento";
+	}
+	public int getDiasAtraso() {
+		return diasAtraso;
+	}
+
+	public void setDiasAtraso(int diasAtraso) {
+		this.diasAtraso = diasAtraso;
 	}
 	
 	
