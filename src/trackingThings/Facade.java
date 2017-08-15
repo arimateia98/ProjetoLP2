@@ -85,6 +85,34 @@ public class Facade {
 		this.sistema.devolverItem(nomeDono, telefoneDono, nomeReferente, telefoneReferente, nomeItem, dataEmprestimo, dataDevolucao);
 	}
 	
+	public String listarEmprestimosUsuarioEmprestando(String nome, String telefone) {
+		return this.sistema.listarEmprestimosUsuarioEmprestando(nome, telefone);
+	}
+	
+	public String listarEmprestimosUsuarioPegandoEmprestado(String nome, String telefone) {
+		return this.sistema.listarEmprestimosUsuarioPegandoEmprestado(nome, telefone);
+	}
+	
+	public String listarEmprestimosItem(String nomeItem) {
+		return this.sistema.listarEmprestimosItem(nomeItem);
+	}
+	
+	public String listarItensNaoEmprestados() {
+		return this.sistema.listarItensNaoEmprestados();
+	}
+	
+	public String listarItensEmprestadosItem() {
+		return this.sistema.listarItensEmprestadosItem();
+	}
+	
+	public String listarItensEmprestados() {
+		return this.sistema.listarItensEmprestados();
+	}
+	
+	public String listarTop10Itens() {
+		return this.sistema.listarTop10Itens();
+	}
+	
 	public void fecharSistema(){
 		
 	}

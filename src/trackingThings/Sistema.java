@@ -407,4 +407,34 @@ public class Sistema {
 		this.sistemaEmprestimo.devolverItem(usuarios.get(usuarioKey1), usuarios.get(usuarioKey2),
 				usuarios.get(usuarioKey1).getItem(nomeItem), dataEmprestimo, dataDevolucao);
 	}
+
+	public String listarEmprestimosUsuarioEmprestando(String nome, String telefone) {
+		return null;
+	}
+
+	public String listarEmprestimosUsuarioPegandoEmprestado(String nome, String telefone) {
+		return null;
+	}
+
+	public String listarEmprestimosItem(String nomeItem) {
+		return null;
+	}
+	
+	public String listarItensNaoEmprestados() {
+		return null;
+	}
+	
+	public String listarItensEmprestadosItem() {
+		return null;
+	}
+
+	public String listarItensEmprestados() {
+		return null;
+	}
+
+	public String listarTop10Itens() {
+		return null;
+	}
+	
+	
 }
