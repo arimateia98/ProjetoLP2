@@ -10,6 +10,8 @@ public abstract class Item {
 	protected String nome;
 	protected double valor;
 	protected boolean estadoEmprestimo;
+	private int QntdEmprestimos;
+
 
 	/**
 	 * Cada item tem um nome e um valor
@@ -67,6 +69,14 @@ public abstract class Item {
 		else{
 			return "Emprestado";
 		}
+	}
+	
+	public void adicionaQntdEmprestimos() {
+		this.QntdEmprestimos++;
+	}
+	
+	public int getQntdEmprestimos() {
+		return QntdEmprestimos;
 	}
 	
 	

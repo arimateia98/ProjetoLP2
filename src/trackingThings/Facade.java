@@ -106,11 +106,7 @@ public class Facade {
 	public String listarItensNaoEmprestados() {
 		return this.sistema.listarItensNaoEmprestados();
 	}
-	
-	public String listarItensEmprestadosItem() {
-		return this.sistema.listarItensEmprestadosItem();
-	}
-	
+
 	public String listarItensEmprestados() {
 		return this.sistema.listarItensEmprestados();
 	}
