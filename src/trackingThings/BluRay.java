@@ -1,17 +1,14 @@
 package trackingThings;
 
+/**
+ * @author Jose Ramon
+ *
+ */
 public abstract class BluRay extends Item{
 	
 	protected int duracao;
 	protected String classificacao;
 	
-	/** 
-	 * Blurays tem um nome e um valor alem de sua duracao e sua classificacao etaria
-	 * @param nome
-	 * @param valor
-	 * @param duracao
-	 * @param classificacao
-	 */
 	public BluRay(String nome, double valor, int duracao, String classificacao) {
 		super(nome, valor);
 		this.duracao = duracao;

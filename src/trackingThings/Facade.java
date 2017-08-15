@@ -1,12 +1,18 @@
 package trackingThings;
 
-
+/**
+ * @author Katson Matheus
+ *
+ */
 public class Facade {
 	
 	Sistema sistema;
 	
+	public Facade() {
+		sistema = new Sistema();
+	}
+	
 	public void iniciarSistema() {
-		this.sistema = new Sistema();
 	}
 	
 	public void cadastrarUsuario(String nome,String telefone, String email){

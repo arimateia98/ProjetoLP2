@@ -1,18 +1,20 @@
 package trackingThings;
 
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.Temporal;
 
+/**
+ * @author Jose de Arimateia, Katson Matheus
+ *
+ */
 public class Emprestimo {
 	private Usuario usuarioDono;
 	private Usuario usuarioEmprestimo;
 	private Item item;
 	private int diasEmprestimo;
 	private int diasAtraso;
-	private static DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	private DateTimeFormatter fmt;
 	private LocalDate dataInicial;
 	private LocalDate dataDevolucao;
 	
@@ -21,6 +23,7 @@ public class Emprestimo {
 		this.usuarioEmprestimo = usuarioEmprestimo;
 		this.item = item;
 		this.item.setEstadoEmprestimo(true); 
+		this.fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate date = LocalDate.parse(dataInicial, fmt);
 		this.dataInicial = date;
 		this.diasEmprestimo = diasEmprestimo;

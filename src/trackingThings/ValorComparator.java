@@ -2,6 +2,10 @@ package trackingThings;
 
 import java.util.Comparator;
 
+/**
+ * @author Jose Vinicius
+ *
+ */
 public class ValorComparator implements Comparator<Item> {
 	
 	public ValorComparator() {

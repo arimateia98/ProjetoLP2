@@ -1,5 +1,9 @@
 package trackingThings;
 
+/**
+ * @author Jose Ramon
+ *
+ */
 public class BluRayShow extends BluRay {
 
 	private String nomeArtista;

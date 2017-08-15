@@ -3,8 +3,11 @@ package trackingThings;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Set;
 
+/**
+ * @author Katson Matheus
+ *
+ */
 public class Sistema {
 	
 	private HashMap<UsuarioKey, Usuario> usuarios;
@@ -112,21 +115,21 @@ public class Sistema {
 	 */
 	public String getInfoUsuario(String nome, String telefone, String atributo){
 		UsuarioKey usuarioKey = new UsuarioKey(nome, telefone);
-		String retorno = "";
 		if (!usuarios.containsKey(usuarioKey)){
 			throw new NullPointerException("Usuario invalido");
 		}
-		
-		switch (atributo.toLowerCase()){
-				case "nome":
-					retorno += usuarios.get(usuarioKey).getNome();
-				case "telefone":
-					retorno += usuarios.get(usuarioKey).getTelefone();
-				case "email":
-					retorno += usuarios.get(usuarioKey).getEmail();
-			}
-		
-		return retorno;
+		if (atributo.equalsIgnoreCase("nome")) {
+			return this.usuarios.get(usuarioKey).getNome();
+		}
+		if (atributo.equalsIgnoreCase("telefone")) {
+			return this.usuarios.get(usuarioKey).getTelefone();
+		}
+		if (atributo.equalsIgnoreCase("email")) {
+			return this.usuarios.get(usuarioKey).getEmail();
+		}
+		else{
+			throw new NullPointerException("Atributo invalido");
+		}
 		
 	}
 
@@ -307,11 +310,9 @@ public class Sistema {
 	 */
 	public String listarItensOrdenadosPorNome() {
 		ArrayList<Item> todosItens = new ArrayList<>();
-		Set keys = usuarios.keySet();
-		for (Object key : keys){
-			for(Object nomeItem : usuarios.get(key).getSetHashMap()){
-				todosItens.add(usuarios.get(key).getItem((String)nomeItem));
-			}
+		
+		for (Usuario usuario : usuarios.values()){
+			todosItens.addAll(usuario.getItensPossuidos().values());
 		}
 		
 		Collections.sort(todosItens, new NomeComparator());
@@ -328,11 +329,9 @@ public class Sistema {
 	 */
 	public String listarItensOrdenadosPorValor() {
 		ArrayList<Item> todosItens = new ArrayList<>();
-		Set keyUsuario = usuarios.keySet();
-		for (Object usuario : keyUsuario){
-			for(Object nomeItem : usuarios.get(usuario).getSetHashMap()){
-				todosItens.add(usuarios.get(usuario).getItem((String)nomeItem));
-			}
+
+		for (Usuario usuario : usuarios.values()){
+			todosItens.addAll(usuario.getItensPossuidos().values());
 		}
 		
 		Collections.sort(todosItens, new ValorComparator());

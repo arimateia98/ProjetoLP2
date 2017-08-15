@@ -1,18 +1,11 @@
-package trackingThingsTests;
+package testes;
 
 import static org.junit.Assert.*;
-
-import javax.swing.text.BadLocationException;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import trackingThings.BluRayFilme;
-import trackingThings.BluRayShow;
-import trackingThings.Item;
-import trackingThings.JogoEletronico;
-import trackingThings.JogoTabuleiro;
-import trackingThings.Usuario;
+import trackingThings.*;
 
 public class UsuarioTest {
 	

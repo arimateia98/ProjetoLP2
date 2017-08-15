@@ -2,18 +2,13 @@ package trackingThings;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Set;
 
 /**
  * Cada Usuario tera um nome, telefone, email e um conjunto de itens
  *	
  */
 /**
- * @author josevla
- *
- */
-/**
- * @author josevla
+ * @author Jose Vinicius
  *
  */
 public class Usuario {
@@ -99,9 +94,6 @@ public class Usuario {
 		return itensPossuidos;
 	}
 	
-	public Set getSetHashMap() {
-		return itensPossuidos.keySet();
-	}
 	
 	public Item getItem(String nomeItem){
 		return itensPossuidos.get(nomeItem);
@@ -278,10 +270,10 @@ public class Usuario {
 	 */
 	public String getInfoItem(String nomeItem, String atributo) {
 
-		if (atributo.equals("Preco")) {
+		if (atributo.equalsIgnoreCase("preco")) {
 			return Double.toString(this.itensPossuidos.get(nomeItem).getValor());
 		}
-		if (atributo.equals("Nome")) {
+		if (atributo.equalsIgnoreCase("nome")) {
 			return this.itensPossuidos.get(nomeItem).getNome();
 
 		}
@@ -315,7 +307,7 @@ public class Usuario {
 		itensEmprestados.add(item);
 	}
 	
-	public void removeEmEmorestados(Item item){
+	public void removeEmEmprestados(Item item){
 		itensEmprestados.remove(item);
 	}
 	

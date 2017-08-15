@@ -1,9 +1,12 @@
 package trackingThings;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 import java.util.HashMap;
 
+/**
+ * @author Jose de Arimateia
+ *
+ */
 public class SistemaEmprestimo {
 	
 	private HashMap<EmprestimoKey,Emprestimo> emprestimos;
@@ -55,7 +58,7 @@ public class SistemaEmprestimo {
 			throw new IllegalArgumentException("Emprestimo nao encontrado");
 		}
 		
-		usuarioDono.removeEmEmorestados(item);
+		usuarioDono.removeEmEmprestados(item);
 		
 	}
 	
