@@ -127,6 +127,12 @@ public class Sistema {
 		if (atributo.equalsIgnoreCase("email")) {
 			return this.usuarios.get(usuarioKey).getEmail();
 		}
+		if (atributo.equalsIgnoreCase("reputacao")) {
+			return ""+this.usuarios.get(usuarioKey).getReputacao();
+		}
+		if (atributo.equalsIgnoreCase("cartao")) {
+			return this.usuarios.get(usuarioKey).getCartao();
+		}
 		else{
 			throw new NullPointerException("Atributo invalido");
 		}
@@ -407,31 +413,80 @@ public class Sistema {
 				usuarios.get(usuarioKey1).getItem(nomeItem), dataEmprestimo, dataDevolucao);
 	}
 
+	/**
+	 * Lista os itens emprestados do usuario
+	 * @param nome
+	 * @param telefone
+	 * @return itens emprestados do usuario
+	 */
 	public String listarEmprestimosUsuarioEmprestando(String nome, String telefone) {
 		return null;
 	}
 
+	/**
+	 * Lista os itens pegos emprestados pelo usuario
+	 * @param nome
+	 * @param telefone
+	 * @return itens pegos emprestados pelo usuario
+	 */
 	public String listarEmprestimosUsuarioPegandoEmprestado(String nome, String telefone) {
 		return null;
 	}
 
+	/**
+	 * Lista todos os emprestimos do item
+	 * @param nomeItem
+	 * @return todos os emprestimos do item ocorridos
+	 */
 	public String listarEmprestimosItem(String nomeItem) {
 		return null;
 	}
 	
+	/**
+	 * Lista todos os itens nao emprestados
+	 * @return itens nao emprestados
+	 */
 	public String listarItensNaoEmprestados() {
 		return null;
 	}
-	
-	public String listarItensEmprestadosItem() {
-		return null;
-	}
 
+	/**
+	 * Lista todos os itens emprestados 
+	 * @return itens emprestados
+	 */
 	public String listarItensEmprestados() {
 		return null;
 	}
 
+	/**
+	 * Lista os 10 itens mais emprestados
+	 * @return 10 itens mais emprestados
+	 */
 	public String listarTop10Itens() {
+		return null;
+	}
+	
+	/**
+	 * Lista usuarios caloteiros
+	 * @return lista de usuarios com cartao "caloteiro"
+	 */
+	public String listarCaloteiros() {
+		return null;
+	}
+
+	/**
+	 * Lista os 10 usuarios com melhor reputacao
+	 * @return lista dos 10 melhores usuarios
+	 */
+	public String listarTop10MelhoresUsuarios() {
+		return null;
+	}
+
+	/**
+	 * Lista os 10 usuarios com a pior reputacao
+	 * @return lista dos 10 piores usuarios
+	 */
+	public String listarTop10PioresUsuarios() {
 		return null;
 	}
 	

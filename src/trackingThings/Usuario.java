@@ -16,6 +16,8 @@ public class Usuario {
 	private String nome;
 	private String telefone;
  	private String email;
+ 	private double reputacao;
+ 	private String cartao;
  	private HashMap <String,Item> itensPossuidos;
 	private ArrayList <Item> itensEmprestados;
 	private ArrayList <Emprestimo> emprestimosPego;
@@ -307,25 +309,78 @@ public class Usuario {
 		return itensPossuidos.get(nomeItem).toString();
 	}
 	
+	/**
+	 * Adiciona item emprestado numa lista de emprestimo
+	 * @param item
+	 */
 	public void adicionaEmEmprestados(Item item){
 		itensEmprestados.add(item);
 	}
 	
+	/**
+	 * Remove item emprestadado da lista de emprestimo
+	 * @param item
+	 */
 	public void removeEmEmprestados(Item item){
 		itensEmprestados.remove(item);
 	}
 	
+	/**
+	 * Adiciona o item a lista de itens pegos
+	 * @param emprestimo
+	 */
 	public void adicionaEmEmprestimosPego(Emprestimo emprestimo) {
 		emprestimosPego.add(emprestimo);
 	}
 	
+	/**
+	 * Adiciona o item a lista de itens disponiveis para emprestimo
+	 * @param emprestimo
+	 */
 	public void AdicionaEmEmprestando(Emprestimo emprestimo) {
 		emprestando.add(emprestimo);
 	}
 
+	/**
+	 * Adquire o Dono do item
+	 * @return dono do item
+	 */
 	public String getUsuarioEmprestando() {
 		return null;
 	}
+
+	/**
+	 * Adquire a reputacao do usuario
+	 * @return reputacao do usuario
+	 */
+	public double getReputacao() {
+		return this.reputacao;
+	}
+	
+	/**
+	 * Institue uma reputacao ao usuario
+	 * @param reputacao
+	 */
+	public void setReputacao(double reputacao) {
+		this.reputacao = reputacao;
+	}
+
+	/**
+	 * @return cartao do usuario
+	 */
+	public String getCartao() {
+		return this.cartao;
+	}
+	
+	/**
+	 * Institue um cartao ao usuario
+	 * @param cartao
+	 */
+	public void SetCartao(String cartao) {
+		this.cartao = cartao;
+	}
+	
+	
 	
 	
 }
