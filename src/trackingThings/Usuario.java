@@ -19,6 +19,10 @@ public class Usuario {
  	private HashMap <String,Item> itensPossuidos;
 	private ArrayList <Item> itensEmprestados;
 
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 69eaeb48d69a7b66054b1489979a649811427b0f
 	public Usuario(String nome,String telefone, String email) {
 		this.nome = nome;
 		this.telefone = telefone;
@@ -309,6 +313,10 @@ public class Usuario {
 	
 	public void removeEmEmprestados(Item item){
 		itensEmprestados.remove(item);
+	}
+
+	public String getUsuarioEmprestando() {
+		return null;
 	}
 	
 	
