@@ -25,7 +25,7 @@ public class SistemaEmprestimo {
 	 */
 	
 	public void registrarEmprestimo(Usuario usuarioDono,Usuario usuarioEmprestimo,Item item, String dataInicial,int diasEmprestimo){
-		EmprestimoKey emprestimoKey = new EmprestimoKey(usuarioDono, usuarioEmprestimo, item);	
+		EmprestimoKey emprestimoKey = new EmprestimoKey(usuarioDono, usuarioEmprestimo, item);
 		if (emprestimos.containsKey(emprestimoKey)){
 			throw new IllegalArgumentException("Emprestimo ja existe");
 		}
@@ -38,6 +38,8 @@ public class SistemaEmprestimo {
 		
 		usuarioDono.adicionaEmEmprestados(item);
 		Emprestimo emprestimo = new Emprestimo(usuarioDono,usuarioEmprestimo,item,dataInicial,diasEmprestimo);
+		usuarioDono.AdicionaEmEmprestando(emprestimo);
+		usuarioEmprestimo.adicionaEmEmprestimosPego(emprestimo);
 		emprestimos.put(emprestimoKey, emprestimo);
 	}
 	

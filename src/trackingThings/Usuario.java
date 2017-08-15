@@ -18,11 +18,15 @@ public class Usuario {
  	private String email;
  	private HashMap <String,Item> itensPossuidos;
 	private ArrayList <Item> itensEmprestados;
-
+	private ArrayList <Emprestimo> emprestimosPego;
+	private ArrayList <Emprestimo> emprestando;
+	
 	public Usuario(String nome,String telefone, String email) {
 		this.nome = nome;
 		this.telefone = telefone;
 		this.email = email;
+		this.EmprestimosPego = new ArrayList<>();
+		this.Emprestando = new ArrayList<>();
 		this.itensEmprestados = new ArrayList<>();
 		this.itensPossuidos = new HashMap<>();
 	}
@@ -309,6 +313,14 @@ public class Usuario {
 	
 	public void removeEmEmprestados(Item item){
 		itensEmprestados.remove(item);
+	}
+	
+	public void adicionaEmEmprestimosPego(Emprestimo emprestimo) {
+		emprestimosPego.add(emprestimo);
+	}
+	
+	public void AdicionaEmEmprestando(Emprestimo emprestimo) {
+		emprestando.add(emprestimo);
 	}
 
 	public String getUsuarioEmprestando() {

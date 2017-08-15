@@ -23,10 +23,12 @@ public class Emprestimo {
 		this.usuarioEmprestimo = usuarioEmprestimo;
 		this.item = item;
 		this.item.setEstadoEmprestimo(true); 
+		this.item.adicionaQntdEmprestimos();
 		this.fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate date = LocalDate.parse(dataInicial, fmt);
 		this.dataInicial = date;
 		this.diasEmprestimo = diasEmprestimo;
+		
 	}
 	
 	public void devolverItem(String dataDev){
@@ -38,7 +40,7 @@ public class Emprestimo {
 	}
 	
 	public boolean getEstadoItem(){
-		return item.getEstadoEmprestimo();
+		return this.item.getEstadoEmprestimo();
 	}
 	
 	public Usuario getUsuarioDono(){
