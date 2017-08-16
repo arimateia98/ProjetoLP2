@@ -5,21 +5,23 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 /**
- * @author Jose de Arimateia, Katson Matheus
+ * @author Jose de Arimateia
  *
  */
+
 public class Emprestimo {
 	private Usuario usuarioDono;
 	private Usuario usuarioEmprestimo;
 	private Item item;
 	private int diasEmprestimo;
-	private int diasAtraso;
+	private int diasAtrasado;
 	private DateTimeFormatter fmt;
 	private LocalDate dataInicial;
 	private LocalDate dataDevolucao;
 	
 	public Emprestimo(Usuario usuarioDono,Usuario usuarioEmprestimo,Item item,String dataInicial,int diasEmprestimo){
 		this.usuarioDono = usuarioDono;
+		this.usuarioDono.addReputacao(item.getValor() * 0.10);
 		this.usuarioEmprestimo = usuarioEmprestimo;
 		this.item = item;
 		this.item.setEstadoEmprestimo(true); 
@@ -31,11 +33,15 @@ public class Emprestimo {
 		
 	}
 	
+	/**
+	 * o metodo vai realizar a devolucao do item 
+	 * @param dataDev
+	 */
 	public void devolverItem(String dataDev){
 		LocalDate data = LocalDate.parse(dataDev, fmt);
 		this.dataDevolucao = data;
 		int diasPassados = (int) ChronoUnit.DAYS.between(dataInicial, dataDevolucao);
-		this.setDiasAtraso(diasPassados - diasEmprestimo);
+		this.setDiasAtrasado(diasPassados - diasEmprestimo);
 		this.item.setEstadoEmprestimo(false);
 	}
 	
@@ -103,12 +109,22 @@ public class Emprestimo {
 		}
 		return "EMPRESTIMO - De: " + this.usuarioDono.toString() + ", Para: " + this.usuarioEmprestimo.toString() + ", " + this.item.toString() + ", " +  this.dataInicial + ", " + this.diasEmprestimo + ", ENTREGA: Emprestimo em andamento";
 	}
-	public int getDiasAtraso() {
-		return diasAtraso;
+	public int getDiasAtrasado() {
+		return this.diasAtrasado;
 	}
 
-	public void setDiasAtraso(int diasAtraso) {
-		this.diasAtraso = diasAtraso;
+	/** 
+	 * Muda a quantidade de dias de atraso e altera a reputacao do usuario emprestimo
+	 * @param diasAtraso
+	 */
+	public void setDiasAtrasado(int diasAtraso) {
+		this.diasAtrasado = diasAtraso;
+		if (diasAtraso > 0) {
+			this.usuarioEmprestimo.addReputacao(item.getValor() * (diasAtraso/-100));//se o usuario entregou o item com atraso, a reputacao a ser adicionada vai ser negativa
+		}else {
+			this.usuarioEmprestimo.addReputacao(item.getValor() * 0.05);
+		}
+		
 	}
 	
 	
