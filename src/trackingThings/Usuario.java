@@ -361,8 +361,8 @@ public class Usuario {
 	 * Institue uma reputacao ao usuario
 	 * @param reputacao
 	 */
-	public void setReputacao(double reputacao) {
-		this.reputacao = reputacao;
+	public void addReputacao(double reputacao) {
+		this.reputacao += reputacao;
 	}
 
 	/**
