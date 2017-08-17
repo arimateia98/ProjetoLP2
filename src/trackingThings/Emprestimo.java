@@ -28,7 +28,6 @@ public class Emprestimo {
 		}
 		this.item = item;
 		this.item.setEstadoEmprestimo(true); 
-		this.item.adicionaQntdEmprestimos();
 		this.fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate date = LocalDate.parse(dataInicial, fmt);
 		this.dataInicial = date;

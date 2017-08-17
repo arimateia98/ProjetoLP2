@@ -473,7 +473,15 @@ public class Sistema {
 	 * @return itens nao emprestados
 	 */
 	public String listarItensNaoEmprestados() {
-		return null;
+		String retorno = "";
+		for (Usuario usuario: usuarios.values()) {
+			for (Item item: usuario.getItensPossuidos().values()) {
+				if (!item.getEstadoEmprestimo()) {
+					retorno += "Dono do item: "+ usuario.getNome() + ", Nome do item emprestado: " + item.getNome() + "|";
+				}
+			}
+		}
+		return retorno;
 	}
 
 	/**
@@ -481,7 +489,15 @@ public class Sistema {
 	 * @return itens emprestados
 	 */
 	public String listarItensEmprestados() {
-		return null;
+		String retorno = "";
+		for (Usuario usuario: usuarios.values()) {
+			for (Item item: usuario.getItensPossuidos().values()) {
+				if (item.getEstadoEmprestimo()) {
+					retorno += "Dono do item: "+ usuario.getNome() + ", Nome do item emprestado: " + item.getNome() + "|";
+				}
+			}
+		}
+		return retorno;
 	}
 
 	/**

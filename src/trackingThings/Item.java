@@ -1,5 +1,7 @@
 package trackingThings;
 
+import java.util.ArrayList;
+
 /**
  * @author Jose Ramon
  *
@@ -10,7 +12,7 @@ public abstract class Item {
 	protected String nome;
 	protected double valor;
 	protected boolean estadoEmprestimo;
-	private int QntdEmprestimos;
+	protected ArrayList <Emprestimo> emprestimosOcorridos;
 
 
 	/**
@@ -22,6 +24,7 @@ public abstract class Item {
 		this.nome = nome;
 		this.valor = valor;
 		this.estadoEmprestimo = false;
+		emprestimosOcorridos = new ArrayList<>();
 	}
 
 	/**
@@ -70,14 +73,12 @@ public abstract class Item {
 			return "Emprestado";
 		}
 	}
-	
-	public void adicionaQntdEmprestimos() {
-		this.QntdEmprestimos++;
+
+	public ArrayList<Emprestimo> getEmprestimosOcorridos() {
+		return emprestimosOcorridos;
 	}
-	
-	public int getQntdEmprestimos() {
-		return QntdEmprestimos;
+
+	public void setEmprestimosOcorridos(ArrayList<Emprestimo> emprestimosOcorridos) {
+		this.emprestimosOcorridos = emprestimosOcorridos;
 	}
-	
-	
 }
