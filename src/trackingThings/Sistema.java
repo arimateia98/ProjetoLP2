@@ -444,10 +444,10 @@ public class Sistema {
 	 */
 	public String listarEmprestimosUsuarioPegandoEmprestado(String nome, String telefone) {
 		UsuarioKey usuariokey = new UsuarioKey(nome, telefone);
+		String retorno = "";
 		if (!usuarios.containsKey(usuariokey)){
 			throw new NullPointerException("Usuario invalido");
 		}
-		String retorno = "";
 		for (int i = 0; i < usuarios.get(usuariokey).getEmprestimosPego().size(); i++) {
 			retorno += usuarios.get(usuariokey).getEmprestimosPego();
 		}
@@ -474,11 +474,15 @@ public class Sistema {
 	 */
 	public String listarItensNaoEmprestados() {
 		String retorno = "";
-		for (Usuario usuario: usuarios.values()) {
-			for (Item item: usuario.getItensPossuidos().values()) {
-				if (!item.getEstadoEmprestimo()) {
-					retorno += "Dono do item: "+ usuario.getNome() + ", Nome do item emprestado: " + item.getNome() + "|";
-				}
+		ArrayList<Item> todosItens = new ArrayList<>();
+
+		for (Usuario usuario : usuarios.values()){
+			todosItens.addAll(usuario.getItensPossuidos().values());
+		}
+		Collections.sort(todosItens, new NomeComparator());
+		for (Item item: todosItens) {
+			if (!item.getEstadoEmprestimo()) {
+				retorno += item.toString() + "|";
 			}
 		}
 		return retorno;
@@ -490,8 +494,9 @@ public class Sistema {
 	 */
 	public String listarItensEmprestados() {
 		String retorno = "";
+		ArrayList<Item> todosItens = new ArrayList<>();
 		for (Usuario usuario: usuarios.values()) {
-			for (Item item: usuario.getItensPossuidos().values()) {
+			for (Item item: todosItens) {
 				if (item.getEstadoEmprestimo()) {
 					retorno += "Dono do item: "+ usuario.getNome() + ", Nome do item emprestado: " + item.getNome() + "|";
 				}
