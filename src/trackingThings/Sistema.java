@@ -426,7 +426,7 @@ public class Sistema {
 		}
 		String retorno = "";
 		for (int i = 0; i < usuarios.get(usuariokey).getEmprestando().size(); i++) {
-			retorno += usuarios.get(usuariokey).getEmprestando().get(i) + "|";
+			retorno += "Emprestimos: " + usuarios.get(usuariokey).getEmprestando().get(i) + "|";
 		}
 		if (retorno.equals(null) || retorno.trim().equals("")) {
 			retorno = "Nenhum item emprestado";
@@ -449,7 +449,7 @@ public class Sistema {
 			throw new NullPointerException("Usuario invalido");
 		}
 		for (int i = 0; i < usuarios.get(usuariokey).getEmprestimosPego().size(); i++) {
-			retorno += usuarios.get(usuariokey).getEmprestimosPego();
+			retorno += "Emprestimos pegos: " + usuarios.get(usuariokey).getEmprestimosPego()+ "|";
 		}
 		if (retorno.equals(null) || retorno.trim().equals("")) {
 			retorno = "Nenhum item pego emprestado";

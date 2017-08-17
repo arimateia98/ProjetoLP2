@@ -37,7 +37,7 @@ public class Emprestimo {
 	 * @param dataDev
 	 */
 	public void devolverItem(String dataDev){
-		this.dataDevolucao = dataDevolucao;
+		this.dataDevolucao = dataDev;
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate dateIni = LocalDate.parse(this.dataInicial, fmt);
 		LocalDate dataDev1 = LocalDate.parse(dataDev, fmt);
@@ -107,9 +107,9 @@ public class Emprestimo {
 	@Override
 	public String toString() {
 		if (this.item.getEstadoEmprestimo()) {
-			return "EMPRESTIMO - De: " + this.usuarioDono.toString() + ", Para: " + this.usuarioEmprestimo.toString() + ", " + this.item.toString() + ", " +  this.dataInicial + ", " + this.diasEmprestimo + ", ENTREGA: " + this.dataDevolucao;
+			return "EMPRESTIMO - De: " + this.usuarioDono.getNome() + ", Para: " + this.usuarioEmprestimo.getNome() + ", " + this.item.getNome() + ", " +  this.dataInicial + ", " + this.diasEmprestimo + " dias, ENTREGA: " + this.dataDevolucao;
 		}
-		return "EMPRESTIMO - De: " + this.usuarioDono.toString() + ", Para: " + this.usuarioEmprestimo.toString() + ", " + this.item.toString() + ", " +  this.dataInicial + ", " + this.diasEmprestimo + ", ENTREGA: Emprestimo em andamento";
+		return "EMPRESTIMO - De: " + this.usuarioDono.getNome() + ", Para: " + this.usuarioEmprestimo.getNome() + ", " + this.item.getNome() + ", " +  this.dataInicial + ", " + this.diasEmprestimo + " dias, ENTREGA: Emprestimo em andamento";
 	}
 	public int getDiasAtrasado() {
 		return this.diasAtrasados;

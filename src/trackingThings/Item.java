@@ -74,11 +74,12 @@ public abstract class Item {
 		}
 	}
 
+	/**
+	 * Adquire os emprestimos feitos desse item
+	 * @return lista de todos os emprestimos daquele item
+	 */
 	public ArrayList<Emprestimo> getEmprestimosOcorridos() {
 		return emprestimosOcorridos;
 	}
 
-	public void setEmprestimosOcorridos(ArrayList<Emprestimo> emprestimosOcorridos) {
-		this.emprestimosOcorridos = emprestimosOcorridos;
-	}
 }
