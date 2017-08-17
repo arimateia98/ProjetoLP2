@@ -421,9 +421,16 @@ public class Sistema {
 	 */
 	public String listarEmprestimosUsuarioEmprestando(String nome, String telefone) {
 		UsuarioKey usuariokey = new UsuarioKey(nome, telefone);
+		if (!usuarios.containsKey(usuariokey)){
+			throw new NullPointerException("Usuario invalido");
+		}
 		String retorno = "";
 		for (int i = 0; i < usuarios.get(usuariokey).getEmprestando().size(); i++) {
 			retorno += usuarios.get(usuariokey).getEmprestando().get(i) + "|";
+		}
+		if (retorno.equals(null) || retorno.trim().equals("")) {
+			retorno = "Nenhum item emprestado";
+
 		}
 		
 		return retorno;
@@ -437,9 +444,16 @@ public class Sistema {
 	 */
 	public String listarEmprestimosUsuarioPegandoEmprestado(String nome, String telefone) {
 		UsuarioKey usuariokey = new UsuarioKey(nome, telefone);
+		if (!usuarios.containsKey(usuariokey)){
+			throw new NullPointerException("Usuario invalido");
+		}
 		String retorno = "";
 		for (int i = 0; i < usuarios.get(usuariokey).getEmprestimosPego().size(); i++) {
 			retorno += usuarios.get(usuariokey).getEmprestimosPego();
+		}
+		if (retorno.equals(null) || retorno.trim().equals("")) {
+			retorno = "Nenhum item pego emprestado";
+
 		}
 		
 		return retorno;
