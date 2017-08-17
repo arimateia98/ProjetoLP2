@@ -372,6 +372,10 @@ public class Usuario {
 	public void addReputacao(double reputacao) {
 		this.reputacao += reputacao;
 	}
+	
+	public void removeReputacao(double reputacao) {
+		this.reputacao -= reputacao;
+	}
 
 	/**
 	 * @return cartao do usuario

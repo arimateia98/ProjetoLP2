@@ -44,7 +44,8 @@ public class Emprestimo {
 		LocalDate data = LocalDate.parse(dataDev, fmt);
 		this.dataDevolucao = data;
 		int diasPassados = (int) ChronoUnit.DAYS.between(dataInicial, dataDevolucao);
-		this.setDiasAtrasado(diasEmprestimo - diasPassados);
+		this.diasAtrasado = diasPassados - diasEmprestimo;
+		this.calculaReputacao();
 		this.item.setEstadoEmprestimo(false);
 	}
 	
@@ -120,12 +121,11 @@ public class Emprestimo {
 	 * Muda a quantidade de dias de atraso e altera a reputacao do usuario emprestimo
 	 * @param diasAtraso
 	 */
-	public void setDiasAtrasado(int diasAtraso) {
-		this.diasAtrasado = diasAtraso;
-		if (diasAtraso >= 0) {
-			this.usuarioEmprestimo.addReputacao(item.getValor() * 0.05);//se o usuario entregou o item com atraso, a reputacao a ser adicionada vai ser negativa
+	public void calculaReputacao() {
+		if (diasAtrasado > 0) {
+			this.usuarioEmprestimo.removeReputacao(1000);//se o usuario entregou o item com atraso, a reputacao a ser adicionada vai ser negativa
 		}else {
-			this.usuarioEmprestimo.addReputacao(item.getValor() * diasAtraso * 0.1 * -1);
+			this.usuarioEmprestimo.addReputacao(item.getValor()*0.05);
 		}
 		
 	}
