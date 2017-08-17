@@ -3,6 +3,7 @@ package trackingThings;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.Temporal;
 
 /**
  * @author Jose de Arimateia
@@ -14,10 +15,9 @@ public class Emprestimo {
 	private Usuario usuarioEmprestimo;
 	private Item item;
 	private int diasEmprestimo;
-	private int diasAtrasado;
-	private DateTimeFormatter fmt;
-	private LocalDate dataInicial;
-	private LocalDate dataDevolucao;
+	private int diasAtrasados;
+	private String dataInicial;
+	private String dataDevolucao;
 	
 	public Emprestimo(Usuario usuarioDono,Usuario usuarioEmprestimo,Item item,String dataInicial,int diasEmprestimo){
 		this.usuarioDono = usuarioDono;
@@ -27,10 +27,8 @@ public class Emprestimo {
 			throw new IllegalArgumentException("Usuario nao pode pegar nenhum item emprestado");
 		}
 		this.item = item;
-		this.item.setEstadoEmprestimo(true); 
-		this.fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		LocalDate date = LocalDate.parse(dataInicial, fmt);
-		this.dataInicial = date;
+		this.item.setEstadoEmprestimo(true); ;
+		this.dataInicial = dataInicial;
 		this.diasEmprestimo = diasEmprestimo;
 		
 	}
@@ -40,10 +38,12 @@ public class Emprestimo {
 	 * @param dataDev
 	 */
 	public void devolverItem(String dataDev){
-		LocalDate data = LocalDate.parse(dataDev, fmt);
-		this.dataDevolucao = data;
-		int diasPassados = (int) ChronoUnit.DAYS.between(dataInicial, dataDevolucao);
-		this.diasAtrasado = diasPassados - diasEmprestimo;
+		this.dataDevolucao = dataDevolucao;
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		LocalDate dateIni = LocalDate.parse(this.dataInicial, fmt);
+		LocalDate dataDev1 = LocalDate.parse(dataDev, fmt);
+		int diasPassados = (int) ChronoUnit.DAYS.between(dateIni, dataDev1);
+		this.diasAtrasados = diasPassados - diasEmprestimo;
 		this.calculaReputacao();
 		this.item.setEstadoEmprestimo(false);
 	}
@@ -113,7 +113,7 @@ public class Emprestimo {
 		return "EMPRESTIMO - De: " + this.usuarioDono.toString() + ", Para: " + this.usuarioEmprestimo.toString() + ", " + this.item.toString() + ", " +  this.dataInicial + ", " + this.diasEmprestimo + ", ENTREGA: Emprestimo em andamento";
 	}
 	public int getDiasAtrasado() {
-		return this.diasAtrasado;
+		return this.diasAtrasados;
 	}
 
 	/** 
@@ -121,9 +121,9 @@ public class Emprestimo {
 	 * @param diasAtraso
 	 */
 	public void calculaReputacao() {
-		if (diasAtrasado > 0) {
-			this.usuarioEmprestimo.removeReputacao(1000);//se o usuario entregou o item com atraso, a reputacao a ser adicionada vai ser negativa
-		}else {
+		if (diasAtrasados > 0) {
+			this.usuarioEmprestimo.removeReputacao(this.item.getValor() * diasAtrasados * 0.01);//se o usuario entregou o item com atraso, a reputacao a ser adicionada vai ser negativa
+		}else if(diasAtrasados <= 0){
 			this.usuarioEmprestimo.addReputacao(item.getValor()*0.05);
 		}
 		
