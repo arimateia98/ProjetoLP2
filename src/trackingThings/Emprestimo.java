@@ -23,6 +23,9 @@ public class Emprestimo {
 		this.usuarioDono = usuarioDono;
 		this.usuarioDono.addReputacao(item.getValor() * 0.10);
 		this.usuarioEmprestimo = usuarioEmprestimo;
+		if (this.usuarioEmprestimo.getCartao().equals("Caloteiro")){
+			throw new IllegalArgumentException("Usuario nao pode pegar nenhum item emprestado");
+		}
 		this.item = item;
 		this.item.setEstadoEmprestimo(true); 
 		this.item.adicionaQntdEmprestimos();
@@ -41,7 +44,7 @@ public class Emprestimo {
 		LocalDate data = LocalDate.parse(dataDev, fmt);
 		this.dataDevolucao = data;
 		int diasPassados = (int) ChronoUnit.DAYS.between(dataInicial, dataDevolucao);
-		this.setDiasAtrasado(diasPassados - diasEmprestimo);
+		this.setDiasAtrasado(diasEmprestimo - diasPassados);
 		this.item.setEstadoEmprestimo(false);
 	}
 	
@@ -119,10 +122,10 @@ public class Emprestimo {
 	 */
 	public void setDiasAtrasado(int diasAtraso) {
 		this.diasAtrasado = diasAtraso;
-		if (diasAtraso > 0) {
-			this.usuarioEmprestimo.addReputacao(item.getValor() * (diasAtraso/-100));//se o usuario entregou o item com atraso, a reputacao a ser adicionada vai ser negativa
+		if (diasAtraso >= 0) {
+			this.usuarioEmprestimo.addReputacao(item.getValor() * 0.05);//se o usuario entregou o item com atraso, a reputacao a ser adicionada vai ser negativa
 		}else {
-			this.usuarioEmprestimo.addReputacao(item.getValor() * 0.05);
+			this.usuarioEmprestimo.addReputacao(item.getValor() * diasAtraso * 0.1 * -1);
 		}
 		
 	}

@@ -26,6 +26,7 @@ public class Usuario {
 	public Usuario(String nome,String telefone, String email) {
 		this.nome = nome;
 		this.telefone = telefone;
+		this.reputacao = 0.0;
 		this.email = email;
 		this.emprestimosPego = new ArrayList<>();
 		this.emprestando = new ArrayList<>();
@@ -160,6 +161,7 @@ public class Usuario {
 	 */
 	public void cadastrarEletronico(String nomeItem, Double preco, String plataforma) {
 		JogoEletronico jogoEletronico = new JogoEletronico(nomeItem, preco, plataforma);
+		this.addReputacao(preco * 0.05);
 		this.itensPossuidos.put(nomeItem, jogoEletronico);
 	}
 
@@ -170,6 +172,7 @@ public class Usuario {
 	 */
 	public void cadastrarJogoTabuleiro(String nomeItem, Double preco) {
 		JogoTabuleiro jogoTabuleiro = new JogoTabuleiro(nomeItem, preco);
+		this.addReputacao(preco * 0.05);
 		itensPossuidos.put(nomeItem, jogoTabuleiro);
 	}
 
@@ -194,6 +197,7 @@ public class Usuario {
 	public void cadastrarBluRayFilme(String nomeItem, Double preco, int duracao, String genero,String classificacao,
 			int anoLancamento) {
 		BluRayFilme bluRayFilme = new BluRayFilme(nomeItem, preco, duracao, classificacao, genero, anoLancamento);
+		this.addReputacao(preco * 0.05);
 		itensPossuidos.put(nomeItem, bluRayFilme);
 	}
 
@@ -209,6 +213,7 @@ public class Usuario {
 	public void cadastrarBluRayShow(String nomeItem, Double preco, int duracao, int numeroFaixas, String artista,
 			String classificacao) {
 		BluRayShow bluRayShow = new BluRayShow(nomeItem, preco, duracao, numeroFaixas, artista, classificacao);
+		this.addReputacao(preco * 0.05);
 		itensPossuidos.put(nomeItem, bluRayShow);
 	}
 
@@ -225,6 +230,7 @@ public class Usuario {
 	public void cadastrarBluRaySerie(String nomeItem, Double preco, String descricao, int duracao, String classificacao,
 			String genero, int temporada) {
 		BluRayTemporada bluRaySerie = new BluRayTemporada(nomeItem, preco, duracao, classificacao, genero, temporada);
+		this.addReputacao(preco * 0.05);
 		itensPossuidos.put(nomeItem, bluRaySerie);
 	}
 
@@ -245,6 +251,7 @@ public class Usuario {
 	 */
 	public void removerItem(String nomeItem) {
 		this.itensPossuidos.remove(nomeItem);
+		this.addReputacao(itensPossuidos.get(nomeItem).getValor() * (-0.05));//diminui a reputacao ao remover um item dos itens possuidos
 	}
 
 	/**
@@ -369,6 +376,7 @@ public class Usuario {
 	 * @return cartao do usuario
 	 */
 	public String getCartao() {
+		calculaCartao();
 		return this.cartao;
 	}
 	
@@ -376,8 +384,16 @@ public class Usuario {
 	 * Institue um cartao ao usuario
 	 * @param cartao
 	 */
-	public void SetCartao(String cartao) {
-		this.cartao = cartao;
+	private void calculaCartao() {
+		if (this.reputacao >= 0 && itensPossuidos.size() == 0){
+			this.cartao = "FreeRyder";
+		}else if (this.reputacao > 100){
+			this.cartao = "BomAmigo";
+		}else if (this.reputacao > 0 && this.reputacao <= 100){
+			this.cartao = "Noob";
+		}else{
+			this.cartao = "Caloteiro";
+		}
 	}
 	
 	
