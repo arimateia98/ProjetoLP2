@@ -38,6 +38,7 @@ public class SistemaEmprestimo {
 		
 		usuarioDono.adicionaEmEmprestados(item);
 		Emprestimo emprestimo = new Emprestimo(usuarioDono,usuarioEmprestimo,item,dataInicial,diasEmprestimo);
+		usuarioDono.getItem(item.getNome()).emprestimosOcorridos.add(emprestimo);
 		usuarioDono.AdicionaEmEmprestando(emprestimo);
 		usuarioEmprestimo.adicionaEmEmprestimosPego(emprestimo);
 		emprestimos.put(emprestimoKey, emprestimo);

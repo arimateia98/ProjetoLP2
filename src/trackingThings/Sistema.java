@@ -465,7 +465,16 @@ public class Sistema {
 	 * @return todos os emprestimos do item ocorridos
 	 */
 	public String listarEmprestimosItem(String nomeItem) {
-		return null;
+		String retorno = "";
+		for(Usuario usuario: usuarios.values()){
+			for(int i = 0; i< usuario.getItem(nomeItem).getEmprestimosOcorridos().size(); i++){
+				retorno += "Emprestimos associados ao item: " + usuario.getItem(nomeItem).getEmprestimosOcorridos().get(i) + "|";
+			}
+		}
+		if (retorno.equals(null) || retorno.trim().equals("")){
+			return "Nenhum emprestimos associados ao item";
+		}
+		return retorno;
 	}
 	
 	/**
