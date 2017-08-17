@@ -27,6 +27,7 @@ public class Usuario {
 		this.nome = nome;
 		this.telefone = telefone;
 		this.reputacao = 0.0;
+		this.cartao = "FreeRyder";
 		this.email = email;
 		this.emprestimosPego = new ArrayList<>();
 		this.emprestando = new ArrayList<>();
@@ -106,6 +107,14 @@ public class Usuario {
 		return itensPossuidos.get(nomeItem);
 	}
 
+
+	public ArrayList<Emprestimo> getEmprestimosPego() {
+		return emprestimosPego;
+	}
+
+	public ArrayList<Emprestimo> getEmprestando() {
+		return emprestando;
+	}
 
 	/* 
 	 * toString do Usuario
@@ -346,14 +355,6 @@ public class Usuario {
 	 */
 	public void AdicionaEmEmprestando(Emprestimo emprestimo) {
 		emprestando.add(emprestimo);
-	}
-
-	/**
-	 * Adquire o Dono do item
-	 * @return dono do item
-	 */
-	public String getUsuarioEmprestando() {
-		return null;
 	}
 
 	/**

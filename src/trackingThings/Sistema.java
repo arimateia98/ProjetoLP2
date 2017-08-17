@@ -420,7 +420,13 @@ public class Sistema {
 	 * @return itens emprestados do usuario
 	 */
 	public String listarEmprestimosUsuarioEmprestando(String nome, String telefone) {
-		return null;
+		UsuarioKey usuariokey = new UsuarioKey(nome, telefone);
+		String retorno = "";
+		for (int i = 0; i < usuarios.get(usuariokey).getEmprestando().size(); i++) {
+			retorno += usuarios.get(usuariokey).getEmprestando().get(i) + "|";
+		}
+		
+		return retorno;
 	}
 
 	/**
@@ -430,7 +436,13 @@ public class Sistema {
 	 * @return itens pegos emprestados pelo usuario
 	 */
 	public String listarEmprestimosUsuarioPegandoEmprestado(String nome, String telefone) {
-		return null;
+		UsuarioKey usuariokey = new UsuarioKey(nome, telefone);
+		String retorno = "";
+		for (int i = 0; i < usuarios.get(usuariokey).getEmprestimosPego().size(); i++) {
+			retorno += usuarios.get(usuariokey).getEmprestimosPego();
+		}
+		
+		return retorno;
 	}
 
 	/**
