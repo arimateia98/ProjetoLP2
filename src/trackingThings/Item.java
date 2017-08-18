@@ -13,6 +13,7 @@ public abstract class Item {
 	protected double valor;
 	protected boolean estadoEmprestimo;
 	protected ArrayList <Emprestimo> emprestimosOcorridos;
+	protected String donoItem;
 
 
 	/**
@@ -80,6 +81,14 @@ public abstract class Item {
 	 */
 	public ArrayList<Emprestimo> getEmprestimosOcorridos() {
 		return emprestimosOcorridos;
+	}
+
+	public String getDonoItem() {
+		return donoItem;
+	}
+
+	public void setDonoItem(String donoItem) {
+		this.donoItem = donoItem;
 	}
 
 }

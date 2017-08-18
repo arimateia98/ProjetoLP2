@@ -56,7 +56,7 @@ public class SistemaEmprestimo {
 	public void devolverItem(Usuario usuarioDono,Usuario usuarioEmprestimo,Item item,String dataInicial,String dataDevolucao){
 		EmprestimoKey emprestimoKey = new EmprestimoKey(usuarioDono, usuarioEmprestimo, item);
 		if (emprestimos.containsKey(emprestimoKey)){
-			emprestimos.get(emprestimoKey).devolverItem(dataInicial);
+			emprestimos.get(emprestimoKey).devolverItem(dataDevolucao);
 		}else{
 			throw new IllegalArgumentException("Emprestimo nao encontrado");
 		}

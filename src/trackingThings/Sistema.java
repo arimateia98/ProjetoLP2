@@ -424,11 +424,11 @@ public class Sistema {
 		if (!usuarios.containsKey(usuariokey)){
 			throw new NullPointerException("Usuario invalido");
 		}
-		String retorno = "";
+		String retorno = "Emprestimos: ";
 		for (int i = 0; i < usuarios.get(usuariokey).getEmprestando().size(); i++) {
-			retorno += "Emprestimos: " + usuarios.get(usuariokey).getEmprestando().get(i) + "|";
+			retorno += usuarios.get(usuariokey).getEmprestando().get(i).toString() + "|";
 		}
-		if (retorno.equals(null) || retorno.trim().equals("")) {
+		if (retorno.equals("Emprestimos: ")) {
 			retorno = "Nenhum item emprestado";
 
 		}
@@ -444,14 +444,14 @@ public class Sistema {
 	 */
 	public String listarEmprestimosUsuarioPegandoEmprestado(String nome, String telefone) {
 		UsuarioKey usuariokey = new UsuarioKey(nome, telefone);
-		String retorno = "";
+		String retorno = "Emprestimos pegos: ";
 		if (!usuarios.containsKey(usuariokey)){
 			throw new NullPointerException("Usuario invalido");
 		}
-		for (int i = 0; i < usuarios.get(usuariokey).getEmprestimosPego().size(); i++) {
-			retorno += "Emprestimos pegos: " + usuarios.get(usuariokey).getEmprestimosPego()+ "|";
+		for (Emprestimo emprestimo : usuarios.get(usuariokey).getEmprestimosPego()) {
+			retorno += emprestimo.toString()+ "|";
 		}
-		if (retorno.equals(null) || retorno.trim().equals("")) {
+		if (retorno.equals("Emprestimos pegos: ")) {
 			retorno = "Nenhum item pego emprestado";
 
 		}
@@ -465,18 +465,22 @@ public class Sistema {
 	 * @return todos os emprestimos do item ocorridos
 	 */
 	public String listarEmprestimosItem(String nomeItem) {
-		String retorno = "";
+		String retorno = "Emprestimos associados ao item: ";
 		for(Usuario usuario: usuarios.values()){
-			for(int i = 0; i< usuario.getItem(nomeItem).getEmprestimosOcorridos().size(); i++){
-				retorno += "Emprestimos associados ao item: " + usuario.getItem(nomeItem).getEmprestimosOcorridos().get(i) + "|";
+			for(Emprestimo emprestimo: usuario.getItem(nomeItem).getEmprestimosOcorridos()){
+				retorno += emprestimo.toString() + "|";
 			}
 		}
-		if (retorno.equals(null) || retorno.trim().equals("")){
+		if (retorno.equals("Emprestimos associados ao item: ")){
 			return "Nenhum emprestimos associados ao item";
 		}
 		return retorno;
 	}
 	
+	public HashMap<UsuarioKey, Usuario> getUsuarios() {
+		return usuarios;
+	}
+
 	/**
 	 * Lista todos os itens nao emprestados
 	 * @return itens nao emprestados
@@ -504,11 +508,14 @@ public class Sistema {
 	public String listarItensEmprestados() {
 		String retorno = "";
 		ArrayList<Item> todosItens = new ArrayList<>();
-		for (Usuario usuario: usuarios.values()) {
-			for (Item item: todosItens) {
-				if (item.getEstadoEmprestimo()) {
-					retorno += "Dono do item: "+ usuario.getNome() + ", Nome do item emprestado: " + item.getNome() + "|";
-				}
+
+		for (Usuario usuario : usuarios.values()){
+			todosItens.addAll(usuario.getItensPossuidos().values());
+		}
+		Collections.sort(todosItens, new NomeComparator());
+		for (Item item: todosItens) {
+			if (item.getEstadoEmprestimo()) {
+				retorno += "Dono do item: " + item.getDonoItem() + ", Nome do item emprestado: " + item.getNome() + "|";
 			}
 		}
 		return retorno;
@@ -527,7 +534,13 @@ public class Sistema {
 	 * @return lista de usuarios com cartao "caloteiro"
 	 */
 	public String listarCaloteiros() {
-		return null;
+		String retorno = "Lista de usuarios com reputacao negativa: ";
+		for (Usuario usuario: usuarios.values()) {
+			if(usuario.getReputacao() < 0.00) {
+				retorno += usuario.toString() + "|";
+			}
+		}
+		return retorno;
 	}
 
 	/**
@@ -535,7 +548,17 @@ public class Sistema {
 	 * @return lista dos 10 melhores usuarios
 	 */
 	public String listarTop10MelhoresUsuarios() {
-		return null;
+		String retorno = "";
+		ArrayList<Usuario> todosUsuarios = new ArrayList<>();
+		for (Usuario usuario : usuarios.values()){
+			todosUsuarios.add(usuario);
+		}
+		Collections.sort(todosUsuarios, new ReputacaoComparator());
+		for (int i = 0; i < 10; i++) {
+			String resultado = String.format("%.2f", todosUsuarios.get(i).getReputacao());
+			retorno += (i+1) + ": " + todosUsuarios.get(i).getNome() + " - Reputacao: "+ resultado + "|" ;
+		}
+		return retorno;
 	}
 
 	/**
@@ -543,7 +566,17 @@ public class Sistema {
 	 * @return lista dos 10 piores usuarios
 	 */
 	public String listarTop10PioresUsuarios() {
-		return null;
+		String retorno = "";
+		ArrayList<Usuario> todosUsuarios = new ArrayList<>();
+		for (Usuario usuario : usuarios.values()){
+			todosUsuarios.add(usuario);
+		}
+		Collections.sort(todosUsuarios, new ReputacaoInversoComparator());
+		for (int i = 0; i < 10; i++) {
+			String resultado = String.format("%.2f", todosUsuarios.get(i).getReputacao());
+			retorno += (i+1) + ": " + todosUsuarios.get(i).getNome() + " - Reputacao: "+ resultado + "|" ;
+		}
+		return retorno;
 	}
 	
 	

@@ -122,7 +122,7 @@ public class Usuario {
 	 */
 	@Override
 	public String toString() {
-		return this.nome + "," + this.email + "," + this.telefone;
+		return this.nome + ", " + this.email + ", " + this.telefone;
 	}
 
 	/* (non-Javadoc)
@@ -172,6 +172,7 @@ public class Usuario {
 		JogoEletronico jogoEletronico = new JogoEletronico(nomeItem, preco, plataforma);
 		this.addReputacao(preco * 0.05);
 		this.itensPossuidos.put(nomeItem, jogoEletronico);
+		jogoEletronico.setDonoItem(this.nome);
 	}
 
 	/**
@@ -183,6 +184,7 @@ public class Usuario {
 		JogoTabuleiro jogoTabuleiro = new JogoTabuleiro(nomeItem, preco);
 		this.addReputacao(preco * 0.05);
 		itensPossuidos.put(nomeItem, jogoTabuleiro);
+		jogoTabuleiro.setDonoItem(this.nome);
 	}
 
 	/**
@@ -208,6 +210,7 @@ public class Usuario {
 		BluRayFilme bluRayFilme = new BluRayFilme(nomeItem, preco, duracao, classificacao, genero, anoLancamento);
 		this.addReputacao(preco * 0.05);
 		itensPossuidos.put(nomeItem, bluRayFilme);
+		bluRayFilme.setDonoItem(this.nome);
 	}
 
 	/**
@@ -224,6 +227,7 @@ public class Usuario {
 		BluRayShow bluRayShow = new BluRayShow(nomeItem, preco, duracao, numeroFaixas, artista, classificacao);
 		this.addReputacao(preco * 0.05);
 		itensPossuidos.put(nomeItem, bluRayShow);
+		bluRayShow.setDonoItem(this.nome);
 	}
 
 	/**
@@ -241,6 +245,7 @@ public class Usuario {
 		BluRayTemporada bluRaySerie = new BluRayTemporada(nomeItem, preco, duracao, classificacao, genero, temporada);
 		this.addReputacao(preco * 0.05);
 		itensPossuidos.put(nomeItem, bluRaySerie);
+		bluRaySerie.setDonoItem(this.nome);
 	}
 
 	/**
@@ -260,7 +265,7 @@ public class Usuario {
 	 */
 	public void removerItem(String nomeItem) {
 		this.itensPossuidos.remove(nomeItem);
-		this.addReputacao(itensPossuidos.get(nomeItem).getValor() * (-0.05));//diminui a reputacao ao remover um item dos itens possuidos
+		this.addReputacao(this.itensPossuidos.get(nomeItem).getValor() * (-0.05));//diminui a reputacao ao remover um item dos itens possuidos
 	}
 
 	/**

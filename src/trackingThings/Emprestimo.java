@@ -37,16 +37,24 @@ public class Emprestimo {
 	 * @param dataDev
 	 */
 	public void devolverItem(String dataDev){
-		this.dataDevolucao = dataDev;
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate dateIni = LocalDate.parse(this.dataInicial, fmt);
 		LocalDate dataDev1 = LocalDate.parse(dataDev, fmt);
 		int diasPassados = (int) ChronoUnit.DAYS.between(dateIni, dataDev1);
 		this.diasAtrasados = diasPassados - diasEmprestimo;
-		this.calculaReputacao();
+		this.calculaReputacao(this.diasAtrasados);
 		this.item.setEstadoEmprestimo(false);
+		setDataDevolucao(dataDev);
 	}
 	
+	public String getDataDevolucao() {
+		return dataDevolucao;
+	}
+
+	public void setDataDevolucao(String dataDevolucao) {
+		this.dataDevolucao = dataDevolucao;
+	}
+
 	public boolean getEstadoItem(){
 		return this.item.getEstadoEmprestimo();
 	}
@@ -106,7 +114,7 @@ public class Emprestimo {
 	
 	@Override
 	public String toString() {
-		if (this.item.getEstadoEmprestimo()) {
+		if (!this.item.getEstadoEmprestimo()) {
 			return "EMPRESTIMO - De: " + this.usuarioDono.getNome() + ", Para: " + this.usuarioEmprestimo.getNome() + ", " + this.item.getNome() + ", " +  this.dataInicial + ", " + this.diasEmprestimo + " dias, ENTREGA: " + this.dataDevolucao;
 		}
 		return "EMPRESTIMO - De: " + this.usuarioDono.getNome() + ", Para: " + this.usuarioEmprestimo.getNome() + ", " + this.item.getNome() + ", " +  this.dataInicial + ", " + this.diasEmprestimo + " dias, ENTREGA: Emprestimo em andamento";
@@ -119,7 +127,7 @@ public class Emprestimo {
 	 * Muda a quantidade de dias de atraso e altera a reputacao do usuario emprestimo
 	 * @param diasAtraso
 	 */
-	public void calculaReputacao() {
+	public void calculaReputacao(int diasAtrasados) {
 		if (diasAtrasados > 0) {
 			this.usuarioEmprestimo.removeReputacao(this.item.getValor() * diasAtrasados * 0.01);//se o usuario entregou o item com atraso, a reputacao a ser adicionada vai ser negativa
 		}else if(diasAtrasados <= 0){
