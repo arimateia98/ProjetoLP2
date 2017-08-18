@@ -26,16 +26,6 @@ public class SistemaEmprestimo {
 	
 	public void registrarEmprestimo(Usuario usuarioDono,Usuario usuarioEmprestimo,Item item, String dataInicial,int diasEmprestimo){
 		EmprestimoKey emprestimoKey = new EmprestimoKey(usuarioDono, usuarioEmprestimo, item);
-		if (emprestimos.containsKey(emprestimoKey)){
-			throw new IllegalArgumentException("Emprestimo ja existe");
-		}
-		if (usuarioDono.getItensEmprestados().contains(item)) {
-			throw new IllegalArgumentException("Item emprestado no momento");
-		}
-		if (!usuarioDono.getItensPossuidos().containsValue(item)) {
-			throw new IllegalArgumentException("Item nao encontrado");
-		}
-		
 		usuarioDono.adicionaEmEmprestados(item);
 		Emprestimo emprestimo = new Emprestimo(usuarioDono,usuarioEmprestimo,item,dataInicial,diasEmprestimo);
 		usuarioDono.getItem(item.getNome()).emprestimosOcorridos.add(emprestimo);
@@ -63,6 +53,14 @@ public class SistemaEmprestimo {
 		
 		usuarioDono.removeEmEmprestados(item);
 		
+	}
+
+	public HashMap<EmprestimoKey, Emprestimo> getEmprestimos() {
+		return emprestimos;
+	}
+
+	public void setEmprestimos(HashMap<EmprestimoKey, Emprestimo> emprestimos) {
+		this.emprestimos = emprestimos;
 	}
 	
 }

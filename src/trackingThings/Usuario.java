@@ -27,7 +27,7 @@ public class Usuario {
 		this.nome = nome;
 		this.telefone = telefone;
 		this.reputacao = 0.0;
-		this.cartao = "FreeRyder";
+		this.cartao = "";
 		this.email = email;
 		this.emprestimosPego = new ArrayList<>();
 		this.emprestando = new ArrayList<>();
@@ -399,7 +399,7 @@ public class Usuario {
 			this.cartao = "FreeRyder";
 		}else if (this.reputacao > 100){
 			this.cartao = "BomAmigo";
-		}else if (this.reputacao > 0 && this.reputacao <= 100){
+		}else if (this.reputacao > 0 && this.reputacao <= 100 && itensPossuidos.size() > 0){
 			this.cartao = "Noob";
 		}else{
 			this.cartao = "Caloteiro";

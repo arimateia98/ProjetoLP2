@@ -22,9 +22,6 @@ public class Emprestimo {
 		this.usuarioDono = usuarioDono;
 		this.usuarioDono.addReputacao(item.getValor() * 0.10);
 		this.usuarioEmprestimo = usuarioEmprestimo;
-		if (this.usuarioEmprestimo.getCartao().equals("Caloteiro")){
-			throw new IllegalArgumentException("Usuario nao pode pegar nenhum item emprestado");
-		}
 		this.item = item;
 		this.item.setEstadoEmprestimo(true); ;
 		this.dataInicial = dataInicial;

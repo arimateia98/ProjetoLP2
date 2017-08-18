@@ -384,7 +384,28 @@ public class Sistema {
 		if (!usuarios.containsKey(usuarioKey1) || !usuarios.containsKey(usuarioKey2)){
 			throw new NullPointerException("Usuario invalido");
 		}
-
+		EmprestimoKey emprestimoKey = new EmprestimoKey(usuarios.get(usuarioKey1), usuarios.get(usuarioKey2), usuarios.get(usuarioKey1).getItem(nomeItem));
+		if (sistemaEmprestimo.getEmprestimos().containsKey(emprestimoKey)){
+			throw new IllegalArgumentException("Emprestimo ja existe");
+		}
+		if (usuarios.get(usuarioKey1).getItensEmprestados().contains(usuarios.get(usuarioKey1).getItem(nomeItem))) {
+			throw new IllegalArgumentException("Item emprestado no momento");
+		}
+		if (!usuarios.get(usuarioKey1).getItensPossuidos().containsValue(usuarios.get(usuarioKey1).getItem(nomeItem))) {
+			throw new IllegalArgumentException("Item nao encontrado");
+		}
+		if (usuarios.get(usuarioKey2).getCartao().equals("Caloteiro")){
+			throw new IllegalArgumentException("Usuario nao pode pegar nenhum item emprestado");
+		}
+		if (usuarios.get(usuarioKey2).getCartao().equals("BomAmigo") && periodo > 14){
+			throw new IllegalArgumentException("Usuario impossiblitado de pegar emprestado por esse periodo");
+		}
+		if (usuarios.get(usuarioKey2).getCartao().equals("FreeRyder") && periodo > 5){
+			throw new IllegalArgumentException("Usuario impossiblitado de pegar emprestado por esse periodo");
+		}
+		if (usuarios.get(usuarioKey2).getCartao().equals("Noob") && periodo > 7){
+			throw new IllegalArgumentException("Usuario impossiblitado de pegar emprestado por esse periodo");
+		}
 		this.sistemaEmprestimo.registrarEmprestimo(usuarios.get(usuarioKey1), usuarios.get(usuarioKey2),
 				usuarios.get(usuarioKey1).getItem(nomeItem), dataEmprestimo, periodo);
 	}
@@ -526,7 +547,19 @@ public class Sistema {
 	 * @return 10 itens mais emprestados
 	 */
 	public String listarTop10Itens() {
-		return null;
+		String retorno = "";
+		ArrayList<Item> todosItem = new ArrayList<>();
+		for (Usuario usuario : usuarios.values()){
+			todosItem.addAll(usuario.getItensPossuidos().values());
+		}
+		Collections.sort(todosItem, new EmprestimosComparator());
+		for (int i = 0; i < todosItem.size() && i < 10; i++) {
+			if (todosItem.get(i).getEmprestimosOcorridos().size() > 0) {
+				retorno += (i+1) + ") " + todosItem.get(i).getEmprestimosOcorridos().size() + " emprestimos - "+ 
+		todosItem.get(i).toString() + "|" ;
+			}
+		}
+		return retorno;
 	}
 	
 	/**
