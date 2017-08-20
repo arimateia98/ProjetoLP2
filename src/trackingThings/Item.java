@@ -83,6 +83,9 @@ public abstract class Item {
 		return emprestimosOcorridos;
 	}
 
+	/**
+	 * @return nome do dono do item
+	 */
 	public String getDonoItem() {
 		return donoItem;
 	}

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Cada Usuario tera um nome, telefone, email e um conjunto de itens
+ * Cada Usuario tera um nome, telefone, email, reputacao, cartao e um conjunto de itens
  *	
  */
 /**
@@ -103,15 +103,25 @@ public class Usuario {
 	}
 	
 	
+	/**
+	 * @param nomeItem
+	 * @return item especifico na lista de itens possuidos
+	 */
 	public Item getItem(String nomeItem){
 		return itensPossuidos.get(nomeItem);
 	}
 
 
+	/**
+	 * @return lista de itens pegos
+	 */
 	public ArrayList<Emprestimo> getEmprestimosPego() {
 		return emprestimosPego;
 	}
 
+	/**
+	 * @return lista de emprestimos de itens 
+	 */
 	public ArrayList<Emprestimo> getEmprestando() {
 		return emprestando;
 	}
@@ -265,7 +275,6 @@ public class Usuario {
 	 */
 	public void removerItem(String nomeItem) {
 		this.itensPossuidos.remove(nomeItem);
-		this.addReputacao(this.itensPossuidos.get(nomeItem).getValor() * (-0.05));//diminui a reputacao ao remover um item dos itens possuidos
 	}
 
 	/**
@@ -395,7 +404,7 @@ public class Usuario {
 	 * @param cartao
 	 */
 	private void calculaCartao() {
-		if (this.reputacao >= 0 && itensPossuidos.size() == 0){
+		if (this.reputacao >= 0 && this.itensPossuidos.size() == 0){
 			this.cartao = "FreeRyder";
 		}else if (this.reputacao > 100){
 			this.cartao = "BomAmigo";
