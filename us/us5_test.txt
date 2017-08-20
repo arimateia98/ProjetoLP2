@@ -18,11 +18,11 @@ expect "Emprestimos associados ao item: EMPRESTIMO - De: Joao, Para: Josefina, X
 expect "Nenhum emprestimos associados ao item" listarEmprestimosItem nomeItem="Pokemon Omega Ruby"
 
 expect "FILME: Crepusculo, R$ 1.99, Nao emprestado, 120 min, QUATORZE_ANOS, ROMANCE, 2008|JOGO ELETRONICO: Pokemon Omega Ruby, R$ 20.0, Nao emprestado, OUTRO|SHOW: RBD Ao Vivo, R$ 19.99, Nao emprestado, 60 min, DOZE_ANOS, REBELDES, 20 faixas|SERIE: The Walking Dead, R$ 79.99, Nao emprestado, 120 min, DEZESSEIS_ANOS, SUSPENSE, Temporada 1|" listarItensNaoEmprestados
-expect "Dono do item: Joao, Nome do item emprestado: Xadrez de Bruxo|Dono do item: Joao, Nome do item emprestado: War|" listarItensEmprestados
+expect "Dono do item: Joao, Nome do item emprestado: War|Dono do item: Joao, Nome do item emprestado: Xadrez de Bruxo|" listarItensEmprestados
 
 registrarEmprestimo nomeDono="Carlos" telefoneDono="89999-9999" nomeRequerente="Vilmar" telefoneRequerente="55555-9999" nomeItem="The Walking Dead" dataEmprestimo="03/01/2018" periodo=5
 
-expect "Dono do item: Carlos, Nome do item emprestado: The Walking Dead|Dono do item: Joao, Nome do item emprestado: Xadrez de Bruxo|Dono do item: Joao, Nome do item emprestado: War|" listarItensEmprestados
+expect "Dono do item: Carlos, Nome do item emprestado: The Walking Dead|Dono do item: Joao, Nome do item emprestado: War|Dono do item: Joao, Nome do item emprestado: Xadrez de Bruxo|" listarItensEmprestados
 
 devolverItem nomeDono="Carlos" telefoneDono="89999-9999" nomeRequerente="Vilmar" telefoneRequerente="55555-9999" nomeItem="The Walking Dead" dataEmprestimo="03/01/2018" dataDevolucao="08/01/2018"
 
