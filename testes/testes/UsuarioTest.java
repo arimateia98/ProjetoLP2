@@ -87,21 +87,22 @@ public class UsuarioTest {
 	@Test
 	public void testGetItensEmprestados() {
 
-		assertEquals("[Nome: Piratas Ano: 2004 Genero : EROTICO Classificacao: DEZOITO_ANOS, "
-				+ "Nome: H4cK3rS M4lUc0s Ano: 2010 Genero : DOCUMENTARIO Classificacao: QUATORZE_ANOS, "
-				+ "Jogo Eletronico:LOL Plataforma:PC Preco: 2.0]", usuario1.getItensEmprestados().toString());
+		assertEquals("[FILME: Piratas, R$ 3.5, Nao emprestado, 120 min, DEZOITO_ANOS, EROTICO, 2004"
+				+ ", FILME: H4cK3rS M4lUc0s, R$ 10.0, Nao emprestado, 118 min, QUATORZE_ANOS, DOCUMENTARIO,"
+				+ " 2010, JOGO ELETRONICO: LOL, R$ 2.0, Nao emprestado, PC]", usuario1.getItensEmprestados().toString());
 		
 		usuario1.getItensEmprestados().add(new JogoEletronico("AGE OF EMPIRES", 19.99, "PLAYSTATION 1"));
 		
-		assertEquals("[Nome: Piratas Ano: 2004 Genero : EROTICO Classificacao: DEZOITO_ANOS, "
-				+ "Nome: H4cK3rS M4lUc0s Ano: 2010 Genero : DOCUMENTARIO Classificacao: QUATORZE_ANOS, "
-				+ "Jogo Eletronico:LOL Plataforma:PC Preco: 2.0, Jogo Eletronico:AGE OF EMPIRES Plataforma:PLAYSTATION 1 Preco: 19.99]", usuario1.getItensEmprestados().toString());
+		assertEquals("[FILME: Piratas, R$ 3.5, Nao emprestado, 120 min, DEZOITO_ANOS, EROTICO, 2004, FILME:"
+				+ " H4cK3rS M4lUc0s, R$ 10.0, Nao emprestado, 118 min, QUATORZE_ANOS, DOCUMENTARIO, 2010, JOGO"
+				+ " ELETRONICO: LOL, R$ 2.0, Nao emprestado, PC, JOGO ELETRONICO: AGE OF EMPIRES, R$ 19.99, Nao"
+				+ " emprestado, PLAYSTATION 1]", usuario1.getItensEmprestados().toString());
 	}
 
 	@Test
 	public void testGetItensPossuidos() {
 		
-		assertEquals("{uma noite na opera=Titulo: uma noite na opera Artista: Queen Nº de faixas: 15}", usuario1.getItensPossuidos().toString());
+		assertEquals("{uma noite na opera=SHOW: uma noite na opera, R$ 500.0, Nao emprestado, 180 min, LIVRE, Queen, 15 faixas}", usuario1.getItensPossuidos().toString());
 	}
 
 	@Test

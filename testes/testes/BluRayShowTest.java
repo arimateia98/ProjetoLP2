@@ -9,7 +9,7 @@ import trackingThings.BluRayShow;
 
 public class BluRayShowTest {
 	
-	BluRayShow bluray1;
+	BluRayShow bluray1; 
 	BluRayShow bluray2;
 	BluRayShow bluray3;
 

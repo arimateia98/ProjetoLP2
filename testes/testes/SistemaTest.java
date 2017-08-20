@@ -95,13 +95,42 @@ public class SistemaTest {
 	
 	@Test
 	public void testListarItensOrdenadosPorNome() {
-		assertEquals(sistema.listarItensOrdenadosPorNome(), "JOGO ELETRONICO: Bomba Patch, R$ 1.0, Nao emprestado, PS2|FILME: Brasileirinhas, R$ 69.0, Nao emprestado, 60 min, DEZOITO_ANOS, EROTICO, 2013|JOGO DE TABULEIRO: Django, R$ 24.0, Nao emprestado, COMPLETO|SERIE: Game of Thrones, R$ 35.0, Nao emprestado, 180 min, DEZESSEIS_ANOS, Suspense, Temporada 6|SHOW: LS, R$ 99.0, Nao emprestado, 90 min, DEZ_ANOS, Luan Santana, 15 faixas|SHOW: Los Hermanos, R$ 99.0, Nao emprestado, 90 min, LIVRE, Losers manos, 15 faixas|JOGO ELETRONICO: Mario bros, R$ 1.25, Nao emprestado, NINTENDO|SERIE: Mr Robot, R$ 86.0, Nao emprestado, 160 min, DEZESSEIS_ANOS, Drama, Temporada 2|FILME: Pirata dos caribes, R$ 50.0, Nao emprestado, 120 min, DEZESSEIS_ANOS, Acao, 2015|SHOW: RBD, R$ 45.99, Nao emprestado, 90 min, DOZE_ANOS, REBELDES, 15 faixas|SHOW: Ramones, R$ 10.0, Nao emprestado, 60 min, DEZ_ANOS, Ramonetmal, 5 faixas|FILME: Simpsons XXX, R$ 50.0, Nao emprestado, 120 min, DEZOITO_ANOS, EROTICO, 2000|SERIE: The Walking Dead, R$ 25.5, Nao emprestado, 160 min, DOZE_ANOS, Suspense, Temporada 2|SERIE: Vikings, R$ 99.0, Nao emprestado, 120 min, DOZE_ANOS, Suspense, Temporada 3|JOGO DE TABULEIRO: War, R$ 120.0, Nao emprestado, COMPLETO|FILME: X-men, R$ 29.99, Nao emprestado, 120 min, DEZESSEIS_ANOS, Acao, 2002|JOGO DE TABULEIRO: damas, R$ 0.99, Nao emprestado, COMPLETO|JOGO ELETRONICO: mario world, R$ 1.0, Nao emprestado, NINTENDO|JOGO ELETRONICO: sonic, R$ 1.0, Nao emprestado, MEGA DRIVE|JOGO DE TABULEIRO: xadrez, R$ 100.0, Nao emprestado, COMPLETO|");
+		assertEquals(sistema.listarItensOrdenadosPorNome(), "JOGO ELETRONICO: Bomba Patch, R$ 1.0, Nao emprestado, PS2|FILME: Brasileirinhas, R$ 69.0, Nao emprestado, 60 min, DEZOITO_ANOS,"
+				+ " EROTICO, 2013|JOGO DE TABULEIRO: Django, R$ 24.0, Nao emprestado, COMPLETO|SERIE: Game of Thrones, R$ 35.0, Nao emprestado, 180 min, DEZESSEIS_ANOS, Suspense, Temporada 6|"
+				+ "SHOW: LS, R$ 99.0, Nao emprestado, 90 min, DEZ_ANOS, Luan Santana, 15 faixas|SHOW: Los Hermanos, R$ 99.0, Nao emprestado, 90 min, LIVRE, Losers manos, 15 faixas|"
+				+ "JOGO ELETRONICO: Mario bros, R$ 1.25, Nao emprestado, NINTENDO|SERIE: Mr Robot, R$ 86.0, Nao emprestado, 160 min, DEZESSEIS_ANOS, Drama, Temporada 2|"
+				+ "FILME: Pirata dos caribes, R$ 50.0, Nao emprestado, 120 min, DEZESSEIS_ANOS, Acao, 2015|SHOW: RBD, R$ 45.99, Nao emprestado, 90 min, DOZE_ANOS, REBELDES, 15 faixas|"
+				+ "SHOW: Ramones, R$ 10.0, Nao emprestado, 60 min, DEZ_ANOS, Ramonetmal, 5 faixas|FILME: Simpsons XXX, R$ 50.0, Nao emprestado, 120 min, DEZOITO_ANOS, EROTICO, 2000|"
+				+ "SERIE: The Walking Dead, R$ 25.5, Nao emprestado, 160 min, DOZE_ANOS, Suspense, Temporada 2|SERIE: Vikings, R$ 99.0, Nao emprestado, 120 min, DOZE_ANOS, Suspense, Temporada 3|"
+				+ "JOGO DE TABULEIRO: War, R$ 120.0, Nao emprestado, COMPLETO|FILME: X-men, R$ 29.99, Nao emprestado, 120 min, DEZESSEIS_ANOS, Acao, 2002|JOGO DE TABULEIRO: damas, R$ 0.99, Nao emprestado, COMPLETO|"
+				+ "JOGO ELETRONICO: mario world, R$ 1.0, Nao emprestado, NINTENDO|JOGO ELETRONICO: sonic, R$ 1.0, Nao emprestado, MEGA DRIVE|JOGO DE TABULEIRO: xadrez, R$ 100.0, Nao emprestado, COMPLETO|");
 	}
 
 
 	@Test
 	public void testListarItensOrdenadosPorValor() {
-		assertEquals(sistema.listarItensOrdenadosPorValor(),"JOGO DE TABULEIRO: damas, R$ 0.99, Nao emprestado, COMPLETO|JOGO ELETRONICO: mario world, R$ 1.0, Nao emprestado, NINTENDO|JOGO ELETRONICO: Bomba Patch, R$ 1.0, Nao emprestado, PS2|JOGO ELETRONICO: sonic, R$ 1.0, Nao emprestado, MEGA DRIVE|JOGO ELETRONICO: Mario bros, R$ 1.25, Nao emprestado, NINTENDO|SHOW: Ramones, R$ 10.0, Nao emprestado, 60 min, DEZ_ANOS, Ramonetmal, 5 faixas|JOGO DE TABULEIRO: Django, R$ 24.0, Nao emprestado, COMPLETO|SERIE: The Walking Dead, R$ 25.5, Nao emprestado, 160 min, DOZE_ANOS, Suspense, Temporada 2|FILME: X-men, R$ 29.99, Nao emprestado, 120 min, DEZESSEIS_ANOS, Acao, 2002|SERIE: Game of Thrones, R$ 35.0, Nao emprestado, 180 min, DEZESSEIS_ANOS, Suspense, Temporada 6|SHOW: RBD, R$ 45.99, Nao emprestado, 90 min, DOZE_ANOS, REBELDES, 15 faixas|FILME: Pirata dos caribes, R$ 50.0, Nao emprestado, 120 min, DEZESSEIS_ANOS, Acao, 2015|FILME: Simpsons XXX, R$ 50.0, Nao emprestado, 120 min, DEZOITO_ANOS, EROTICO, 2000|FILME: Brasileirinhas, R$ 69.0, Nao emprestado, 60 min, DEZOITO_ANOS, EROTICO, 2013|SERIE: Mr Robot, R$ 86.0, Nao emprestado, 160 min, DEZESSEIS_ANOS, Drama, Temporada 2|SHOW: LS, R$ 99.0, Nao emprestado, 90 min, DEZ_ANOS, Luan Santana, 15 faixas|SERIE: Vikings, R$ 99.0, Nao emprestado, 120 min, DOZE_ANOS, Suspense, Temporada 3|SHOW: Los Hermanos, R$ 99.0, Nao emprestado, 90 min, LIVRE, Losers manos, 15 faixas|JOGO DE TABULEIRO: xadrez, R$ 100.0, Nao emprestado, COMPLETO|JOGO DE TABULEIRO: War, R$ 120.0, Nao emprestado, COMPLETO|");
+		assertEquals(sistema.listarItensOrdenadosPorValor(),"JOGO DE TABULEIRO: damas, "
+				+ "R$ 0.99, Nao emprestado, COMPLETO|JOGO ELETRONICO: mario world, R$ 1.0,"
+				+ " Nao emprestado, NINTENDO|JOGO ELETRONICO: Bomba Patch, R$ 1.0, Nao empr"
+				+ "estado, PS2|JOGO ELETRONICO: sonic, R$ 1.0, Nao emprestado, MEGA DRIVE|J"
+				+ "OGO ELETRONICO: Mario bros, R$ 1.25, Nao emprestado, NINTENDO|SHOW: Ramo"
+				+ "nes, R$ 10.0, Nao emprestado, 60 min, DEZ_ANOS, Ramonetmal, 5 faixas|JOGO"
+				+ " DE TABULEIRO: Django, R$ 24.0, Nao emprestado, COMPLETO|SERIE: The Walk"
+				+ "ing Dead, R$ 25.5, Nao emprestado, 160 min, DOZE_ANOS, Suspense, Temporada"
+				+ " 2|FILME: X-men, R$ 29.99, Nao emprestado, 120 min, DEZESSEIS_ANOS, Acao,"
+				+ " 2002|SERIE: Game of Thrones, R$ 35.0, Nao emprestado, 180 min, DEZESSEIS_"
+				+ "ANOS, Suspense, Temporada 6|SHOW: RBD, R$ 45.99, Nao emprestado, 90 min, "
+				+ "DOZE_ANOS, REBELDES, 15 faixas|FILME: Pirata dos caribes, R$ 50.0, Nao e"
+				+ "mprestado, 120 min, DEZESSEIS_ANOS, Acao, 2015|FILME: Simpsons XXX, R$ 50."
+				+ "0, Nao emprestado, 120 min, DEZOITO_ANOS, EROTICO, 2000|FILME: Brasileir"
+				+ "inhas, R$ 69.0, Nao emprestado, 60 min, DEZOITO_ANOS, EROTICO, 2013|SERIE:"
+				+ " Mr Robot, R$ 86.0, Nao emprestado, 160 min, DEZESSEIS_ANOS, Drama, Tempo"
+				+ "rada 2|SHOW: LS, R$ 99.0, Nao emprestado, 90 min, DEZ_ANOS, Luan Santana,"
+				+ " 15 faixas|SERIE: Vikings, R$ 99.0, Nao emprestado, 120 min, DOZE_ANOS, S"
+				+ "uspense, Temporada 3|SHOW: Los Hermanos, R$ 99.0, Nao emprestado, 90 min,"
+				+ " LIVRE, Losers manos, 15 faixas|JOGO DE TABULEIRO: xadrez, R$ 100.0, Nao "
+				+ "emprestado, COMPLETO|JOGO DE TABULEIRO: War, R$ 120.0, Nao emprestado, CO"
+				+ "MPLETO|");
 	}
 	
 	@Test
