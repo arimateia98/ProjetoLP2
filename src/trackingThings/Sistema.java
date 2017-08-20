@@ -488,8 +488,13 @@ public class Sistema {
 	public String listarEmprestimosItem(String nomeItem) {
 		String retorno = "Emprestimos associados ao item: ";
 		for(Usuario usuario: usuarios.values()){
-			for(Emprestimo emprestimo: usuario.getItem(nomeItem).getEmprestimosOcorridos()){
-				retorno += emprestimo.toString() + "|";
+			if (!usuario.getItensPossuidos().isEmpty()){
+				if (usuario.getItensPossuidos().containsKey(nomeItem)) {
+					for(Emprestimo emprestimo: usuario.getItem(nomeItem).getEmprestimosOcorridos()){
+						System.out.println(usuario.getItem(nomeItem).getEmprestimosOcorridos());
+						retorno += emprestimo.toString() + "|";
+					}
+				}
 			}
 		}
 		if (retorno.equals("Emprestimos associados ao item: ")){
