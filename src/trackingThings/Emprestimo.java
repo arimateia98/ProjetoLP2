@@ -15,6 +15,7 @@ public class Emprestimo {
 	private Item item;
 	private int diasEmprestimo;
 	private int diasAtrasados;
+	private boolean emprestimoFinalizado; // variavel que mostra se o emprestimo já foi finalizado ou não
 	private String dataInicial;
 	private String dataDevolucao;
 	
@@ -22,6 +23,7 @@ public class Emprestimo {
 		this.usuarioDono = usuarioDono;
 		this.usuarioDono.addReputacao(item.getValor() * 0.10);
 		this.usuarioEmprestimo = usuarioEmprestimo;
+		this.emprestimoFinalizado = false;
 		this.item = item;
 		this.item.setEstadoEmprestimo(true); ;
 		this.dataInicial = dataInicial;
@@ -34,13 +36,14 @@ public class Emprestimo {
 	 * @param dataDev
 	 */
 	public void devolverItem(String dataDev){
-		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/M/yyyy");
 		LocalDate dateIni = LocalDate.parse(this.dataInicial, fmt);
 		LocalDate dataDev1 = LocalDate.parse(dataDev, fmt);
 		int diasPassados = (int) ChronoUnit.DAYS.between(dateIni, dataDev1);
 		this.diasAtrasados = diasPassados - diasEmprestimo;
 		this.calculaReputacao(this.diasAtrasados);
 		this.item.setEstadoEmprestimo(false);
+		this.emprestimoFinalizado = true;
 		setDataDevolucao(dataDev);
 	}
 	
@@ -111,7 +114,7 @@ public class Emprestimo {
 	
 	@Override
 	public String toString() {
-		if (!this.item.getEstadoEmprestimo()) {
+		if (this.emprestimoFinalizado) {
 			return "EMPRESTIMO - De: " + this.usuarioDono.getNome() + ", Para: " + this.usuarioEmprestimo.getNome() + ", " + this.item.getNome() + ", " +  this.dataInicial + ", " + this.diasEmprestimo + " dias, ENTREGA: " + this.dataDevolucao;
 		}
 		return "EMPRESTIMO - De: " + this.usuarioDono.getNome() + ", Para: " + this.usuarioEmprestimo.getNome() + ", " + this.item.getNome() + ", " +  this.dataInicial + ", " + this.diasEmprestimo + " dias, ENTREGA: Emprestimo em andamento";
