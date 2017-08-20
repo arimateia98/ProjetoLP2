@@ -264,7 +264,6 @@ public class Usuario {
 	 * @param nomeItem
 	 */
 	public void removerItem(String nomeItem) {
-		this.addReputacao(this.itensPossuidos.get(nomeItem).getValor() * (-0.05));//diminui a reputacao ao remover um item dos itens possuidos
 		this.itensPossuidos.remove(nomeItem);
 	}
 
