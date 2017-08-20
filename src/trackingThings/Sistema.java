@@ -191,7 +191,8 @@ public class Sistema {
 	 * @param nomeItem
 	 * @param preco
 	 * @param duracao
-	 * @param classificacao 
+	 * @param genero
+	 * @param classificacao
 	 * @param anoLancamento
 	 */
 	public void cadastrarBluRayFilme(String nome, String telefone, String nomeItem, Double preco, int duracao, String genero,
@@ -301,6 +302,12 @@ public class Sistema {
 		return usuarios.get(usuarioKey).getInfoItem(nomeItem, atributo);
 	}
 	
+	/**
+	 * Verifica a existencia do usuario no sistema
+	 * @param nome
+	 * @param telefone
+	 * @return true or false
+	 */
 	public boolean verificaSeUsuarioExiste(String nome, String telefone) {
 		UsuarioKey usuario = new UsuarioKey(nome, telefone);
 		if (this.usuarios.containsKey(usuario)) { 
@@ -491,7 +498,6 @@ public class Sistema {
 			if (!usuario.getItensPossuidos().isEmpty()){
 				if (usuario.getItensPossuidos().containsKey(nomeItem)) {
 					for(Emprestimo emprestimo: usuario.getItem(nomeItem).getEmprestimosOcorridos()){
-						System.out.println(usuario.getItem(nomeItem).getEmprestimosOcorridos());
 						retorno += emprestimo.toString() + "|";
 					}
 				}
@@ -502,11 +508,6 @@ public class Sistema {
 		}
 		return retorno;
 	}
-	
-	public HashMap<UsuarioKey, Usuario> getUsuarios() {
-		return usuarios;
-	}
-
 	/**
 	 * Lista todos os itens nao emprestados
 	 * @return itens nao emprestados

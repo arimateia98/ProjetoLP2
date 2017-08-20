@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Cada Usuario tera um nome, telefone, email e um conjunto de itens
+ * Cada Usuario tera um nome, telefone, email, reputacao, cartao e um conjunto de itens
  *	
  */
 /**
@@ -103,15 +103,25 @@ public class Usuario {
 	}
 	
 	
+	/**
+	 * @param nomeItem
+	 * @return item especifico na lista de itens possuidos
+	 */
 	public Item getItem(String nomeItem){
 		return itensPossuidos.get(nomeItem);
 	}
 
 
+	/**
+	 * @return lista de itens pegos
+	 */
 	public ArrayList<Emprestimo> getEmprestimosPego() {
 		return emprestimosPego;
 	}
 
+	/**
+	 * @return lista de emprestimos de itens 
+	 */
 	public ArrayList<Emprestimo> getEmprestando() {
 		return emprestando;
 	}

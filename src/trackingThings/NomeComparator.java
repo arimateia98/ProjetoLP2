@@ -3,7 +3,7 @@ package trackingThings;
 import java.util.Comparator;
 
 /**
- * @author Jose Vinicius
+ * @author Jose Vinicius Lacerda de Arruda
  *
  */
 public class NomeComparator implements Comparator<Item>  {
