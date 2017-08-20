@@ -264,8 +264,8 @@ public class Usuario {
 	 * @param nomeItem
 	 */
 	public void removerItem(String nomeItem) {
-		this.itensPossuidos.remove(nomeItem);
 		this.addReputacao(this.itensPossuidos.get(nomeItem).getValor() * (-0.05));//diminui a reputacao ao remover um item dos itens possuidos
+		this.itensPossuidos.remove(nomeItem);
 	}
 
 	/**
@@ -395,7 +395,7 @@ public class Usuario {
 	 * @param cartao
 	 */
 	private void calculaCartao() {
-		if (this.reputacao >= 0 && itensPossuidos.size() == 0){
+		if (this.reputacao >= 0 && this.itensPossuidos.size() == 0){
 			this.cartao = "FreeRyder";
 		}else if (this.reputacao > 100){
 			this.cartao = "BomAmigo";
