@@ -3,6 +3,8 @@ package trackingThings;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import Cartoes.*;
+
 /**
  * Cada Usuario tera um nome, telefone, email, reputacao, cartao e um conjunto de itens
  *	
@@ -17,7 +19,7 @@ public class Usuario {
 	private String telefone;
  	private String email;
  	private double reputacao;
- 	private String cartao;
+ 	private Cartao cartao;
  	private HashMap <String,Item> itensPossuidos;
 	private ArrayList <Item> itensEmprestados;
 	private ArrayList <Emprestimo> emprestimosPego;
@@ -27,7 +29,7 @@ public class Usuario {
 		this.nome = nome;
 		this.telefone = telefone;
 		this.reputacao = 0.0;
-		this.cartao = "";
+		this.cartao = new CartaoFreeRyder();
 		this.email = email;
 		this.emprestimosPego = new ArrayList<>();
 		this.emprestando = new ArrayList<>();
@@ -394,7 +396,7 @@ public class Usuario {
 	/**
 	 * @return cartao do usuario
 	 */
-	public String getCartao() {
+	public Cartao getCartao() {
 		calculaCartao();
 		return this.cartao;
 	}
@@ -405,13 +407,13 @@ public class Usuario {
 	 */
 	private void calculaCartao() {
 		if (this.reputacao >= 0 && this.itensPossuidos.size() == 0){
-			this.cartao = "FreeRyder";
+			this.cartao = new CartaoFreeRyder();
 		}else if (this.reputacao > 100){
-			this.cartao = "BomAmigo";
+			this.cartao = new CartaoBomAmigo();
 		}else if (this.reputacao > 0 && this.reputacao <= 100 && itensPossuidos.size() > 0){
-			this.cartao = "Noob";
+			this.cartao = new CartaoNoob();
 		}else{
-			this.cartao = "Caloteiro";
+			this.cartao = new CartaoCaloteiro();
 		}
 	}
 	

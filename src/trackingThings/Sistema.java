@@ -131,7 +131,7 @@ public class Sistema {
 			return ""+this.usuarios.get(usuarioKey).getReputacao();
 		}
 		if (atributo.equalsIgnoreCase("cartao")) {
-			return this.usuarios.get(usuarioKey).getCartao();
+			return this.usuarios.get(usuarioKey).getCartao().toString();
 		}
 		else{
 			throw new NullPointerException("Atributo invalido");
@@ -401,16 +401,7 @@ public class Sistema {
 		if (!usuarios.get(usuarioKey1).getItensPossuidos().containsValue(usuarios.get(usuarioKey1).getItem(nomeItem))) {
 			throw new IllegalArgumentException("Item nao encontrado");
 		}
-		if (usuarios.get(usuarioKey2).getCartao().equals("Caloteiro")){
-			throw new IllegalArgumentException("Usuario nao pode pegar nenhum item emprestado");
-		}
-		if (usuarios.get(usuarioKey2).getCartao().equals("BomAmigo") && periodo > 14){
-			throw new IllegalArgumentException("Usuario impossiblitado de pegar emprestado por esse periodo");
-		}
-		if (usuarios.get(usuarioKey2).getCartao().equals("FreeRyder") && periodo > 5){
-			throw new IllegalArgumentException("Usuario impossiblitado de pegar emprestado por esse periodo");
-		}
-		if (usuarios.get(usuarioKey2).getCartao().equals("Noob") && periodo > 7){
+		if(periodo > usuarios.get(usuarioKey2).getCartao().diasPermitidos()){
 			throw new IllegalArgumentException("Usuario impossiblitado de pegar emprestado por esse periodo");
 		}
 		this.sistemaEmprestimo.registrarEmprestimo(usuarios.get(usuarioKey1), usuarios.get(usuarioKey2),
