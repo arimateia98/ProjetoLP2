@@ -1,13 +1,20 @@
 package trackingThings;
 
 
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
  * @author Jose de Arimateia
  *
  */
-public class SistemaEmprestimo {
+public class SistemaEmprestimo implements Serializable{
 	
 	private HashMap<EmprestimoKey,Emprestimo> emprestimos;
 	
@@ -62,5 +69,43 @@ public class SistemaEmprestimo {
 	public void setEmprestimos(HashMap<EmprestimoKey, Emprestimo> emprestimos) {
 		this.emprestimos = emprestimos;
 	}
+
+	public void lerEmprestimos() throws ClassNotFoundException, IOException {
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("emprestimos.txt"));
+		try {
+			while(true) {
+				
+				Emprestimo emprestimo = (Emprestimo) ois.readObject();
+				emprestimos.put(new EmprestimoKey(emprestimo.getUsuarioDono(), emprestimo.getUsarioEmprestimo(), emprestimo.getItem()), emprestimo);
+			}
+		}
+		catch(EOFException e) {
+			
+		}
+		
+		ois.close();
+			}
+
+	public void salvarEmprestimos() {
+		ObjectOutputStream oos = null;
+		try {
+			oos = new ObjectOutputStream(new FileOutputStream("emprestimos.txt"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		for(Emprestimo emprestimo : emprestimos.values()) {
+			try {
+				oos.writeObject(emprestimo);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+	
+	
 	
 }

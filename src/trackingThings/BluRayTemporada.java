@@ -1,5 +1,6 @@
  package trackingThings;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,7 +8,7 @@ import java.util.Set;
  * @author Jose Ramon
  *
  */
-public class BluRayTemporada extends BluRay {
+public class BluRayTemporada extends BluRay implements Serializable{
 	
 	private Set<Integer> episodios; 
 	private int numeroTemporada;

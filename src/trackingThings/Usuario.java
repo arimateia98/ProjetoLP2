@@ -1,5 +1,6 @@
 package trackingThings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -13,7 +14,7 @@ import Cartoes.*;
  * @author Jose Vinicius
  *
  */
-public class Usuario {
+public class Usuario implements Serializable{
 	
 	private String nome;
 	private String telefone;

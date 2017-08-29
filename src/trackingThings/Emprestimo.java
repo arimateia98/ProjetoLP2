@@ -1,5 +1,6 @@
 package trackingThings;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -9,7 +10,7 @@ import java.time.temporal.ChronoUnit;
  *
  */
 
-public class Emprestimo {
+public class Emprestimo implements Serializable {
 	private Usuario usuarioDono;
 	private Usuario usuarioEmprestimo;
 	private Item item;

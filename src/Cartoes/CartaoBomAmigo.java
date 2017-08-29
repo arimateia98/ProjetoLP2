@@ -1,6 +1,8 @@
 package Cartoes;
 
-public class CartaoBomAmigo implements Cartao{
+import java.io.Serializable;
+
+public class CartaoBomAmigo implements Cartao, Serializable{
 
 	@Override
 	public int diasPermitidos() {

@@ -1,12 +1,13 @@
 package trackingThings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * @author Jose Ramon
  *
  */
-public abstract class Item {
+public abstract class Item implements Serializable{
 	
 	
 	protected String nome;

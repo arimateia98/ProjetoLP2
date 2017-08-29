@@ -1,5 +1,8 @@
 package trackingThings;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 /**
  * @author Katson Matheus
  *
@@ -9,10 +12,22 @@ public class Facade {
 	Sistema sistema;
 	
 	public Facade() {
-		sistema = new Sistema();
 	}
 	
 	public void iniciarSistema() {
+		sistema = new Sistema();
+		try {
+			this.sistema.iniciarSistema();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void cadastrarUsuario(String nome,String telefone, String email){
@@ -128,7 +143,7 @@ public class Facade {
 	}
 	
 	public void fecharSistema(){
-		
+		this.sistema.fecharSistema();
 	}
 
 }

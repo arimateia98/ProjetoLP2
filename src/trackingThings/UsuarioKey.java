@@ -1,10 +1,12 @@
 package trackingThings;
 
+import java.io.Serializable;
+
 /**
  * @author Katson Matheus
  *
  */
-public class UsuarioKey {
+public class UsuarioKey implements Serializable{
 	
 	private String nome;
 	private String telefone;

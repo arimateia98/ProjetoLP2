@@ -1,10 +1,12 @@
 package trackingThings;
 
+import java.io.Serializable;
+
 /**
  * @author Jose Ramon
  *
  */
-public class BluRayShow extends BluRay {
+public class BluRayShow extends BluRay implements Serializable{
 
 	private String nomeArtista;
 	private int numeroDeFaixas;

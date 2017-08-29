@@ -1,6 +1,8 @@
 package Cartoes;
 
-public class CartaoFreeRyder implements Cartao{
+import java.io.Serializable;
+
+public class CartaoFreeRyder implements Cartao, Serializable{
 
 	@Override
 	public int diasPermitidos() {

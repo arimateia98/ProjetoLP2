@@ -1,10 +1,12 @@
 package trackingThings;
 
+import java.io.Serializable;
+
 /**
  * @author Jose Ramon
  *
  */
-public abstract class BluRay extends Item{
+public abstract class BluRay extends Item implements Serializable{
 	
 	protected int duracao;
 	protected String classificacao;

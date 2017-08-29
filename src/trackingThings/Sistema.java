@@ -1,5 +1,13 @@
 package trackingThings;
 
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -8,7 +16,7 @@ import java.util.HashMap;
  * @author Katson Matheus
  *
  */
-public class Sistema {
+public class Sistema implements Serializable{
 	
 	private HashMap<UsuarioKey, Usuario> usuarios;
 	private SistemaEmprestimo sistemaEmprestimo;
@@ -608,6 +616,45 @@ public class Sistema {
 		}
 		return retorno;
 	}
+
+	public void iniciarSistema() throws FileNotFoundException, IOException, ClassNotFoundException {
+
+		this.sistemaEmprestimo.lerEmprestimos();
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("usuarios.txt"));
+		try {
+			while(true) {
+				
+				Usuario user = (Usuario) ois.readObject();
+				usuarios.put(new UsuarioKey(user.getNome(), user.getTelefone()),user);
+			}
+		}
+		catch(EOFException e) {
+			
+		}
+		
+		ois.close();
+	}
+
+	public void fecharSistema() {
+		
+		sistemaEmprestimo.salvarEmprestimos();
+		ObjectOutputStream oos = null;
+		try {
+			oos = new ObjectOutputStream(new FileOutputStream("usuarios.txt"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		for(Usuario	usuario : usuarios.values()) {
+			try {
+				oos.writeObject(usuario);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	
 	
 }

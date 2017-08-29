@@ -1,5 +1,6 @@
 package trackingThings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import java.util.List;
  * @author Jose Ramon
  *
  */
-public class JogoTabuleiro extends Item{
+public class JogoTabuleiro extends Item implements Serializable {
 	
 	private List<String> pecasTotais;
 	private List<String> pecasPerdidas;

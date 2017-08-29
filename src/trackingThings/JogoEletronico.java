@@ -1,10 +1,12 @@
 package trackingThings;
 
+import java.io.Serializable;
+
 /**
  * @author Jose Ramon
  *
  */
-public class JogoEletronico extends Item{
+public class JogoEletronico extends Item implements Serializable{
 	
 	private String plataforma;
 	
