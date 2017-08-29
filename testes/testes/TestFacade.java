@@ -15,6 +15,7 @@ public class TestFacade {
 	public void setUp() throws Exception {
 		
 		facade = new Facade();
+		facade.iniciarSistema();
 		facade.cadastrarUsuario("Arizinho", "9900-6660","arizinho100%lindo@bol.com.br");
 		facade.cadastrarUsuario("Ramones", "9955-2222","ramon100%cancer@gmail.com");
 		facade.cadastrarUsuario("zezinho", "9988-8889", "zevinicin@yahoo.com.br");
