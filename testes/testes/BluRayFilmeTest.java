@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import trackingThings.BluRayFilme;
+import itens.BluRayFilme;
 
 public class BluRayFilmeTest {
 

@@ -3,10 +3,12 @@ package testes;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
-import org.junit.Test;import trackingThings.BluRayFilme;
+import org.junit.Test;
+
+import itens.BluRayFilme;
+import itens.JogoEletronico;
+import itens.JogoTabuleiro;
 import trackingThings.Emprestimo;
-import trackingThings.JogoEletronico;
-import trackingThings.JogoTabuleiro;
 import trackingThings.Usuario;
 
 public class EmprestimoTest {
@@ -47,14 +49,6 @@ public class EmprestimoTest {
 		assertEquals("26/11/2017", emprestimo.getDataDevolucao());	
 	}
 
-	@Test
-	public void testSetDataDevolucao() {
-		
-		emprestimo.setDataDevolucao("30/11/2017");
-		assertEquals("30/11/2017", emprestimo.getDataDevolucao());
-		emprestimo.devolverItem("01/12/2017");
-		assertEquals("01/12/2017", emprestimo.getDataDevolucao());
-	}
 
 	@Test
 	public void testGetEstadoItem() {

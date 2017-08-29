@@ -5,10 +5,10 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import trackingThings.BluRay;
-import trackingThings.BluRayFilme;
-import trackingThings.JogoEletronico;
-import trackingThings.JogoTabuleiro;
+import itens.BluRay;
+import itens.BluRayFilme;
+import itens.JogoEletronico;
+import itens.JogoTabuleiro;
 
 public class ItemTest {
 	

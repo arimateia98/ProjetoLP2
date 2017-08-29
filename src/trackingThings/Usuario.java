@@ -4,7 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import Cartoes.*;
+import cartoes.*;
+import itens.BluRayFilme;
+import itens.BluRayShow;
+import itens.BluRayTemporada;
+import itens.Item;
+import itens.JogoEletronico;
+import itens.JogoTabuleiro;
 
 /**
  * Cada Usuario tera um nome, telefone, email, reputacao, cartao e um conjunto de itens

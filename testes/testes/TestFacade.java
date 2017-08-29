@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import facade.Facade;
 import trackingThings.*;
 
 public class TestFacade {
@@ -44,6 +45,8 @@ public class TestFacade {
 		facade.cadastrarBluRayShow("katiau", "9912-3456", "Ramones", 10.00, 60, 5, "Ramonetmal", "DEZ_ANOS");
 		facade.cadastrarJogoTabuleiro("katiau", "9912-3456", "War", 120.00);
 		facade.cadastrarEletronico("katiau", "9912-3456", "Bomba Patch", 1.00, "PS2");
+		// Registrando emprestimos
+		
 						
 				
 	}
@@ -104,6 +107,33 @@ public class TestFacade {
 	public void testListarItensOrdenadosPorValor() {
 		assertEquals(facade.listarItensOrdenadosPorValor(),"JOGO DE TABULEIRO: damas, R$ 0.99, Nao emprestado, COMPLETO|JOGO ELETRONICO: mario world, R$ 1.0, Nao emprestado, NINTENDO|JOGO ELETRONICO: Bomba Patch, R$ 1.0, Nao emprestado, PS2|JOGO ELETRONICO: sonic, R$ 1.0, Nao emprestado, MEGA DRIVE|JOGO ELETRONICO: Mario bros, R$ 1.25, Nao emprestado, NINTENDO|SHOW: Ramones, R$ 10.0, Nao emprestado, 60 min, DEZ_ANOS, Ramonetmal, 5 faixas|JOGO DE TABULEIRO: Django, R$ 24.0, Nao emprestado, COMPLETO|SERIE: The Walking Dead, R$ 25.5, Nao emprestado, 160 min, DOZE_ANOS, Suspense, Temporada 2|FILME: X-men, R$ 29.99, Nao emprestado, 120 min, DEZESSEIS_ANOS, Acao, 2002|SERIE: Game of Thrones, R$ 35.0, Nao emprestado, 180 min, DEZESSEIS_ANOS, Suspense, Temporada 6|SHOW: RBD, R$ 45.99, Nao emprestado, 90 min, DOZE_ANOS, REBELDES, 15 faixas|FILME: Pirata dos caribes, R$ 50.0, Nao emprestado, 120 min, DEZESSEIS_ANOS, Acao, 2015|FILME: Simpsons XXX, R$ 50.0, Nao emprestado, 120 min, DEZOITO_ANOS, EROTICO, 2000|FILME: Brasileirinhas, R$ 69.0, Nao emprestado, 60 min, DEZOITO_ANOS, EROTICO, 2013|SERIE: Mr Robot, R$ 86.0, Nao emprestado, 160 min, DEZESSEIS_ANOS, Drama, Temporada 2|SHOW: LS, R$ 99.0, Nao emprestado, 90 min, DEZ_ANOS, Luan Santana, 15 faixas|SERIE: Vikings, R$ 99.0, Nao emprestado, 120 min, DOZE_ANOS, Suspense, Temporada 3|SHOW: Los Hermanos, R$ 99.0, Nao emprestado, 90 min, LIVRE, Losers manos, 15 faixas|JOGO DE TABULEIRO: xadrez, R$ 100.0, Nao emprestado, COMPLETO|JOGO DE TABULEIRO: War, R$ 120.0, Nao emprestado, COMPLETO|");
 	}
+	
+	@Test(expected=NullPointerException.class)
+	public void testPesquisarDetalhesItens1(){
+		facade.pesquisarDetalhesItem("chico", "9999-0000", "Chuteira do bruxo");
+	}
+	@Test
+	public void testListarEmprestimosUsuarioEmprestando(){
+		assertEquals("Nenhum item emprestado",facade.listarEmprestimosUsuarioEmprestando("Arizinho", "9900-6660"));
+		facade.registrarEmprestimo("Arizinho", "9900-6660", "zezinho","9988-8889", "RBD", "01/01/2017", 7);
+		facade.registrarEmprestimo("Arizinho", "9900-6660", "zezinho","9988-8889", "damas", "01/01/2017", 7);
+		assertEquals("Emprestimos: EMPRESTIMO - De: Arizinho, Para: zezinho, RBD, 01/01/2017, 7 dias, ENTREGA: Emprestimo em andamento|EMPRESTIMO - De: Arizinho, Para: zezinho, damas, 01/01/2017, 7 dias, ENTREGA: Emprestimo em andamento|",facade.listarEmprestimosUsuarioEmprestando("Arizinho", "9900-6660"));
+	}
+	
+	@Test(expected=NullPointerException.class)
+	public void testListarEmprestimosUsuarioEmprestando1(){
+		facade.listarEmprestimosUsuarioEmprestando("PV", "9999-0000");
+	}
+	
+	@Test
+	public void testListarEmprestimoUsuarioPegandoEmprestado(){
+		assertEquals("Nenhum item pego emprestado",facade.listarEmprestimosUsuarioPegandoEmprestado("Arizinho", "9900-6660"));
+		facade.registrarEmprestimo("Arizinho", "9900-6660", "zezinho","9988-8889", "RBD", "01/01/2017", 7);
+		facade.registrarEmprestimo("Arizinho", "9900-6660", "zezinho","9988-8889", "damas", "01/01/2017", 7);
+		assertEquals("Emprestimos: EMPRESTIMO - De: Arizinho, Para: zezinho, RBD, 01/01/2017, 7 dias, ENTREGA: Emprestimo em andamento|EMPRESTIMO - De: Arizinho, Para: zezinho, damas, 01/01/2017, 7 dias, ENTREGA: Emprestimo em andamento|",facade.listarEmprestimosUsuarioEmprestando("Arizinho", "9900-6660"));
+	}
+	
+	
 	
 
 }

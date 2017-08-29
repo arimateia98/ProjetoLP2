@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import trackingThings.JogoTabuleiro;
+import itens.JogoTabuleiro;
 
 public class JogoTabuleiroTest {
 	JogoTabuleiro jogoTabuleiro1;

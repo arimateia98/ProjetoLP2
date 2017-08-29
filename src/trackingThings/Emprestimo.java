@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
+import itens.Item;
+
 /**
  * @author Jose de Arimateia
  *
@@ -28,6 +30,7 @@ public class Emprestimo implements Serializable {
 		this.item = item;
 		this.item.setEstadoEmprestimo(true); ;
 		this.dataInicial = dataInicial;
+		this.dataDevolucao = "Emprestimo em andamento";
 		this.diasEmprestimo = diasEmprestimo;
 		
 	}
@@ -44,16 +47,11 @@ public class Emprestimo implements Serializable {
 		this.diasAtrasados = diasPassados - diasEmprestimo;
 		this.calculaReputacao(this.diasAtrasados);
 		this.item.setEstadoEmprestimo(false);
-		this.emprestimoFinalizado = true;
-		setDataDevolucao(dataDev);
+		this.dataDevolucao = dataDev;
 	}
 	
 	public String getDataDevolucao() {
 		return dataDevolucao;
-	}
-
-	public void setDataDevolucao(String dataDevolucao) {
-		this.dataDevolucao = dataDevolucao;
 	}
 
 	public boolean getEstadoItem(){
