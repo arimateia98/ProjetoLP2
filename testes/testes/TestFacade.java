@@ -107,7 +107,6 @@ public class TestFacade {
 	public void testListarItensOrdenadosPorValor() {
 		assertEquals(facade.listarItensOrdenadosPorValor(),"JOGO DE TABULEIRO: damas, R$ 0.99, Nao emprestado, COMPLETO|JOGO ELETRONICO: mario world, R$ 1.0, Nao emprestado, NINTENDO|JOGO ELETRONICO: Bomba Patch, R$ 1.0, Nao emprestado, PS2|JOGO ELETRONICO: sonic, R$ 1.0, Nao emprestado, MEGA DRIVE|JOGO ELETRONICO: Mario bros, R$ 1.25, Nao emprestado, NINTENDO|SHOW: Ramones, R$ 10.0, Nao emprestado, 60 min, DEZ_ANOS, Ramonetmal, 5 faixas|JOGO DE TABULEIRO: Django, R$ 24.0, Nao emprestado, COMPLETO|SERIE: The Walking Dead, R$ 25.5, Nao emprestado, 160 min, DOZE_ANOS, Suspense, Temporada 2|FILME: X-men, R$ 29.99, Nao emprestado, 120 min, DEZESSEIS_ANOS, Acao, 2002|SERIE: Game of Thrones, R$ 35.0, Nao emprestado, 180 min, DEZESSEIS_ANOS, Suspense, Temporada 6|SHOW: RBD, R$ 45.99, Nao emprestado, 90 min, DOZE_ANOS, REBELDES, 15 faixas|FILME: Pirata dos caribes, R$ 50.0, Nao emprestado, 120 min, DEZESSEIS_ANOS, Acao, 2015|FILME: Simpsons XXX, R$ 50.0, Nao emprestado, 120 min, DEZOITO_ANOS, EROTICO, 2000|FILME: Brasileirinhas, R$ 69.0, Nao emprestado, 60 min, DEZOITO_ANOS, EROTICO, 2013|SERIE: Mr Robot, R$ 86.0, Nao emprestado, 160 min, DEZESSEIS_ANOS, Drama, Temporada 2|SHOW: LS, R$ 99.0, Nao emprestado, 90 min, DEZ_ANOS, Luan Santana, 15 faixas|SERIE: Vikings, R$ 99.0, Nao emprestado, 120 min, DOZE_ANOS, Suspense, Temporada 3|SHOW: Los Hermanos, R$ 99.0, Nao emprestado, 90 min, LIVRE, Losers manos, 15 faixas|JOGO DE TABULEIRO: xadrez, R$ 100.0, Nao emprestado, COMPLETO|JOGO DE TABULEIRO: War, R$ 120.0, Nao emprestado, COMPLETO|");
 	}
-	
 	@Test(expected=NullPointerException.class)
 	public void testPesquisarDetalhesItens1(){
 		facade.pesquisarDetalhesItem("chico", "9999-0000", "Chuteira do bruxo");
@@ -133,7 +132,44 @@ public class TestFacade {
 		assertEquals("Emprestimos: EMPRESTIMO - De: Arizinho, Para: zezinho, RBD, 01/01/2017, 7 dias, ENTREGA: Emprestimo em andamento|EMPRESTIMO - De: Arizinho, Para: zezinho, damas, 01/01/2017, 7 dias, ENTREGA: Emprestimo em andamento|",facade.listarEmprestimosUsuarioEmprestando("Arizinho", "9900-6660"));
 	}
 	
+	@Test(expected=NullPointerException.class)
+	public void testListarEmprestimoUsuarioPegandoEmprestado1(){
+		facade.listarEmprestimosUsuarioEmprestando("Arizinho", "909999");
+	}
 	
+	@Test
+	public void testListarEmprestimosItem(){
+		assertEquals("Nenhum emprestimo associado ao item",facade.listarEmprestimosItem("damas"));
+		facade.registrarEmprestimo("Arizinho", "9900-6660", "zezinho","9988-8889", "damas", "01/01/2017", 7);
+		facade.devolverItem("Arizinho", "9900-6660", "zezinho","9988-8889", "damas", "01/01/2017", "03/01/2017");
+		facade.registrarEmprestimo("Arizinho", "9900-6660", "Ramones","9955-2222", "damas", "04/01/2017", 7);
+		facade.devolverItem("Arizinho", "9900-6660", "Ramones","9955-2222", "damas", "04/01/2017", "05/01/2017");
+		assertEquals("Emprestimos associados ao item: EMPRESTIMO - De: Arizinho, Para: zezinho, damas, 01/01/2017, 7 dias, ENTREGA: Emprestimo em andamento|EMPRESTIMO - De: Arizinho, Para: Ramones, damas, 04/01/2017, 7 dias, ENTREGA: Emprestimo em andamento|",facade.listarEmprestimosItem("damas"));
+	}
 	
+	@Test
+	public void testListarItensNaoEmprestados(){
+		assertEquals("SERIE: A Lenda de Sleepy Hollow, R$ 115.0, Nao emprestado, 42 min, QUATORZE_ANOS, ACAO, Temporada 2|JOGO ELETRONICO: Age of Empires II, R$ 37.0, Nao emprestado, PC|JOGO ELETRONICO: Age of Empires III, R$ 70.0, Nao emprestado, PC|JOGO DE TABULEIRO: Batalha Naval: Nagacaburos, R$ 2000.0, Nao emprestado, COMPLETO|JOGO ELETRONICO: Bomba Patch, R$ 1.0, Nao emprestado, PS2|FILME: Brasileirinhas, R$ 69.0, Nao emprestado, 60 min, DEZOITO_ANOS, EROTICO, 2013|FILME: Crepusculo, R$ 1.99, Nao emprestado, 120 min, QUATORZE_ANOS, ROMANCE, 2008|SHOW: DJ Sona: Ultimate Concert, R$ 3250.0, Nao emprestado, 13 min, LIVRE, Sona, 3 faixas|JOGO DE TABULEIRO: Django, R$ 24.0, Nao emprestado, COMPLETO|SERIE: Game of Thrones, R$ 35.0, Nao emprestado, 180 min, DEZESSEIS_ANOS, Suspense, Temporada 6|JOGO ELETRONICO: God of War III, R$ 70.0, Nao emprestado, PS3|SHOW: LS, R$ 99.0, Nao emprestado, 90 min, DEZ_ANOS, Luan Santana, 15 faixas|SHOW: Los Hermanos, R$ 99.0, Nao emprestado, 90 min, LIVRE, Losers manos, 15 faixas|JOGO DE TABULEIRO: MECHS VS MINIONS, R$ 230.0, Nao emprestado, COMPLETO|JOGO ELETRONICO: Mario bros, R$ 1.25, Nao emprestado, NINTENDO|SERIE: Mr Robot, R$ 86.0, Nao emprestado, 160 min, DEZESSEIS_ANOS, Drama, Temporada 2|FILME: Pirata dos caribes, R$ 50.0, Nao emprestado, 120 min, DEZESSEIS_ANOS, Acao, 2015|FILME: Piratas do Caribe: A Maldição do Pérola Negra, R$ 20.0, Nao emprestado, 136 min, QUATORZE_ANOS, AVENTURA, 2003|FILME: Piratas do Caribe: A Vingança de Salazar, R$ 60.0, Nao emprestado, 129 min, DOZE_ANOS, AVENTURA, 2017|JOGO ELETRONICO: Pokemon Omega Ruby, R$ 20.0, Nao emprestado, OUTRO|SHOW: RBD, R$ 45.99, Nao emprestado, 90 min, DOZE_ANOS, REBELDES, 15 faixas|SHOW: RBD Ao Vivo, R$ 19.99, Nao emprestado, 60 min, DOZE_ANOS, REBELDES, 20 faixas|SHOW: Ramones, R$ 10.0, Nao emprestado, 60 min, DEZ_ANOS, Ramonetmal, 5 faixas|FILME: Simpsons XXX, R$ 50.0, Nao emprestado, 120 min, DEZOITO_ANOS, EROTICO, 2000|SHOW: Smite and Ignite, R$ 2666.0, Nao emprestado, 30 min, DEZOITO_ANOS, Pentakill, 8 faixas|SERIE: The Walking Dead, R$ 79.99, Nao emprestado, 120 min, DEZESSEIS_ANOS, SUSPENSE, Temporada 1|SERIE: The Walking Dead, R$ 25.5, Nao emprestado, 160 min, DOZE_ANOS, Suspense, Temporada 2|SERIE: Vikings, R$ 99.0, Nao emprestado, 120 min, DOZE_ANOS, Suspense, Temporada 3|JOGO DE TABULEIRO: War, R$ 70.0, Nao emprestado, COM PECAS PERDIDAS|JOGO DE TABULEIRO: War, R$ 120.0, Nao emprestado, COMPLETO|FILME: X-men, R$ 29.99, Nao emprestado, 120 min, DEZESSEIS_ANOS, Acao, 2002|JOGO DE TABULEIRO: Xadrez de Bruxo, R$ 1000.0, Nao emprestado, COMPLETO|JOGO ELETRONICO: Yu-Gi-Oh! Power of Chaos: Yugi the Destiny, R$ 50.0, Nao emprestado, PC|JOGO DE TABULEIRO: damas, R$ 0.99, Nao emprestado, COMPLETO|JOGO ELETRONICO: mario world, R$ 1.0, Nao emprestado, NINTENDO|JOGO ELETRONICO: sonic, R$ 1.0, Nao emprestado, MEGA DRIVE|JOGO DE TABULEIRO: xadrez, R$ 100.0, Nao emprestado, COMPLETO|",facade.listarItensNaoEmprestados());
+	}
+	
+	@Test
+	public void testListarItensEmprestados(){
+		facade.registrarEmprestimo("Arizinho", "9900-6660", "zezinho","9988-8889", "RBD", "01/01/2017", 7);
+		facade.registrarEmprestimo("Arizinho", "9900-6660", "zezinho","9988-8889", "damas", "01/01/2017", 7);
+		facade.registrarEmprestimo("Arizinho", "9900-6660", "zezinho","9988-8889", "X-men", "01/01/2017", 7);
+		assertEquals("Dono do item: Arizinho, Nome do item emprestado: RBD|Dono do item: Arizinho, Nome do item emprestado: X-men|Dono do item: Arizinho, Nome do item emprestado: damas|",facade.listarItensEmprestados());
+	}
+	
+	@Test
+	public void testListarCaloteiros(){
+		assertEquals("Lista de usuarios com reputacao negativa: ",facade.listarCaloteiros());
+		facade.cadastrarUsuario("Reymar", "9999-8383", "neymar@gmail.com");
+		facade.registrarEmprestimo("Arizinho", "9900-6660", "Reymar","9999-8383", "RBD", "01/01/2017", 2);
+		facade.devolverItem("Arizinho", "9900-6660", "Reymar", "9999-8383", "RBD", "01/01/2017", "03/03/2017");
+		assertEquals("Lista de usuarios com reputacao negativa: Reymar, neymar@gmail.com, 9999-8383|",facade.listarCaloteiros());
+		
+	}
+	
+
 
 }

@@ -514,7 +514,7 @@ public class Controller implements Serializable{
 			}
 		}
 		if (retorno.equals("Emprestimos associados ao item: ")){
-			return "Nenhum emprestimos associados ao item";
+			return "Nenhum emprestimo associado ao item";
 		}
 		return retorno;
 	}
