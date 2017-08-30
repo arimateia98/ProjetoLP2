@@ -18,7 +18,6 @@ public class Emprestimo implements Serializable {
 	private Item item;
 	private int diasEmprestimo;
 	private int diasAtrasados;
-	private boolean emprestimoFinalizado; // variavel que mostra se o emprestimo já foi finalizado ou não
 	private String dataInicial;
 	private String dataDevolucao;
 	
@@ -26,9 +25,8 @@ public class Emprestimo implements Serializable {
 		this.usuarioDono = usuarioDono;
 		this.usuarioDono.addReputacao(item.getValor() * 0.10);
 		this.usuarioEmprestimo = usuarioEmprestimo;
-		this.emprestimoFinalizado = false;
 		this.item = item;
-		this.item.setEstadoEmprestimo(true); ;
+		this.item.setEstadoEmprestimo(true);
 		this.dataInicial = dataInicial;
 		this.dataDevolucao = "Emprestimo em andamento";
 		this.diasEmprestimo = diasEmprestimo;
@@ -54,8 +52,8 @@ public class Emprestimo implements Serializable {
 		return dataDevolucao;
 	}
 
-	public boolean getEstadoItem(){
-		return this.item.getEstadoEmprestimo();
+	public String getEstadoItem(){
+		return this.item.getEmprestado();
 	}
 	
 	public Usuario getUsuarioDono(){
@@ -113,10 +111,8 @@ public class Emprestimo implements Serializable {
 	
 	@Override
 	public String toString() {
-		if (this.emprestimoFinalizado) {
-			return "EMPRESTIMO - De: " + this.usuarioDono.getNome() + ", Para: " + this.usuarioEmprestimo.getNome() + ", " + this.item.getNome() + ", " +  this.dataInicial + ", " + this.diasEmprestimo + " dias, ENTREGA: " + this.dataDevolucao;
-		}
-		return "EMPRESTIMO - De: " + this.usuarioDono.getNome() + ", Para: " + this.usuarioEmprestimo.getNome() + ", " + this.item.getNome() + ", " +  this.dataInicial + ", " + this.diasEmprestimo + " dias, ENTREGA: Emprestimo em andamento";
+		return "EMPRESTIMO - De: " + this.usuarioDono.getNome() + ", Para: " + this.usuarioEmprestimo.getNome() + ", " + this.item.getNome() + ", " +  this.dataInicial + ", " + this.diasEmprestimo + " dias, ENTREGA: " + this.dataDevolucao;
+
 	}
 	public int getDiasAtrasado() {
 		return this.diasAtrasados;

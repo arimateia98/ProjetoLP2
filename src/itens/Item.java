@@ -3,6 +3,7 @@ package itens;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import estadosenum.EstadoEmprestimo;
 import trackingThings.Emprestimo;
 
 /**
@@ -14,7 +15,7 @@ public abstract class Item implements Serializable{
 	
 	protected String nome;
 	protected double valor;
-	protected boolean estadoEmprestimo;
+	protected EstadoEmprestimo estadoEmprestimo;
 	protected ArrayList <Emprestimo> emprestimosOcorridos;
 	protected String donoItem;
 
@@ -27,7 +28,7 @@ public abstract class Item implements Serializable{
 	public Item(String nome, double valor) {
 		this.nome = nome;
 		this.valor = valor;
-		this.estadoEmprestimo = false;
+		this.estadoEmprestimo = EstadoEmprestimo.NEMPRESTADO;
 		emprestimosOcorridos = new ArrayList<>();
 	}
 
@@ -41,12 +42,13 @@ public abstract class Item implements Serializable{
 	/**
 	 * @return estado do item
 	 */
-	public boolean getEstadoEmprestimo(){
-		return this.estadoEmprestimo;
-	}
 	
 	public void setEstadoEmprestimo(boolean estado){
-		this.estadoEmprestimo = estado;
+		if(estado){
+			this.estadoEmprestimo = EstadoEmprestimo.EMPRESTADO;
+		}else{
+			this.estadoEmprestimo = EstadoEmprestimo.NEMPRESTADO;
+		}
 	}
 	
 	
@@ -70,12 +72,8 @@ public abstract class Item implements Serializable{
 	 * @return
 	 */
 	public String getEmprestado(){
-		if (!estadoEmprestimo){
-			return "Nao emprestado";
-		}
-		else{
-			return "Emprestado";
-		}
+		return this.estadoEmprestimo.getMensagem();
+	
 	}
 
 	/**

@@ -4,12 +4,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import estadosenum.EstadoTabuleiro;
+
 /**
  * @author Jose Ramon
  *
  */
 public class JogoTabuleiro extends Item implements Serializable {
 	
+	private EstadoTabuleiro estadoTabuleiro;
 	private List<String> pecasTotais;
 	private List<String> pecasPerdidas;
 
@@ -20,6 +23,7 @@ public class JogoTabuleiro extends Item implements Serializable {
 	 */
 	public JogoTabuleiro(String nome, double valor) {
 		super(nome, valor);
+		this.estadoTabuleiro = EstadoTabuleiro.COMPLETO;
 		this.pecasPerdidas = new ArrayList<>();
 		this.pecasTotais = new ArrayList<>();
 	}
@@ -78,6 +82,7 @@ public class JogoTabuleiro extends Item implements Serializable {
 	 */
 	public void adicionarPecaPerdida(String nomePeca) {
 		this.pecasPerdidas.add(nomePeca);
+		this.estadoTabuleiro = EstadoTabuleiro.INCOMPLETO;
 	}
 	
 	/**
@@ -85,10 +90,6 @@ public class JogoTabuleiro extends Item implements Serializable {
 	 * @return
 	 */
 	public String seHaPecasPerdidas(){
-		if (!pecasPerdidas.isEmpty()){
-			return "COM PECAS PERDIDAS";
-		}else{
-			return "COMPLETO";
-		}
+		return this.estadoTabuleiro.getMensagem();
 	}
 }

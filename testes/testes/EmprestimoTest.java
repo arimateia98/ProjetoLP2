@@ -36,15 +36,15 @@ public class EmprestimoTest {
 	@Test
 	public void testDevolverItem() {
 		
-		assertEquals(true, assassinsCreed.getEstadoEmprestimo());
+		assertEquals("Emprestado", emprestimo.getEstadoItem());
 		emprestimo.devolverItem("26/11/2017");
-		assertEquals(false, assassinsCreed.getEstadoEmprestimo());
+		assertEquals("Nao emprestado", emprestimo.getEstadoItem());
 	}
 
 	@Test
 	public void testGetDataDevolucao() {
 		
-		assertEquals(null, emprestimo.getDataDevolucao());
+		assertEquals("Emprestimo em andamento", emprestimo.getDataDevolucao());
 		emprestimo.devolverItem("26/11/2017");
 		assertEquals("26/11/2017", emprestimo.getDataDevolucao());	
 	}
@@ -53,9 +53,9 @@ public class EmprestimoTest {
 	@Test
 	public void testGetEstadoItem() {
 		
-		assertEquals(true, emprestimo.getEstadoItem());
+		assertEquals("Emprestado", emprestimo.getEstadoItem());
 		emprestimo.devolverItem("01/12/2017");
-		assertEquals(false, emprestimo.getEstadoItem());
+		assertEquals("Nao emprestado", emprestimo.getEstadoItem());
 	}
 
 	@Test

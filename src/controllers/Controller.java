@@ -514,7 +514,7 @@ public class Controller implements Serializable{
 			}
 		}
 		if (retorno.equals("Emprestimos associados ao item: ")){
-			return "Nenhum emprestimo associado ao item";
+			return "Nenhum emprestimos associados ao item";
 		}
 		return retorno;
 	}
@@ -531,7 +531,7 @@ public class Controller implements Serializable{
 		}
 		Collections.sort(todosItens, new NomeComparator());
 		for (Item item: todosItens) {
-			if (!item.getEstadoEmprestimo()) {
+			if (!item.getEmprestado().equals("Emprestado")) {
 				retorno += item.toString() + "|";
 			}
 		}
@@ -551,7 +551,7 @@ public class Controller implements Serializable{
 		}
 		Collections.sort(todosItens, new NomeComparator());
 		for (Item item: todosItens) {
-			if (item.getEstadoEmprestimo()) {
+			if (item.getEmprestado().equals("Emprestado")) {
 				retorno += "Dono do item: " + item.getDonoItem() + ", Nome do item emprestado: " + item.getNome() + "|";
 			}
 		}
@@ -631,7 +631,7 @@ public class Controller implements Serializable{
 	public void iniciarSistema() throws FileNotFoundException, IOException, ClassNotFoundException {
 
 		this.sistemaEmprestimo.lerEmprestimos();
-		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("usuarios.txt"));
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("usuario.txt"));
 		try {
 			while(true) {
 				
@@ -651,7 +651,7 @@ public class Controller implements Serializable{
 		sistemaEmprestimo.salvarEmprestimos();
 		ObjectOutputStream oos = null;
 		try {
-			oos = new ObjectOutputStream(new FileOutputStream("usuarios.txt"));
+			oos = new ObjectOutputStream(new FileOutputStream("usuario.txt"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
