@@ -2,6 +2,7 @@ package controllers;
 
 
 import java.io.EOFException;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -80,20 +81,25 @@ public class ControllerEmprestimo implements Serializable{
 	}
 
 	public void lerEmprestimos() throws ClassNotFoundException, IOException {
-		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("emprestimos.txt"));
-		try {
-			while(true) {
-				
-				Emprestimo emprestimo = (Emprestimo) ois.readObject();
-				emprestimos.put(new EmprestimoKey(emprestimo.getUsuarioDono(), emprestimo.getUsarioEmprestimo(), emprestimo.getItem()), emprestimo);
-			}
-		}
-		catch(EOFException e) {
-			
-		}
 		
-		ois.close();
+		File usuariotxt = new File("emprestimos.txt");
+		
+		if(usuariotxt.exists()) {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("emprestimos.txt"));
+			try {
+				while(true) {
+					
+					Emprestimo emprestimo = (Emprestimo) ois.readObject();
+					emprestimos.put(new EmprestimoKey(emprestimo.getUsuarioDono(), emprestimo.getUsarioEmprestimo(), emprestimo.getItem()), emprestimo);
+				}
 			}
+			catch(EOFException e) {
+				
+			}
+			
+			ois.close();
+		}
+	}
 
 	public void salvarEmprestimos() {
 		ObjectOutputStream oos = null;

@@ -1,6 +1,7 @@
 package controllers;
 
 import java.io.EOFException;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -635,19 +636,24 @@ public class Controller implements Serializable{
 	public void iniciarSistema() throws FileNotFoundException, IOException, ClassNotFoundException {
 
 		this.sistemaEmprestimo.lerEmprestimos();
-		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("usuario.txt"));
-		try {
-			while(true) {
-				
-				Usuario user = (Usuario) ois.readObject();
-				usuarios.put(new UsuarioKey(user.getNome(), user.getTelefone()),user);
-			}
-		}
-		catch(EOFException e) {
-			
-		}
 		
-		ois.close();
+		File usuariotxt = new File("usuarios.txt");
+		
+		if(usuariotxt.exists()) {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("usuarios.txt"));
+			try {
+				while(true) {
+					
+					Usuario user = (Usuario) ois.readObject();
+					usuarios.put(new UsuarioKey(user.getNome(), user.getTelefone()),user);
+				}
+			}
+			catch(EOFException e) {
+				
+			}
+			
+			ois.close();
+		}
 	}
 
 	public void fecharSistema() {
@@ -655,7 +661,7 @@ public class Controller implements Serializable{
 		sistemaEmprestimo.salvarEmprestimos();
 		ObjectOutputStream oos = null;
 		try {
-			oos = new ObjectOutputStream(new FileOutputStream("usuario.txt"));
+			oos = new ObjectOutputStream(new FileOutputStream("usuarios.txt"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
