@@ -8,6 +8,10 @@ import java.io.Serializable;
  */
 public class JogoEletronico extends Item implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String plataforma;
 	
 	/**

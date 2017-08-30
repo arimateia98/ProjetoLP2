@@ -8,6 +8,10 @@ import java.io.Serializable;
  */
 public class UsuarioKey implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String nome;
 	private String telefone;
 	public UsuarioKey(String nome, String telefone) {

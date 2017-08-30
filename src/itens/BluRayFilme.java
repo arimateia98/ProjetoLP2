@@ -8,6 +8,10 @@ import java.io.Serializable;
  */
 public class BluRayFilme extends BluRay implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String genero;
 	private int anoDeLancamento;
 	

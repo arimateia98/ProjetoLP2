@@ -10,6 +10,10 @@ import java.util.Set;
  */
 public class BluRayTemporada extends BluRay implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Set<Integer> episodios; 
 	private int numeroTemporada;
 	private int duracaoTotal;

@@ -21,6 +21,10 @@ import trackingThings.Usuario;
  */
 public class ControllerEmprestimo implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private HashMap<EmprestimoKey,Emprestimo> emprestimos;
 	
 	public ControllerEmprestimo(){

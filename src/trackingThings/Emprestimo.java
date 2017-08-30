@@ -13,6 +13,10 @@ import itens.Item;
  */
 
 public class Emprestimo implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Usuario usuarioDono;
 	private Usuario usuarioEmprestimo;
 	private Item item;

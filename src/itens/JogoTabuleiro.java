@@ -12,6 +12,10 @@ import estadosenum.EstadoTabuleiro;
  */
 public class JogoTabuleiro extends Item implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private EstadoTabuleiro estadoTabuleiro;
 	private List<String> pecasTotais;
 	private List<String> pecasPerdidas;

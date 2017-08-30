@@ -22,6 +22,10 @@ import itens.JogoTabuleiro;
  */
 public class Usuario implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String nome;
 	private String telefone;
  	private String email;

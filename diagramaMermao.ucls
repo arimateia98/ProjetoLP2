@@ -1,500 +1,639 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.0" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="trackingThings.ReputacaoInversoComparator" 
+  <class id="1" language="java" name="cartoes.CartaoCaloteiro" 
     project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
-    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/ReputacaoInversoComparator.java" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/cartoes/CartaoCaloteiro.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="131" x="3" y="2515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="itens.BluRayFilme" project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/itens/BluRayFilme.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="245" x="-79" y="3598"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="comparators.ReputacaoComparator" 
+    project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/comparators/ReputacaoComparator.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="195" x="-269" y="1258"/>    
+    <position height="99" width="167" x="830" y="1252"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="trackingThings.BluRayTemporada" 
+  <class id="4" language="java" name="keys.EmprestimoKey" 
     project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
-    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/BluRayTemporada.java" binary="false" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/keys/EmprestimoKey.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="297" width="274" x="-412" y="3303"/>    
+    <position height="117" width="207" x="771" y="1499"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="trackingThings.EmprestimoKey" 
-    project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
-    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/EmprestimoKey.java" binary="false" 
+  <class id="5" language="java" name="facade.Main" project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/facade/Main.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="117" width="207" x="155" y="1469"/>    
+    <position height="99" width="113" x="162" y="-106"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="trackingThings.Emprestimo" 
+  <class id="6" language="java" name="itens.JogoTabuleiro" 
     project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
-    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/Emprestimo.java" binary="false" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/itens/JogoTabuleiro.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="405" width="233" x="374" y="2858"/>    
+    <position height="261" width="189" x="964" y="3297"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="trackingThings.Sistema" 
+  <class id="7" language="java" name="comparators.NomeComparator" 
     project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
-    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/Sistema.java" binary="false" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/comparators/NomeComparator.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="603" width="410" x="-34" y="615"/>    
+    <position height="99" width="131" x="-102" y="1252"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="trackingThings.EmprestimosComparator" 
+  <class id="8" language="java" name="cartoes.CartaoBomAmigo" 
     project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
-    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/EmprestimosComparator.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="168" x="-840" y="1258"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="7" language="java" name="trackingThings.JogoEletronico" 
-    project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
-    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/JogoEletronico.java" binary="false" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/cartoes/CartaoBomAmigo.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="209" y="2997"/>    
+    <position height="135" width="131" x="174" y="2515"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="trackingThings.ValorComparator" 
+  <class id="9" language="java" name="cartoes.CartaoNoob" 
     project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
-    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/ValorComparator.java" binary="false" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/cartoes/CartaoNoob.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="99" width="131" x="-632" y="1258"/>    
+    <position height="135" width="131" x="345" y="2515"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="trackingThings.BluRay" 
-    project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
-    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/BluRay.java" binary="false" 
+  <class id="10" language="java" name="itens.BluRay" project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/itens/BluRay.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="189" width="176" x="-351" y="2858"/>    
+    <position height="207" width="176" x="513" y="3297"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="trackingThings.Item" 
+  <class id="11" language="java" name="itens.JogoEletronico" 
     project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
-    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/Item.java" binary="false" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/itens/JogoEletronico.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="333" width="273" x="-372" y="2485"/>    
+    <position height="189" width="198" x="1193" y="3297"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="trackingThings.ReputacaoComparator" 
-    project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
-    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/ReputacaoComparator.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="167" x="-34" y="1258"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="12" language="java" name="trackingThings.UsuarioKey" 
-    project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
-    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/UsuarioKey.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="171" width="149" x="-1029" y="1258"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="13" language="java" name="trackingThings.JogoTabuleiro" 
-    project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
-    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/JogoTabuleiro.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="243" width="189" x="-114" y="2858"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="14" language="java" name="trackingThings.Usuario" 
+  <class id="12" language="java" name="trackingThings.Usuario" 
     project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
     file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/Usuario.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="819" width="348" x="115" y="1626"/>    
+    <position height="819" width="348" x="991" y="1656"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="trackingThings.NomeComparator" 
+  <enumeration id="13" language="java" name="estadosenum.EstadoEmprestimo" 
     project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
-    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/NomeComparator.java" binary="false" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/estadosenum/EstadoEmprestimo.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="99" width="131" x="-461" y="1258"/>    
+    <position height="153" width="195" x="729" y="3297"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
-  </class>  
-  <class id="16" language="java" name="trackingThings.BluRayFilme" 
+  </enumeration>  
+  <class id="14" language="java" name="controllers.ControllerEmprestimo" 
     project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
-    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/BluRayFilme.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="171" width="245" x="-98" y="3303"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="17" language="java" name="trackingThings.BluRayShow" 
-    project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
-    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/BluRayShow.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="171" width="250" x="334" y="3303"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="18" language="java" name="trackingThings.SistemaEmprestimo" 
-    project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
-    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/SistemaEmprestimo.java" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/controllers/ControllerEmprestimo.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="321" x="173" y="1258"/>    
+    <position height="207" width="321" x="448" y="1252"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="trackingThings.Facade" 
-    project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
-    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/Facade.java" binary="false" 
+  <class id="15" language="java" name="itens.BluRayShow" project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/itens/BluRayShow.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="621" width="410" x="-34" y="-46"/>    
+    <position height="189" width="250" x="1176" y="3598"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="trackingThings.Main" 
+  <class id="16" language="java" name="comparators.EmprestimosComparator" 
     project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
-    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/Main.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="99" width="113" x="455" y="-46"/>    
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/comparators/EmprestimosComparator.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="168" x="69" y="1252"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="21">    
-    <bendpoint x="341" y="2485"/>    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="22" name="emprestimosPego"/>      
-      <multiplicity id="23" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="24">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="9"/>  
-  </generalization>  
-  <association id="25">    
-    <bendpoint x="383" y="2485"/>    
+  <class id="17" language="java" name="itens.Item" project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/itens/Item.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="315" width="273" x="729" y="2942"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="itens.BluRayTemporada" 
+    project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/itens/BluRayTemporada.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="315" width="274" x="729" y="2515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="trackingThings.Emprestimo" 
+    project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/trackingThings/Emprestimo.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="387" width="233" x="1043" y="2515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="20" language="java" name="cartoes.Cartao" 
+    project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/cartoes/Cartao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="81" width="117" x="262" y="2942"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="21" language="java" name="comparators.ReputacaoInversoComparator" 
+    project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/comparators/ReputacaoInversoComparator.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="195" x="1037" y="1252"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="comparators.ValorComparator" 
+    project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/comparators/ValorComparator.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="131" x="277" y="1252"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="facade.Facade" project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/facade/Facade.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="621" width="410" x="790" y="-106"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="keys.UsuarioKey" project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/keys/UsuarioKey.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="34" y="1071"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="controllers.Controller" 
+    project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/controllers/Controller.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="657" width="410" x="790" y="555"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="26" language="java" name="estadosenum.EstadoTabuleiro" 
+    project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/estadosenum/EstadoTabuleiro.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="172" x="964" y="3598"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="27" language="java" name="cartoes.CartaoFreeRyder" 
+    project="116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson" 
+    file="/116210766_JoseVinicius_JoseRamon_JoseArimateia_Katson/src/cartoes/CartaoFreeRyder.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="131" x="516" y="2515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="28">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="26" name="usuarioEmprestimo"/>      
-      <multiplicity id="27" minimum="0" maximum="1"/>    
+      <attribute id="29" name="usuarioEmprestimo"/>      
+      <multiplicity id="30" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
+    <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="28">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="9"/>  
-  </generalization>  
-  <dependency id="29">    
-    <bendpoint x="50" y="1469"/>    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="14"/>  
-  </dependency>  
-  <dependency id="30">    
-    <bendpoint x="566" y="1258"/>    
-    <bendpoint x="566" y="1469"/>    
-    <bendpoint x="566" y="1626"/>    
-    <bendpoint x="566" y="2485"/>    
-    <end type="SOURCE" refId="5"/>    
+  <dependency id="31">    
+    <end type="SOURCE" refId="14"/>    
     <end type="TARGET" refId="4"/>  
   </dependency>  
-  <dependency id="31">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="12"/>  
-  </dependency>  
-  <generalization id="32">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="9"/>  
-  </generalization>  
-  <dependency id="33">    
-    <bendpoint x="124" y="1469"/>    
+  <dependency id="32">    
     <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="14"/>  
+    <end type="TARGET" refId="17"/>  
   </dependency>  
-  <association id="34">    
-    <bendpoint x="362" y="2485"/>    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="35" name="emprestando"/>      
-      <multiplicity id="36" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="37">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="38" name="itensPossuidos"/>      
-      <multiplicity id="39" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="40">    
-    <bendpoint x="-300" y="1258"/>    
-    <bendpoint x="-300" y="1469"/>    
-    <bendpoint x="-300" y="1626"/>    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <dependency id="41">    
-    <bendpoint x="320" y="2485"/>    
-    <bendpoint x="343" y="2858"/>    
+  <dependency id="33">    
+    <bendpoint x="-28" y="1499"/>    
+    <bendpoint x="-28" y="1656"/>    
+    <bendpoint x="-28" y="2515"/>    
     <end type="SOURCE" refId="14"/>    
     <end type="TARGET" refId="17"/>  
   </dependency>  
-  <association id="42">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="43" name="sistemaEmprestimo"/>      
-      <multiplicity id="44" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="45">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="6"/>  
+  <dependency id="34">    
+    <bendpoint x="1008" y="1499"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="12"/>  
   </dependency>  
-  <dependency id="46">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <association id="47">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="48" name="item"/>      
-      <multiplicity id="49" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="50">    
-    <bendpoint x="-493" y="1469"/>    
-    <bendpoint x="-493" y="1626"/>    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <dependency id="51">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <association id="52">    
-    <bendpoint x="545" y="1258"/>    
-    <bendpoint x="545" y="1469"/>    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="53" name="usuarios"/>      
-      <multiplicity id="54" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="55">    
-    <bendpoint x="-597" y="1469"/>    
-    <bendpoint x="-597" y="1626"/>    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <association id="56">    
-    <bendpoint x="-65" y="1626"/>    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="57" name="item"/>      
-      <multiplicity id="58" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="59">    
-    <bendpoint x="404" y="2485"/>    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="60" name="usuarioDono"/>      
-      <multiplicity id="61" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="62">    
-    <bendpoint x="-407" y="1469"/>    
-    <bendpoint x="-407" y="1626"/>    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <dependency id="63">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <dependency id="64">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="15"/>  
-  </dependency>  
-  <dependency id="65">    
-    <bendpoint x="-382" y="2858"/>    
+  <generalization id="35">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <dependency id="66">    
-    <bendpoint x="-86" y="1469"/>    
-    <bendpoint x="-86" y="1626"/>    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <generalization id="67">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="10"/>  
   </generalization>  
-  <dependency id="68">    
-    <bendpoint x="-403" y="2485"/>    
-    <bendpoint x="-403" y="2858"/>    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="2"/>  
-  </dependency>  
-  <association id="69">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="70" name="usuarioEmprestimo"/>      
-      <multiplicity id="71" minimum="0" maximum="1"/>    
+  <association id="36">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="37" name="sistema"/>      
+      <multiplicity id="38" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
+    <end type="TARGET" refId="25" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="72">    
-    <end type="SOURCE" refId="5"/>    
+  <dependency id="39">    
+    <bendpoint x="1369" y="2515"/>    
+    <bendpoint x="1369" y="2942"/>    
+    <end type="SOURCE" refId="12"/>    
     <end type="TARGET" refId="11"/>  
   </dependency>  
-  <association id="73">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="74" name="emprestimosOcorridos"/>      
-      <multiplicity id="75" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="76">    
-    <bendpoint x="524" y="1258"/>    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="3"/>  
+  <dependency id="40">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="22"/>  
   </dependency>  
-  <generalization id="77">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="78">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <association id="79">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="80" name="itensEmprestados"/>      
-      <multiplicity id="81" minimum="0" maximum="2147483647"/>    
+  <dependency id="41">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <dependency id="42">    
+    <bendpoint x="1421" y="2515"/>    
+    <bendpoint x="1421" y="2942"/>    
+    <bendpoint x="1421" y="3297"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <association id="43">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="44" name="emprestimosOcorridos"/>      
+      <multiplicity id="45" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
+    <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="82">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="83" name="usuarioDono"/>      
-      <multiplicity id="84" minimum="0" maximum="1"/>    
+  <dependency id="46">    
+    <bendpoint x="-133" y="1252"/>    
+    <bendpoint x="-133" y="1499"/>    
+    <bendpoint x="-133" y="1656"/>    
+    <bendpoint x="-133" y="2515"/>    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="47">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="24"/>  
+  </dependency>  
+  <association id="48">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="49" name="sistemaEmprestimo"/>      
+      <multiplicity id="50" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="14" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="85">    
-    <bendpoint x="493" y="1469"/>    
-    <bendpoint x="493" y="1626"/>    
-    <bendpoint x="493" y="2485"/>    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="86" name="emprestimos"/>      
-      <multiplicity id="87" minimum="0" maximum="2147483647"/>    
+  <association id="51">    
+    <bendpoint x="698" y="1656"/>    
+    <bendpoint x="698" y="2515"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="52" name="item"/>      
+      <multiplicity id="53" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="17" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="88">    
+  <association id="54">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="55" name="estadoEmprestimo"/>      
+      <multiplicity id="56" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="57">    
     <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="89" name="sistema"/>      
-      <multiplicity id="90" minimum="0" maximum="1"/>    
+      <attribute id="58" name="usuarioDono"/>      
+      <multiplicity id="59" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="91">    
-    <bendpoint x="-69" y="2485"/>    
-    <bendpoint x="-145" y="2858"/>    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="16"/>  
+  <dependency id="60">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="9"/>  
   </dependency>  
-  <dependency id="92">    
-    <bendpoint x="-107" y="1469"/>    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="14"/>  
+  <association id="61">    
+    <bendpoint x="1327" y="2515"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="62" name="itensEmprestados"/>      
+      <multiplicity id="63" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="64">    
+    <bendpoint x="-91" y="1499"/>    
+    <bendpoint x="-91" y="1656"/>    
+    <bendpoint x="-91" y="2515"/>    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="17"/>  
   </dependency>  
-  <dependency id="93">    
-    <bendpoint x="124" y="2485"/>    
-    <end type="SOURCE" refId="14"/>    
+  <dependency id="65">    
+    <bendpoint x="1029" y="1499"/>    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <dependency id="66">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="67">    
+    <end type="SOURCE" refId="25"/>    
     <end type="TARGET" refId="7"/>  
   </dependency>  
-  <dependency id="94">    
-    <bendpoint x="10" y="2485"/>    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="13"/>  
+  <dependency id="68">    
+    <bendpoint x="-70" y="2515"/>    
+    <bendpoint x="-70" y="2942"/>    
+    <bendpoint x="-70" y="3297"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="2"/>  
   </dependency>  
+  <generalization id="69">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <dependency id="70">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <association id="71">    
+    <bendpoint x="1262" y="1252"/>    
+    <bendpoint x="1262" y="1499"/>    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="72" name="usuarios"/>      
+      <multiplicity id="73" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="74">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="75" name="estadoTabuleiro"/>      
+      <multiplicity id="76" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="77">    
+    <bendpoint x="799" y="1252"/>    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="78">    
+    <bendpoint x="1348" y="2515"/>    
+    <bendpoint x="1348" y="2942"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="79">    
+    <bendpoint x="1369" y="1252"/>    
+    <bendpoint x="1369" y="1499"/>    
+    <bendpoint x="1369" y="1656"/>    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <dependency id="80">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="27"/>  
+  </dependency>  
+  <generalization id="81">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <dependency id="82">    
+    <bendpoint x="-112" y="1499"/>    
+    <bendpoint x="-112" y="1656"/>    
+    <bendpoint x="-112" y="2515"/>    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <association id="83">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="84" name="emprestimosPego"/>      
+      <multiplicity id="85" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="86">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <association id="87">    
+    <bendpoint x="677" y="2515"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="88" name="cartao"/>      
+      <multiplicity id="89" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="90">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="91" name="usuarioDono"/>      
+      <multiplicity id="92" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="93">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="94" name="emprestando"/>      
+      <multiplicity id="95" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="96">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <dependency id="97">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <association id="98">    
+    <bendpoint x="1306" y="2515"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="99" name="itensPossuidos"/>      
+      <multiplicity id="100" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="101">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <association id="102">    
+    <bendpoint x="719" y="1499"/>    
+    <bendpoint x="719" y="1656"/>    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="103" name="emprestimos"/>      
+      <multiplicity id="104" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="105">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="20"/>  
+  </realization>  
+  <association id="106">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="107" name="item"/>      
+      <multiplicity id="108" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="109">    
+    <bendpoint x="630" y="2942"/>    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <dependency id="110">    
+    <bendpoint x="-49" y="1499"/>    
+    <bendpoint x="-49" y="1656"/>    
+    <bendpoint x="-49" y="2515"/>    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <realization id="111">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="20"/>  
+  </realization>  
+  <dependency id="112">    
+    <bendpoint x="740" y="1499"/>    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <dependency id="113">    
+    <bendpoint x="1390" y="1252"/>    
+    <bendpoint x="1390" y="1499"/>    
+    <bendpoint x="1390" y="1656"/>    
+    <bendpoint x="1390" y="2515"/>    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <realization id="114">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="20"/>  
+  </realization>  
+  <dependency id="115">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <realization id="116">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="20"/>  
+  </realization>  
+  <association id="117">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="118" name="usuarioEmprestimo"/>      
+      <multiplicity id="119" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
