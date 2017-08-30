@@ -657,14 +657,12 @@ public class Controller implements Serializable{
 		try {
 			oos = new ObjectOutputStream(new FileOutputStream("usuario.txt"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		for(Usuario	usuario : usuarios.values()) {
 			try {
 				oos.writeObject(usuario);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

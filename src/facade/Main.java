@@ -1,18 +1,20 @@
 package facade;
 
+import java.io.File;
+import java.util.ArrayList;
+
 import easyaccept.EasyAccept;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
-		
-//			Facade facade = new Facade();
-//			facade.iniciarSistema();
-//			facade.cadastrarUsuario(nome, telefone, email);
-//		
-//		
-			args = new String[] {"facade.Facade", "us/us1_test.txt", "us/us2_test.txt", "us/us3_test.txt", "us/us4_test.txt", "us/us5_test.txt", 
-					"us/us6_test.txt", "us/us7_test.txt", "us/us8_test.txt"};
-			
-			EasyAccept.main(args);
+			ArrayList<String> testes = new ArrayList<>();
+			testes.add("us" + File.separator + "us1_test.txt");
+			testes.add("us" + File.separator + "us2_test.txt");
+			testes.add("us" + File.separator + "us3_test.txt");
+			testes.add("us" + File.separator + "us4_test.txt");
+			testes.add("us" + File.separator + "us5_test.txt");
+			testes.add("us" + File.separator + "us6_test.txt");
+			testes.add("us" + File.separator + "us7_test.txt");
+			EasyAccept.executeEasyAcceptTests("facade.Facade", testes);
 	}
 }

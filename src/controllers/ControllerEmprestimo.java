@@ -100,14 +100,12 @@ public class ControllerEmprestimo implements Serializable{
 		try {
 			oos = new ObjectOutputStream(new FileOutputStream("emprestimos.txt"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		for(Emprestimo emprestimo : emprestimos.values()) {
 			try {
 				oos.writeObject(emprestimo);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
